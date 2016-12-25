@@ -4,20 +4,86 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com-iblog</groupId>
+    <groupId>com.alexkbit.iblog</groupId>
     <artifactId>com-iblog</artifactId>
     <packaging>pom</packaging>
-    <version>${project.version}</version>
+    <version>1.0.0-SNAPSHOT</version>
     <modules>
         <module>app</module>
         <module>components</module>
         <module>rest</module>
+        <module>db</module>
+        <module>models</module>
     </modules>
 
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>1.4.3.RELEASE</version>
+    </parent>
+
     <properties>
-        <java.version>1.8</java.version>
-        <project.version>1.0.0-SNAPSHOT</project.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+
+        <spring.version>4.2.5.RELEASE</spring.version>
+        <spring.cloud.version>1.1.0.M5</spring.cloud.version>
+        <spring.data.version>1.9.4.RELEASE</spring.data.version>
+        <spring.security.version>4.0.3.RELEASE</spring.security.version>
+        <spring.boot.version>1.4.3.RELEASE</spring.boot.version>
+
+        <dozer.version>5.5.1</dozer.version>
+        <postgres.version>9.4.1212</postgres.version>
+        <liquibase.version>3.5.3</liquibase.version>
+
+        <junit.version>4.12</junit.version>
+        <dbunit.version>2.5.1</dbunit.version>
+        <easymock.version>3.4</easymock.version>
     </properties>
 
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-web</artifactId>
+                <version>${spring.boot.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.postgresql</groupId>
+                <artifactId>postgresql</artifactId>
+                <version>${postgres.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.liquibase</groupId>
+                <artifactId>liquibase-core</artifactId>
+                <version>${liquibase.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>net.sf.dozer</groupId>
+                <artifactId>dozer</artifactId>
+                <version>${dozer.version}</version>
+            </dependency>
+
+
+            <!-- Tests -->
+            <dependency>
+                <groupId>junit</groupId>
+                <artifactId>junit</artifactId>
+                <version>${junit.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.dbunit</groupId>
+                <artifactId>dbunit</artifactId>
+                <version>${dbunit.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.easymock</groupId>
+                <artifactId>easymock</artifactId>
+                <version>${easymock.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 
 </project>

@@ -1,0 +1,7 @@
+spring:
+  profiles: dev
+  datasource:
+      driverClassName: org.postgresql.Driver
+      url: jdbc:postgresql://localhost:5432/iblog_local
+      username: user
+      password: user

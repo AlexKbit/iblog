@@ -1,0 +1,15 @@
+spring:
+  application:
+      name: iblog
+      date: '@build.date@'
+      version: '@build.version@'
+  profiles.active: local
+server:
+    port: 9000
+
+liquibase:
+    enabled: true
+    change-log: classpath:master.xml
+logging:
+    config: classpath:logback-tomcat.xml
+
