@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration>
 
-    <property name="home" value="/var/log/tomcat8" />
+    <property name="home" value="/" />
 
     <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
         <layout class="ch.qos.logback.classic.PatternLayout">
@@ -11,28 +11,28 @@
         </layout>
     </appender>
 
-    <appender name="file" class="ch.qos.logback.core.FileAppender">
-        <file>${home}/lg-ordertourmanagement.log</file>
+    <!--<appender name="file" class="ch.qos.logback.core.FileAppender">
+        <file>${home}/iblog.log</file>
         <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
             <Pattern>
                 %d{yyyy-MM-dd HH:mm:ss.SSS} correlation[%X{correlation}] [%thread] %-5level %logger{36} - %msg%n
             </Pattern>
         </encoder>
-    </appender>
+    </appender>-->
 
     <root level="WARN">
         <appender-ref ref="console"/>
-        <appender-ref ref="file"/>
+        <!--<appender-ref ref="file"/>-->
     </root>
 
     <logger name="com.iblog" additivity="false" level="DEBUG">
         <appender-ref ref="console"/>
-        <appender-ref ref="file"/>
+        <!--<appender-ref ref="file"/>-->
     </logger>
 
     <logger name="org.springframework" additivity="false" level="INFO">
         <appender-ref ref="console"/>
-        <appender-ref ref="file"/>
+        <!--<appender-ref ref="file"/>-->
     </logger>
 
 </configuration>

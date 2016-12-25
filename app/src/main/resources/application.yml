@@ -3,7 +3,7 @@ spring:
       name: iblog
       date: '@build.date@'
       version: '@build.version@'
-  profiles.active: local
+  profiles.active: prod
 server:
     port: 9000
 
