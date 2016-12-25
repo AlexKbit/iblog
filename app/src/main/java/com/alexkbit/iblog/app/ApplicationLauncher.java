@@ -10,8 +10,8 @@ import org.springframework.context.annotation.ComponentScan;
  * Launcher for spring boot application.
  */
 @SpringBootApplication
-@ComponentScan(ProjectProperties.BASE_PACKAGE)
 @EnableAutoConfiguration
+@ComponentScan(ProjectProperties.BASE_PACKAGE)
 public class ApplicationLauncher {
 
     /**
