@@ -10,10 +10,11 @@
     <version>1.0.0-SNAPSHOT</version>
     <modules>
         <module>app</module>
-        <module>components</module>
         <module>rest</module>
         <module>db</module>
         <module>models</module>
+        <module>repositories</module>
+        <module>services</module>
     </modules>
 
     <parent>
@@ -48,12 +49,32 @@
             <!-- Project dependencies -->
             <dependency>
                 <groupId>com.alexkbit.iblog</groupId>
-                <artifactId>com-iblog-components-repositories-impl</artifactId>
+                <artifactId>com-iblog-services</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.alexkbit.iblog</groupId>
-                <artifactId>com-iblog-components-services-impl</artifactId>
+                <artifactId>com-iblog-services-api</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.alexkbit.iblog</groupId>
+                <artifactId>com-iblog-services-impl</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.alexkbit.iblog</groupId>
+                <artifactId>com-iblog-repositories</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.alexkbit.iblog</groupId>
+                <artifactId>com-iblog-repositories-api</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.alexkbit.iblog</groupId>
+                <artifactId>com-iblog-repositories-impl</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
@@ -61,11 +82,26 @@
                 <artifactId>com-iblog-rest</artifactId>
                 <version>${project.version}</version>
             </dependency>
+            <dependency>
+                <groupId>com.alexkbit.iblog</groupId>
+                <artifactId>com-iblog-db</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.alexkbit.iblog</groupId>
+                <artifactId>com-iblog-models</artifactId>
+                <version>${project.version}</version>
+            </dependency>
 
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-starter-web</artifactId>
                 <version>${spring.boot.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.data</groupId>
+                <artifactId>spring-data-jpa</artifactId>
+                <version>${spring.data.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.postgresql</groupId>
@@ -87,7 +123,6 @@
                 <artifactId>dozer</artifactId>
                 <version>${dozer.version}</version>
             </dependency>
-
 
             <!-- Tests -->
             <dependency>
