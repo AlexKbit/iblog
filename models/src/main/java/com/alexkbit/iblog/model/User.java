@@ -13,7 +13,7 @@ public class User extends BaseModel {
     /**
      * User password
      */
-    private byte[] password;
+    private String password;
 
     /**
      * User email
@@ -38,11 +38,11 @@ public class User extends BaseModel {
         this.login = login;
     }
 
-    public byte[] getPassword() {
+    public String getPassword() {
         return password;
     }
 
-    public void setPassword(byte[] password) {
+    public void setPassword(String password) {
         this.password = password;
     }
 
