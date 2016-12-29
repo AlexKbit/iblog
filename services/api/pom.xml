@@ -11,5 +11,11 @@
 
     <artifactId>com-iblog-services-api</artifactId>
 
+    <dependencies>
+        <dependency>
+            <groupId>com.alexkbit.iblog</groupId>
+            <artifactId>com-iblog-models</artifactId>
+        </dependency>
+    </dependencies>
 
 </project>

@@ -94,6 +94,7 @@
                 <version>${project.version}</version>
             </dependency>
 
+            <!-- Framework dependencies -->
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-starter-web</artifactId>
@@ -109,11 +110,6 @@
                 <artifactId>hibernate-core</artifactId>
                 <version>${hibernate.version}</version>
             </dependency>
-            <!--<dependency>-->
-                <!--<groupId>org.hibernate.javax.persistence</groupId>-->
-                <!--<artifactId>hibernate-jpa-2.1-api</artifactId>-->
-                <!--<version>${hibernate.version}</version>-->
-            <!--</dependency>-->
             <dependency>
                 <groupId>org.postgresql</groupId>
                 <artifactId>postgresql</artifactId>
@@ -133,6 +129,16 @@
                 <groupId>net.sf.dozer</groupId>
                 <artifactId>dozer</artifactId>
                 <version>${dozer.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.slf4j</groupId>
+                        <artifactId>slf4j-api</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>org.slf4j</groupId>
+                        <artifactId>jcl-over-slf4j</artifactId>
+                    </exclusion>
+                </exclusions>
             </dependency>
 
             <!-- Tests -->
