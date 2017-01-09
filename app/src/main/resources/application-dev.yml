@@ -5,3 +5,5 @@ spring:
       url: jdbc:postgresql://localhost:5432/iblog_dev
       username: user
       password: user
+logging:
+    config: classpath:logback-tomcat.xml

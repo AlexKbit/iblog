@@ -13,5 +13,10 @@ public class ProjectProperties {
     /**
      * Base package for repositories in project
      */
-    public static final String REPOSITORIES_PACKAGE = BASE_PACKAGE + ".components.repositories.impl";
+    public static final String REPOSITORIES_PACKAGE = BASE_PACKAGE + ".repository";
+
+    /**
+     * Base package for entities in project
+     */
+    public static final String ENTITIES_PACKAGE = BASE_PACKAGE + ".repository.impl.entities";
 }

@@ -14,6 +14,14 @@
     <dependencies>
         <dependency>
             <groupId>com.alexkbit.iblog</groupId>
+            <artifactId>com-iblog-services-impl</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.alexkbit.iblog</groupId>
+            <artifactId>com-iblog-repositories-impl</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.alexkbit.iblog</groupId>
             <artifactId>com-iblog-rest</artifactId>
         </dependency>
 
