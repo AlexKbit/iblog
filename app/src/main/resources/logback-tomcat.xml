@@ -22,17 +22,17 @@
 
     <root level="WARN">
         <appender-ref ref="console"/>
-        <appender-ref ref="file"/>
+        <!--<appender-ref ref="file"/>-->
     </root>
 
     <logger name="com.iblog" additivity="false" level="DEBUG">
         <appender-ref ref="console"/>
-        <appender-ref ref="file"/>
+        <!--<appender-ref ref="file"/>-->
     </logger>
 
     <logger name="org.springframework" additivity="false" level="INFO">
         <appender-ref ref="console"/>
-        <appender-ref ref="file"/>
+        <!--<appender-ref ref="file"/>-->
     </logger>
 
 </configuration>
