@@ -7,4 +7,10 @@ import com.alexkbit.iblog.model.User;
  */
 public interface UserRepository extends BaseRepository<User> {
 
+    /**
+     * Find user by login
+     * @param login login
+     * @return {@link User}
+     */
+    User findByLogin(String login);
 }

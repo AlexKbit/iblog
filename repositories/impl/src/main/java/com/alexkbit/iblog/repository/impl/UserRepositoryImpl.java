@@ -40,4 +40,13 @@ public class UserRepositoryImpl extends AbstractBaseRepository<User, UserEntity>
     protected void deleteById(UUID id) {
         userRepositoryJpa.delete(id);
     }
+
+    @Override
+    public User findByLogin(String login) {
+        UserEntity entity = userRepositoryJpa.findByLogin(login);
+        if (entity == null) {
+            return null;
+        }
+        return mapToModel(entity);
+    }
 }
