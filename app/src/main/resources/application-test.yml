@@ -2,8 +2,8 @@ spring:
   profiles: test
   datasource:
       driverClassName: org.postgresql.Driver
-      url: ${env.DATABASE_JDBC_URL}
-      username: ${env.DATABASE_USER}
-      password: ${env.DATABASE_PASSWORD}
+      url: ${DATABASE_JDBC_URL}
+      username: ${DATABASE_USER}
+      password: ${DATABASE_PASSWORD}
 logging:
     config: classpath:logback-tomcat.xml
