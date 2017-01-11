@@ -24,6 +24,10 @@
             <groupId>com.alexkbit.iblog</groupId>
             <artifactId>com-iblog-rest</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.alexkbit.iblog</groupId>
+            <artifactId>com-iblog-db</artifactId>
+        </dependency>
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
