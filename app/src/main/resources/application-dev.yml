@@ -1,9 +1,11 @@
+server:
+    port: ${PORT}
 spring:
   profiles: dev
   datasource:
       driverClassName: org.postgresql.Driver
-      url: jdbc:postgresql://localhost:5432/iblog_dev
-      username: user
-      password: user
+      url: ${DATABASE_JDBC_URL}
+      username: ${DATABASE_USER}
+      password: ${DATABASE_PASSWORD}
 logging:
     config: classpath:logback-tomcat.xml
