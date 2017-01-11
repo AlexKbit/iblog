@@ -49,6 +49,13 @@ public class UserServiceImplTest extends EasyMockSupport {
     }
 
     @Test
+    public void testGetByUuidIsNull() {
+        replayAll();
+        assertNull(userService.get(null));
+        verifyAll();
+    }
+
+    @Test
     public void testRegister() {
         String login = "user";
         User user = new User();
