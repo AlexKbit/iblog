@@ -11,14 +11,14 @@
         </layout>
     </appender>
 
-    <appender name="file" class="ch.qos.logback.core.FileAppender">
+   <!-- <appender name="file" class="ch.qos.logback.core.FileAppender">
         <file>${home}/iblog.log</file>
         <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
             <Pattern>
                 %d{yyyy-MM-dd HH:mm:ss.SSS} correlation[%X{correlation}] [%thread] %-5level %logger{36} - %msg%n
             </Pattern>
         </encoder>
-    </appender>
+    </appender>-->
 
     <root level="WARN">
         <appender-ref ref="console"/>

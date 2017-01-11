@@ -1,5 +1,5 @@
 spring:
-  profiles: dev
+  profiles: local
   datasource:
       driverClassName: org.postgresql.Driver
       url: jdbc:postgresql://localhost:5432/iblog_local
