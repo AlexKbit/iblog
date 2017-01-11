@@ -1,5 +1,3 @@
-server:
-    port: ${env.PORT}
 spring:
   profiles: dev
   datasource:
