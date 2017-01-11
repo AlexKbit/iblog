@@ -1,11 +1,11 @@
 server:
-    port: ${PORT}
+    port: ${env.PORT}
 spring:
   profiles: test
   datasource:
       driverClassName: org.postgresql.Driver
-      url: ${DATABASE_JDBC_URL}
-      username: ${DATABASE_USER}
-      password: ${DATABASE_PASSWORD}
+      url: ${env.DATABASE_JDBC_URL}
+      username: ${env.DATABASE_USER}
+      password: ${env.DATABASE_PASSWORD}
 logging:
     config: classpath:logback-tomcat.xml
