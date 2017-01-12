@@ -1,1 +1,1 @@
-web: java -Dserver.port=$PORT $JAVA_OPTS -jar target/to-boot-1.0.0.jar
+web: java -Dserver.port=$PORT -DDATABASE_JDBC_URL=$DATABASE_JDBC_URL -DDATABASE_USER=$DATABASE_USER -DDATABASE_PASSWORD=$DATABASE_PASSWORD $JAVA_OPTS -jar target/to-boot-1.0.0.jar
