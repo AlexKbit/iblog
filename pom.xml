@@ -24,6 +24,8 @@
     </parent>
 
     <properties>
+        <start-class>com.alexkbit.iblog.app.ApplicationLauncher</start-class>
+
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
@@ -43,6 +45,15 @@
         <dbunit.version>2.5.1</dbunit.version>
         <easymock.version>3.4</easymock.version>
     </properties>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
 
     <dependencies>
         <dependency>
