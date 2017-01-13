@@ -6,7 +6,7 @@ This simple web application ☺
 * Spring Framework (DI & IoC, Boot, MVC, Data)
 * Dozer
 * liquibase
-* PostgresSQL
+* PostgreSQL
 * Junit/EasyMock/dbUnit
 
 ## Tools
