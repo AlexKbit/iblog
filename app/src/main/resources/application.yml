@@ -6,7 +6,6 @@ spring:
       date: '@build.date@'
       version: '@build.version@'
   profiles.active: prod
-
 liquibase:
     enabled: true
     change-log: classpath:master.xml
