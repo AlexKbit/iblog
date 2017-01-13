@@ -9,3 +9,6 @@ cache:
 notifications:
     email:
         - sav4enkoaleksandr@gmail.com
+
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
