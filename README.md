@@ -2,6 +2,7 @@
 This simple web application ☺
 # Technologies & Tools
 ## Technologies
+* Java 8
 * Spring Framework (DI & IoC, Boot, MVC, Data)
 * Dozer
 * liquibase
