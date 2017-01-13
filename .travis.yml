@@ -3,12 +3,11 @@ sudo: false # faster builds
 jdk:
   - oraclejdk8
 script: "mvn clean install"
-cache:
-    directories:
-    - $HOME/.m2≈
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
+#  cache:
+#    directories:
+#    - $HOME/.m2≈
 notifications:
     email:
         - sav4enkoaleksandr@gmail.com
-
-after_success:
-  - bash <(curl -s https://codecov.io/bash)
