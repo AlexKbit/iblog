@@ -6,6 +6,7 @@ This simple web application ☺
 * Dozer
 * liquibase
 * PostgresSQL
+* Junit/EasyMock/dbUnit
 
 ## Tools
 * Heroku
