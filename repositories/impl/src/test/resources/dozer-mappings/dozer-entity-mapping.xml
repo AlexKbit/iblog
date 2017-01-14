@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mappings xmlns="http://dozer.sourceforge.net"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://dozer.sourceforge.net http://dozer.sourceforge.net/schema/beanmapping.xsd">
+
+    <!-- Dozer mapping for entities -->
+
+    <configuration>
+        <stop-on-errors>true</stop-on-errors>
+        <wildcard>true</wildcard>
+        <trim-strings>false</trim-strings>
+    </configuration>
+
+    <mapping>
+        <class-a>com.alexkbit.iblog.model.BaseModel</class-a>
+        <class-b>com.alexkbit.iblog.repository.impl.entities.BaseEntity</class-b>
+    </mapping>
+    <mapping>
+        <class-a>com.alexkbit.iblog.model.TimeMarkModel</class-a>
+        <class-b>com.alexkbit.iblog.repository.impl.entities.TimeMarkEntity</class-b>
+    </mapping>
+    <mapping>
+        <class-a>com.alexkbit.iblog.model.User</class-a>
+        <class-b>com.alexkbit.iblog.repository.impl.entities.UserEntity</class-b>
+    </mapping>
+
+
+</mappings>

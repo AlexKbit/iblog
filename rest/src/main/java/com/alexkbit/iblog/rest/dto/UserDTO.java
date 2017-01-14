@@ -1,19 +1,14 @@
-package com.alexkbit.iblog.model;
+package com.alexkbit.iblog.rest.dto;
 
 /**
- * Model of user
+ * DTO for User
  */
-public class User extends TimeMarkModel {
+public class UserDTO {
 
     /**
      * Login in the system
      */
     private String login;
-
-    /**
-     * User password
-     */
-    private String password;
 
     /**
      * User email
@@ -36,14 +31,6 @@ public class User extends TimeMarkModel {
 
     public void setLogin(String login) {
         this.login = login;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
     }
 
     public String getEmail() {

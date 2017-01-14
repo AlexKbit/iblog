@@ -6,7 +6,6 @@ import com.alexkbit.iblog.repository.impl.entities.UserEntity;
 import com.alexkbit.iblog.repository.impl.jpa.UserRepositoryJpa;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Collection;
 import java.util.UUID;
@@ -15,7 +14,6 @@ import java.util.UUID;
  * Implementation of {@link UserRepository}
  */
 @Repository
-@Transactional
 public class UserRepositoryImpl extends AbstractBaseRepository<User, UserEntity> implements UserRepository {
 
     @Autowired

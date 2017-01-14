@@ -3,7 +3,7 @@
           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
           xsi:schemaLocation="http://dozer.sourceforge.net http://dozer.sourceforge.net/schema/beanmapping.xsd">
 
-    <!-- Dozer mapping for entities -->
+    <!-- Dozer mapping for DTOs -->
 
     <configuration>
         <stop-on-errors>true</stop-on-errors>
@@ -11,5 +11,8 @@
         <trim-strings>false</trim-strings>
     </configuration>
 
-
+    <mapping>
+        <class-a>com.alexkbit.iblog.model.User</class-a>
+        <class-b>com.alexkbit.iblog.rest.dto.UserDTO</class-b>
+    </mapping>
 </mappings>
