@@ -31,7 +31,7 @@ public class UserServiceImplTest extends EasyMockSupport {
 
     @Test
     public void testGetByUuid() {
-        UUID id = UUID.randomUUID();
+        String id = UUID.randomUUID().toString();
         User user = new User();
         user.setId(id);
         expect(userRepository.findOne(id)).andReturn(user);
@@ -44,7 +44,7 @@ public class UserServiceImplTest extends EasyMockSupport {
     public void testGetByUuidNotFound() {
         expect(userRepository.findOne(anyObject())).andReturn(null);
         replayAll();
-        assertNull(userService.get(UUID.randomUUID()));
+        assertNull(userService.get(UUID.randomUUID().toString()));
         verifyAll();
     }
 

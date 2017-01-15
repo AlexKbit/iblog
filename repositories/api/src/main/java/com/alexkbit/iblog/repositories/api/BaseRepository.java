@@ -2,7 +2,6 @@ package com.alexkbit.iblog.repositories.api;
 
 import java.util.Collection;
 import java.util.List;
-import java.util.UUID;
 
 /**
  * Base interface for repositories with business objects
@@ -25,10 +24,10 @@ public interface BaseRepository<T> {
 
     /**
      * Find model by UUID
-     * @param id {@link UUID}
+     * @param id UUID
      * @return {@link T}
      */
-    T findOne(UUID id);
+    T findOne(String id);
 
     /**
      * Remove model

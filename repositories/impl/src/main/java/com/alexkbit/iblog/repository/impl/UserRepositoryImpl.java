@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import java.util.Collection;
-import java.util.UUID;
 
 /**
  * Implementation of {@link UserRepository}
@@ -30,12 +29,12 @@ public class UserRepositoryImpl extends AbstractBaseRepository<User, UserEntity>
     }
 
     @Override
-    protected UserEntity findById(UUID uuid) {
+    protected UserEntity findById(String uuid) {
         return userRepositoryJpa.findOne(uuid);
     }
 
     @Override
-    protected void deleteById(UUID id) {
+    protected void deleteById(String id) {
         userRepositoryJpa.delete(id);
     }
 

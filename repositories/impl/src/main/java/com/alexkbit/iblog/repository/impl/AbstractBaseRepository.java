@@ -11,7 +11,6 @@ import javax.annotation.PostConstruct;
 import java.lang.reflect.ParameterizedType;
 import java.util.Collection;
 import java.util.List;
-import java.util.UUID;
 import java.util.stream.Collectors;
 
 /**
@@ -74,7 +73,7 @@ public abstract class AbstractBaseRepository<M extends BaseModel, E extends Base
      * {@inheritDoc}
      */
     @Override
-    public M findOne(UUID id) {
+    public M findOne(String id) {
         E entity = findById(id);
         if (entity != null) {
             return mapToModel(entity);
@@ -161,12 +160,12 @@ public abstract class AbstractBaseRepository<M extends BaseModel, E extends Base
      * @param uuid uuid
      * @return entity
      */
-    protected abstract E findById(UUID uuid);
+    protected abstract E findById(String uuid);
 
     /**
      * Delete entity by id from DB.
      *
      * @param id id of entity
      */
-    protected abstract void deleteById(UUID id);
+    protected abstract void deleteById(String id);
 }

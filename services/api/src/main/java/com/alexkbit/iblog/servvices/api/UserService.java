@@ -2,8 +2,6 @@ package com.alexkbit.iblog.servvices.api;
 
 import com.alexkbit.iblog.model.User;
 
-import java.util.UUID;
-
 /**
  * Business service for {@link User}
  */
@@ -17,9 +15,9 @@ public interface UserService {
 
     /**
      * Get user by id
-     * @param uuid {@link UUID}
+     * @param uuid UUID
      * @return {@link User}
      */
-    User get(UUID uuid);
+    User get(String uuid);
 
 }

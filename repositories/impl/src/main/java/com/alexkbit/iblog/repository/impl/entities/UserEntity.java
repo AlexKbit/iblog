@@ -2,12 +2,20 @@ package com.alexkbit.iblog.repository.impl.entities;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.PrePersist;
+import javax.persistence.PreUpdate;
 
 /**
  * Entity of user
  */
 @Entity
 public class UserEntity extends TimeMarkEntity {
+
+    @PrePersist
+    @PreUpdate
+    public void init() {
+        super.init();
+    }
 
     /**
      * Login in the system

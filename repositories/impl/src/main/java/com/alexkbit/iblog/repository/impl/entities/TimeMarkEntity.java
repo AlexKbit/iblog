@@ -11,6 +11,10 @@ import java.util.TimeZone;
 @MappedSuperclass
 public class TimeMarkEntity extends BaseEntity {
 
+    public TimeMarkEntity() {
+        super();
+    }
+
     @Column(name = "created_at")
     @Temporal(TemporalType.TIMESTAMP)
     private Date createdAt;
@@ -22,9 +26,11 @@ public class TimeMarkEntity extends BaseEntity {
     @PrePersist
     @PreUpdate
     public void init() {
-        if (updatedAt == null) {
-            updatedAt = Calendar.getInstance(TimeZone.getTimeZone("UTC")).getTime();
+        super.init();
+        if (createdAt == null) {
+            createdAt = Calendar.getInstance(TimeZone.getTimeZone("UTC")).getTime();
         }
+        updatedAt = Calendar.getInstance(TimeZone.getTimeZone("UTC")).getTime();
     }
 
     public Date getCreatedAt() {
