@@ -27,8 +27,8 @@ public class UserRepositoryImplTest extends AbstractRepositoryTest {
         user.setEmail("user@mail.com");
         User newUser = userRepository.save(user);
         assertNotNull(newUser.getId());
-        //assertNotNull(newUser.getCreatedAt()); // TODO FIX
-        //assertNotNull(newUser.getUpdatedAt());
+        assertNotNull(newUser.getCreatedAt());
+        assertNotNull(newUser.getUpdatedAt());
         assertEquals(user.getEmail(), newUser.getEmail());
         assertEquals(user.getLogin(), newUser.getLogin());
     }

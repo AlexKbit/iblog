@@ -55,8 +55,7 @@ public abstract class AbstractBaseRepository<M extends BaseModel, E extends Base
     public M save(M model) {
         E entity = mapToEntity(model);
         saveEntity(entity);
-        model.setId(entity.getId());
-        return model;
+        return mapToModel(entity);
     }
 
     /**

@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dataset>
 
-    <USER
-        UUID="8ac8087d-fc14-4e4f-b9d0-5c4b9e05a539"
+    <USER UUID="8ac8087d-fc14-4e4f-b9d0-5c4b9e05a539"
         CREATED_AT="2016-06-30"
         UPDATED_AT="2016-12-30"
         USR_LOGIN="user1000"
