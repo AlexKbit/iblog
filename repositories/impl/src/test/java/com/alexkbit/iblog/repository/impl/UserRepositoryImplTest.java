@@ -7,6 +7,9 @@ import org.junit.Ignore;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import java.util.Arrays;
+import java.util.List;
+
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
@@ -26,11 +29,22 @@ public class UserRepositoryImplTest extends AbstractRepositoryTest {
         user.setLogin("user");
         user.setEmail("user@mail.com");
         User newUser = userRepository.save(user);
-        assertNotNull(newUser.getId());
-        assertNotNull(newUser.getCreatedAt());
-        assertNotNull(newUser.getUpdatedAt());
-        assertEquals(user.getEmail(), newUser.getEmail());
-        assertEquals(user.getLogin(), newUser.getLogin());
+        assertUser(user, newUser);
+    }
+
+    @Test
+    public void testSaveList() {
+        User user1 = new User();
+        user1.setLogin("user1");
+        user1.setEmail("user1@mail.com");
+        User user2 = new User();
+        user2.setLogin("user2");
+        user2.setEmail("user2@mail.com");
+        List<User> newUsers = userRepository.save(Arrays.asList(user1, user2));
+        assertNotNull(newUsers);
+        assertEquals(2, newUsers.size());
+        assertUser(user1, newUsers.get(0));
+        assertUser(user2, newUsers.get(1));
     }
 
     @Test
@@ -40,6 +54,14 @@ public class UserRepositoryImplTest extends AbstractRepositoryTest {
         User user = userRepository.findOne(USER_ONE_UUID);
         assertNotNull(user);
         assertEquals(user.getId(), USER_ONE_UUID);
+    }
+
+    private void assertUser(User old, User newUser) {
+        assertNotNull(newUser.getId());
+        assertNotNull(newUser.getCreatedAt());
+        assertNotNull(newUser.getUpdatedAt());
+        assertEquals(old.getEmail(), newUser.getEmail());
+        assertEquals(old.getLogin(), newUser.getLogin());
     }
 
 }
