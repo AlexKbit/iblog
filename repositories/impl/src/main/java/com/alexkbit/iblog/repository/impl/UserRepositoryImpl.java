@@ -40,10 +40,11 @@ public class UserRepositoryImpl extends AbstractBaseRepository<User, UserEntity>
 
     @Override
     public User findByLogin(String login) {
-        UserEntity entity = userRepositoryJpa.findByLogin(login);
-        if (entity == null) {
-            return null;
-        }
-        return mapToModel(entity);
+        return findOne(() -> userRepositoryJpa.findByLogin(login));
+    }
+
+    @Override
+    public User findByEmail(final String email) {
+        return findOne(() -> userRepositoryJpa.findByEmail(email));
     }
 }

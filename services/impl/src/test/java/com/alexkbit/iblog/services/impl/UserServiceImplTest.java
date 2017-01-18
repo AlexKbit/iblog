@@ -23,6 +23,9 @@ import static org.junit.Assert.fail;
 @RunWith(EasyMockRunner.class)
 public class UserServiceImplTest extends EasyMockSupport {
 
+    private static final String USER_LOGIN = "user";
+    private static final String USER_EMAIL = "email";
+
     @Mock
     private UserRepository userRepository;
 
@@ -57,10 +60,9 @@ public class UserServiceImplTest extends EasyMockSupport {
 
     @Test
     public void testRegister() {
-        String login = "user";
-        User user = new User();
-        user.setLogin(login);
-        expect(userRepository.findByLogin(eq(login))).andReturn(null);
+        User user = createUser();
+        expect(userRepository.findByLogin(eq(USER_LOGIN))).andReturn(null);
+        expect(userRepository.findByEmail(eq(USER_EMAIL))).andReturn(null);
         expect(userRepository.save(eq(user))).andReturn(user);
         replayAll();
         userService.register(user);
@@ -68,11 +70,9 @@ public class UserServiceImplTest extends EasyMockSupport {
     }
 
     @Test
-    public void testRegisterException() {
-        String login = "user";
-        User user = new User();
-        user.setLogin(login);
-        expect(userRepository.findByLogin(eq(login))).andReturn(new User());
+    public void testRegisterLoginException() {
+        User user = createUser();
+        expect(userRepository.findByLogin(eq(USER_LOGIN))).andReturn(new User());
         replayAll();
         try {
             userService.register(user);
@@ -80,6 +80,27 @@ public class UserServiceImplTest extends EasyMockSupport {
         } catch (ServiceException se) {
             verifyAll();
         }
+    }
+
+    @Test
+    public void testRegisterEmailException() {
+        User user = createUser();
+        expect(userRepository.findByLogin(eq(USER_LOGIN))).andReturn(null);
+        expect(userRepository.findByEmail(eq(USER_EMAIL))).andReturn(new User());
+        replayAll();
+        try {
+            userService.register(user);
+            fail("Should throw exception.");
+        } catch (ServiceException se) {
+            verifyAll();
+        }
+    }
+
+    private User createUser() {
+        User user = new User();
+        user.setLogin(USER_LOGIN);
+        user.setEmail(USER_EMAIL);
+        return user;
     }
 
 }

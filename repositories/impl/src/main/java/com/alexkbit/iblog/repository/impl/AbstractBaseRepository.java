@@ -11,6 +11,7 @@ import javax.annotation.PostConstruct;
 import java.lang.reflect.ParameterizedType;
 import java.util.Collection;
 import java.util.List;
+import java.util.function.Supplier;
 import java.util.stream.Collectors;
 
 /**
@@ -73,12 +74,15 @@ public abstract class AbstractBaseRepository<M extends BaseModel, E extends Base
      */
     @Override
     public M findOne(String id) {
-        E entity = findById(id);
-        if (entity != null) {
-            return mapToModel(entity);
-        } else {
+        return findOne(() -> this.findById(id));
+    }
+
+    protected M findOne(Supplier<E> supplier) {
+        E entity = supplier.get();
+        if (entity == null) {
             return null;
         }
+        return mapToModel(entity);
     }
 
     /**
