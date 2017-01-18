@@ -23,6 +23,9 @@ public class UserServiceImpl implements UserService {
         if (userRepository.findByLogin(user.getLogin()) != null) {
             throw new ServiceException(String.format("User with login: %s already exist.", user.getLogin()));
         }
+        if (userRepository.findByEmail(user.getEmail()) != null) {
+            throw new ServiceException(String.format("User with email: %s already exist.", user.getEmail()));
+        }
         return userRepository.save(user);
     }
 
