@@ -3,7 +3,6 @@ package com.alexkbit.iblog.repository.impl;
 import com.alexkbit.iblog.model.User;
 import com.alexkbit.iblog.repositories.api.UserRepository;
 import com.github.springtestdbunit.annotation.DatabaseSetup;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -48,7 +47,6 @@ public class UserRepositoryImplTest extends AbstractRepositoryTest {
     }
 
     @Test
-    @Ignore
     @DatabaseSetup(value = "/datasets/repositories/user/user_one.xml")
     public void testGetByUuid() {
         User user = userRepository.findOne(USER_ONE_UUID);

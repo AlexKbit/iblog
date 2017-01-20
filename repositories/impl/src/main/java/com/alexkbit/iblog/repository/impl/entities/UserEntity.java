@@ -4,11 +4,13 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
+import javax.persistence.Table;
 
 /**
  * Entity of user
  */
 @Entity
+@Table(name = "user")
 public class UserEntity extends TimeMarkEntity {
 
     @PrePersist
