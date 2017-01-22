@@ -5,9 +5,8 @@ import com.alexkbit.iblog.repositories.api.UserRepository;
 import com.alexkbit.iblog.repository.impl.entities.UserEntity;
 import com.alexkbit.iblog.repository.impl.jpa.UserRepositoryJpa;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-
-import java.util.Collection;
 
 /**
  * Implementation of {@link UserRepository}
@@ -19,23 +18,8 @@ public class UserRepositoryImpl extends AbstractBaseRepository<User, UserEntity>
     private UserRepositoryJpa userRepositoryJpa;
 
     @Override
-    protected void saveEntity(UserEntity entity) {
-        userRepositoryJpa.save(entity);
-    }
-
-    @Override
-    protected void saveEntities(Collection<UserEntity> entities) {
-        userRepositoryJpa.save(entities);
-    }
-
-    @Override
-    protected UserEntity findById(String uuid) {
-        return userRepositoryJpa.findOne(uuid);
-    }
-
-    @Override
-    protected void deleteById(String id) {
-        userRepositoryJpa.delete(id);
+    protected JpaRepository<UserEntity, String> getRepository() {
+        return userRepositoryJpa;
     }
 
     @Override
@@ -47,4 +31,5 @@ public class UserRepositoryImpl extends AbstractBaseRepository<User, UserEntity>
     public User findByEmail(final String email) {
         return findOne(() -> userRepositoryJpa.findByEmail(email));
     }
+
 }

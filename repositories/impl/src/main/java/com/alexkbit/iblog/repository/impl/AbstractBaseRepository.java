@@ -6,10 +6,12 @@ import com.alexkbit.iblog.repository.impl.entities.BaseEntity;
 import org.dozer.DozerBeanMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.data.jpa.repository.JpaRepository;
 
 import javax.annotation.PostConstruct;
 import java.lang.reflect.ParameterizedType;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 import java.util.function.Supplier;
 import java.util.stream.Collectors;
@@ -50,12 +52,18 @@ public abstract class AbstractBaseRepository<M extends BaseModel, E extends Base
     }
 
     /**
+     * Gets inner jpa repository for this
+     * @return {@link JpaRepository}
+     */
+    protected abstract JpaRepository<E, String> getRepository();
+
+    /**
      * {@inheritDoc}
      */
     @Override
     public M save(M model) {
         E entity = mapToEntity(model);
-        saveEntity(entity);
+        getRepository().save(entity);
         return mapToModel(entity);
     }
 
@@ -65,7 +73,7 @@ public abstract class AbstractBaseRepository<M extends BaseModel, E extends Base
     @Override
     public List<M> save(Collection<M> models) {
         List<E> entities = mapToEntity(models);
-        saveEntities(entities);
+        getRepository().save(entities);
         return mapToModel(entities);
     }
 
@@ -74,7 +82,7 @@ public abstract class AbstractBaseRepository<M extends BaseModel, E extends Base
      */
     @Override
     public M findOne(String id) {
-        return findOne(() -> this.findById(id));
+        return findOne(() -> this.getRepository().findOne(id));
     }
 
     protected M findOne(Supplier<E> supplier) {
@@ -89,11 +97,23 @@ public abstract class AbstractBaseRepository<M extends BaseModel, E extends Base
      * {@inheritDoc}
      */
     @Override
+    public List<M> findByIds(Collection<String> ids) {
+        List<E> entities = getRepository().findAll(ids);
+        if (entities == null || entities.isEmpty()) {
+            return Collections.emptyList();
+        }
+        return mapToModel(entities);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
     public void delete(M model) {
         if (model == null) {
             return;
         }
-        deleteById(model.getId());
+        getRepository().delete(model.getId());
     }
 
     /**
@@ -104,7 +124,15 @@ public abstract class AbstractBaseRepository<M extends BaseModel, E extends Base
         if (models == null || models.isEmpty()) {
             return;
         }
-        models.stream().map(M::getId).forEach(id -> deleteById(id));
+        models.stream().map(M::getId).forEach(id -> getRepository().delete(id));
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void delete(String id) {
+        getRepository().delete(id);
     }
 
     /**
@@ -142,33 +170,4 @@ public abstract class AbstractBaseRepository<M extends BaseModel, E extends Base
     protected List<M> mapToModel(Collection<E> entities) {
         return entities.stream().map(this::mapToModel).collect(Collectors.toList());
     }
-
-    /**
-     * Save entity to DB.
-     *
-     * @param entity {@link E}
-     */
-    protected abstract void saveEntity(E entity);
-
-    /**
-     * Save entities to DB.
-     *
-     * @param entities collection of entity
-     */
-    protected abstract void saveEntities(Collection<E> entities);
-
-    /**
-     * Find entity by uuid.
-     *
-     * @param uuid uuid
-     * @return entity
-     */
-    protected abstract E findById(String uuid);
-
-    /**
-     * Delete entity by id from DB.
-     *
-     * @param id id of entity
-     */
-    protected abstract void deleteById(String id);
 }

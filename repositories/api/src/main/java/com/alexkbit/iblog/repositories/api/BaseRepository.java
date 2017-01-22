@@ -1,12 +1,14 @@
 package com.alexkbit.iblog.repositories.api;
 
+import com.alexkbit.iblog.model.BaseModel;
+
 import java.util.Collection;
 import java.util.List;
 
 /**
  * Base interface for repositories with business objects
  */
-public interface BaseRepository<T> {
+public interface BaseRepository<T extends BaseModel> {
 
     /**
      * Save model
@@ -30,10 +32,23 @@ public interface BaseRepository<T> {
     T findOne(String id);
 
     /**
+     * Find model by UUID
+     * @param ids UUIDs
+     * @return list of{@link T}
+     */
+    List<T> findByIds(Collection<String> ids);
+
+    /**
      * Remove model
      * @param model {@link T}
      */
     void delete(T model);
+
+    /**
+     * Remove model
+     * @param id UUID
+     */
+    void delete(String id);
 
     /**
      * Remove models
