@@ -7,6 +7,7 @@ import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 import static org.junit.Assert.*;
@@ -68,10 +69,52 @@ public class UserRepositoryImplTest extends AbstractRepositoryTest {
 
     @Test
     @DatabaseSetup(value = "/datasets/repositories/user/user_three.xml")
+    public void testGetByUuidsNotFound() {
+        List<String> ids = Arrays.asList("ids");
+        List<User> users = userRepository.findByIds(ids);
+        assertNotNull(users);
+        assertTrue(users.isEmpty());
+    }
+
+    @Test
+    @DatabaseSetup(value = "/datasets/repositories/user/user_three.xml")
     public void testDelete() {
         assertNotNull(userRepository.findOne(USER_UUID_1));
         userRepository.delete(USER_UUID_1);
         assertNull(userRepository.findOne(USER_UUID_1));
+    }
+
+    @Test
+    public void testDeleteModelIsNull() {
+        User user = null;
+        userRepository.delete(user);
+    }
+
+    @Test
+    @DatabaseSetup(value = "/datasets/repositories/user/user_three.xml")
+    public void testDeleteModel() {
+        User user = userRepository.findOne(USER_UUID_1);
+        assertNotNull(user);
+        assertEquals(user.getId(), USER_UUID_1);
+        userRepository.delete(user);
+        user = userRepository.findOne(USER_UUID_1);
+        assertNull(user);
+    }
+
+    @Test
+    @DatabaseSetup(value = "/datasets/repositories/user/user_three.xml")
+    public void testDeleteByModels() {
+        List<User> users = userRepository.findByIds(Arrays.asList(USER_UUID_1, USER_UUID_2));
+        assertFalse(users.isEmpty());
+        userRepository.delete(users);
+        users = userRepository.findByIds(Arrays.asList(USER_UUID_1, USER_UUID_2));
+        assertTrue(users.isEmpty());
+    }
+
+    @Test
+    public void testDeleteModelsIsNull() {
+        List<User> users = Collections.emptyList();
+        userRepository.delete(users);
     }
 
     @Test
