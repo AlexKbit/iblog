@@ -9,15 +9,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import java.util.Arrays;
 import java.util.List;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.*;
 
 /**
  * Repository test for {@link UserRepositoryImpl}
  */
 public class UserRepositoryImplTest extends AbstractRepositoryTest {
 
-    private String USER_ONE_UUID = "8ac8087d-fc14-4e4f-b9d0-5c4b9e05a539";
+    private String USER_UUID_1 = "8ac8087d-fc14-4e4f-b9d0-5c4b9e05a501";
+
+    private String USER_UUID_2 = "8ac8087d-fc14-4e4f-b9d0-5c4b9e05a502";
 
     @Autowired
     private UserRepository userRepository;
@@ -47,11 +48,58 @@ public class UserRepositoryImplTest extends AbstractRepositoryTest {
     }
 
     @Test
-    @DatabaseSetup(value = "/datasets/repositories/user/user_one.xml")
+    @DatabaseSetup(value = "/datasets/repositories/user/user_three.xml")
     public void testGetByUuid() {
-        User user = userRepository.findOne(USER_ONE_UUID);
+        User user = userRepository.findOne(USER_UUID_1);
         assertNotNull(user);
-        assertEquals(user.getId(), USER_ONE_UUID);
+        assertEquals(user.getId(), USER_UUID_1);
+    }
+
+    @Test
+    @DatabaseSetup(value = "/datasets/repositories/user/user_three.xml")
+    public void testGetByUuids() {
+        List<String> expectedIds = Arrays.asList(USER_UUID_1, USER_UUID_2);
+        List<User> users = userRepository.findByIds(expectedIds);
+        assertNotNull(users);
+        assertEquals(2, users.size());
+        assertTrue(expectedIds.contains(users.get(0).getId()));
+        assertTrue(expectedIds.contains(users.get(1).getId()));
+    }
+
+    @Test
+    @DatabaseSetup(value = "/datasets/repositories/user/user_three.xml")
+    public void testDelete() {
+        assertNotNull(userRepository.findOne(USER_UUID_1));
+        userRepository.delete(USER_UUID_1);
+        assertNull(userRepository.findOne(USER_UUID_1));
+    }
+
+    @Test
+    @DatabaseSetup(value = "/datasets/repositories/user/user_three.xml")
+    public void testFindByLogin() {
+        String login = "user1001";
+        assertNotNull(userRepository.findByLogin(login));
+    }
+
+    @Test
+    @DatabaseSetup(value = "/datasets/repositories/user/user_three.xml")
+    public void testFindByLoginNotExist() {
+        String login = "user";
+        assertNull(userRepository.findByLogin(login));
+    }
+
+    @Test
+    @DatabaseSetup(value = "/datasets/repositories/user/user_three.xml")
+    public void testFindByEmail() {
+        String login = "user1001@mail.com";
+        assertNotNull(userRepository.findByEmail(login));
+    }
+
+    @Test
+    @DatabaseSetup(value = "/datasets/repositories/user/user_three.xml")
+    public void testFindByEmailNotExist() {
+        String login = "user@mail.com";
+        assertNull(userRepository.findByEmail(login));
     }
 
     private void assertUser(User old, User newUser) {
