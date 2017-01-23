@@ -10,7 +10,7 @@ import javax.persistence.Table;
  * Entity of user
  */
 @Entity
-@Table(name = "user")
+@Table(name = "user", schema = "public")
 public class UserEntity extends TimeMarkEntity {
 
     @PrePersist
