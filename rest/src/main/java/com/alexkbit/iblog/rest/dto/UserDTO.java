@@ -3,7 +3,7 @@ package com.alexkbit.iblog.rest.dto;
 /**
  * DTO for User
  */
-public class UserDTO {
+public class UserDTO extends BaseDTO {
 
     /**
      * Login in the system

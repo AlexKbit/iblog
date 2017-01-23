@@ -13,6 +13,14 @@
 
     <dependencies>
         <dependency>
+            <groupId>com.alexkbit.iblog</groupId>
+            <artifactId>com-iblog-models</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.alexkbit.iblog</groupId>
+            <artifactId>com-iblog-services-api</artifactId>
+        </dependency>
+        <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>

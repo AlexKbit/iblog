@@ -12,6 +12,10 @@
     </configuration>
 
     <mapping>
+        <class-a>com.alexkbit.iblog.model.BaseModel</class-a>
+        <class-b>com.alexkbit.iblog.rest.dto.BaseDTO</class-b>
+    </mapping>
+    <mapping>
         <class-a>com.alexkbit.iblog.model.User</class-a>
         <class-b>com.alexkbit.iblog.rest.dto.UserDTO</class-b>
     </mapping>

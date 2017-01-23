@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+import java.util.UUID;
 
 import static org.junit.Assert.*;
 
@@ -54,6 +55,13 @@ public class UserRepositoryImplTest extends AbstractRepositoryTest {
         User user = userRepository.findOne(USER_UUID_1);
         assertNotNull(user);
         assertEquals(user.getId(), USER_UUID_1);
+    }
+
+    @Test
+    @DatabaseSetup(value = "/datasets/repositories/user/user_three.xml")
+    public void testGetByUuidNotFound() {
+        User user = userRepository.findOne(UUID.randomUUID().toString());
+        assertNull(user);
     }
 
     @Test

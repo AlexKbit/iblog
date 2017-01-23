@@ -81,7 +81,7 @@ public abstract class AbstractBaseRepository<M extends BaseModel, E extends Base
      * {@inheritDoc}
      */
     @Override
-    public M findOne(String id) {
+    public M findOne(final String id) {
         return findOne(() -> this.getRepository().findOne(id));
     }
 
