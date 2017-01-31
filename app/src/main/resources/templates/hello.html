@@ -2,8 +2,14 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 <head>
     <title>Hello</title>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" th:href="@{/css/jumbotron-narrow.css}" href="css/jumbotron-narrow.css" />
 </head>
 <body>
-    <p th:text="'Hello ' + ${name} + '!'" />
+    <div class="container">
+        <div th:include="header :: #page_header" class="header"></div>
+        <p th:text="'Hello ' + ${name} + '!'" />
+        <div th:include="footer :: #page_footer" class="footer"></div>
+    </div>
 </body>
 </html>
