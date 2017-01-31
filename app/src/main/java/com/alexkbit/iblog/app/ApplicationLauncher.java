@@ -2,7 +2,6 @@ package com.alexkbit.iblog.app;
 
 import com.alexkbit.iblog.app.config.ProjectProperties;
 import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.support.SpringBootServletInitializer;
@@ -12,7 +11,6 @@ import org.springframework.context.annotation.ComponentScan;
  * Launcher for spring boot application.
  */
 @SpringBootApplication
-@EnableAutoConfiguration
 @ComponentScan(ProjectProperties.BASE_PACKAGE)
 public class ApplicationLauncher extends SpringBootServletInitializer {
 

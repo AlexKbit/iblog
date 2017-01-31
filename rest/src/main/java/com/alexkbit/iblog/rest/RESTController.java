@@ -5,7 +5,6 @@ import com.alexkbit.iblog.rest.dto.BaseDTO;
 import org.dozer.DozerBeanMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.annotation.PostConstruct;
 import java.lang.reflect.ParameterizedType;
@@ -16,7 +15,6 @@ import java.util.stream.Collectors;
 /**
  * Base REST controller
  */
-@RequestMapping("/")
 public abstract class RESTController<M extends BaseModel, D extends BaseDTO> {
 
     /**
