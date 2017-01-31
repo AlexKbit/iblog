@@ -5,5 +5,7 @@ spring:
       url: ${DATABASE_JDBC_URL}
       username: ${DATABASE_USER}
       password: ${DATABASE_PASSWORD}
+  thymeleaf:
+    cache: false
 logging:
     config: classpath:logback-tomcat.xml
