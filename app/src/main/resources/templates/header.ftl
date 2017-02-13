@@ -8,7 +8,7 @@
             <img src="img/java-icon.png" width="25px" height="25px"/>
         </a>
         <ul class="nav navbar-nav">
-            <li><a th:href="@{/}"><i class="fa fa-home"></i>Home</a></li>
+            <li><a href="/"><i class="fa fa-home"></i>Home</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
             <li>
