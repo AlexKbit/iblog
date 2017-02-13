@@ -1,11 +1,12 @@
 <#import "header.ftl" as header>
 <#import "footer.ftl" as footer>
+<#import "/spring.ftl" as spring/>
 
 <#macro page pageTitle>
     <!DOCTYPE html>
-    <html>
+    <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" charset="UTF-8"/>
         <#--<title>${messages('title', pageTitle?html)}</title>-->
         <title>Alex iblog</title>
         <link rel="stylesheet"  type="text/css" href="/css/bootstrap.min.css" />
