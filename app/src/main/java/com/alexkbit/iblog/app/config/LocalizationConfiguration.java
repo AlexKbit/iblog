@@ -6,6 +6,8 @@ import org.springframework.web.servlet.LocaleResolver;
 import org.springframework.web.servlet.i18n.LocaleChangeInterceptor;
 import org.springframework.web.servlet.i18n.SessionLocaleResolver;
 
+import java.util.Locale;
+
 /**
  * Config for locale in app
  */
@@ -15,7 +17,7 @@ public class LocalizationConfiguration {
     @Bean
     public LocaleResolver localeResolver() {
         SessionLocaleResolver slr = new SessionLocaleResolver();
-        //slr.setDefaultLocale(Locale.US);
+        slr.setDefaultLocale(Locale.ENGLISH);
         return slr;
     }
 

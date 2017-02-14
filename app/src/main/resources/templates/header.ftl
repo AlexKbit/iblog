@@ -3,9 +3,8 @@
 <body>
 <div id="page_header">
     <nav class="navbar navbar-default navbar-static-top">
-        <!--<div class="navbar-header">-->
-        <a class="navbar-brand" href="#">
-            <img src="img/java-icon.png" width="25px" height="25px"/>
+        <a class="navbar-brand" href="/">
+            <img src="images/blog.png" width="25px" height="25px"/>
         </a>
         <ul class="nav navbar-nav">
             <li><a href="/"><i class="fa fa-home"></i>Home</a></li>
@@ -19,7 +18,6 @@
                 </div>-->
             </li>
         </ul>
-        <!--</div>-->
     </nav>
 </div>
 </body>
