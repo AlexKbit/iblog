@@ -15,6 +15,7 @@
         <module>models</module>
         <module>repositories</module>
         <module>services</module>
+        <module>web</module>
     </modules>
 
     <parent>
@@ -92,6 +93,11 @@
             <dependency>
                 <groupId>com.alexkbit.iblog</groupId>
                 <artifactId>com-iblog-rest</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.alexkbit.iblog</groupId>
+                <artifactId>com-iblog-web</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
