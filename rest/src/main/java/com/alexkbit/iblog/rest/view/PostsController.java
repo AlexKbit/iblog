@@ -9,11 +9,11 @@ import org.springframework.web.bind.annotation.RequestParam;
  * Sample REST Controller
  */
 @Controller
-public class HelloController {
+public class PostsController {
 
-    @RequestMapping("/hi")
+    @RequestMapping("/posts")
     public String hello(Model model, @RequestParam(value="name", required=false, defaultValue="World") String name) {
         model.addAttribute("name", name);
-        return "hello";
+        return "posts";
     }
 }
