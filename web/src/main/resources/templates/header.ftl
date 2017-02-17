@@ -36,19 +36,19 @@
                 <ul class="nav navbar-nav navbar-right">
                     <li class="dropdown">
                         <a id="lang-dropdown" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                            Languages <span class="caret"></span>
+                        <@spring.message "messages.language"/> <span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu">
                             <li>
                                 <a href="?lang=en">
                                     <img src="images/lang/en.png" width="25px" height="25px"/>
-                                    <p>English</p>
+                                    <@spring.message "messages.language.en"/>
                                 </a>
                             </li>
                             <li>
                                 <a href="?lang=ru">
                                     <img src="images/lang/ru.png" width="25px" height="25px"/>
-                                    <p>Russian</p>
+                                    <@spring.message "messages.language.ru"/>
                                 </a>
                             </li>
                         </ul>
