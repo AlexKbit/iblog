@@ -2,9 +2,12 @@ package com.alexkbit.iblog.services.impl;
 
 import com.alexkbit.iblog.model.User;
 import com.alexkbit.iblog.repositories.api.UserRepository;
-import com.alexkbit.iblog.servvices.api.exception.ServiceException;
 import com.alexkbit.iblog.servvices.api.UserService;
+import com.alexkbit.iblog.servvices.api.exception.ServiceException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -13,7 +16,7 @@ import org.springframework.transaction.annotation.Transactional;
  */
 @Service
 @Transactional
-public class UserServiceImpl implements UserService {
+public class UserServiceImpl implements UserService, UserDetailsService {
 
     @Autowired
     private UserRepository userRepository;
@@ -35,5 +38,14 @@ public class UserServiceImpl implements UserService {
             return null;
         }
         return userRepository.findOne(uuid);
+    }
+
+    @Override
+    public UserDetails loadUserByUsername(String loginOrEmail) throws UsernameNotFoundException {
+        User user = userRepository.findByLoginOrEmail(loginOrEmail);
+        if (user == null) {
+            throw new UsernameNotFoundException(String.format("User with %s was not found", loginOrEmail));
+        }
+        return user;
     }
 }

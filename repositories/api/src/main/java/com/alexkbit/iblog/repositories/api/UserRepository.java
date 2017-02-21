@@ -20,4 +20,11 @@ public interface UserRepository extends BaseRepository<User> {
      * @return {@link User}
      */
     User findByEmail(String email);
+
+    /**
+     * Find user by email or login
+     * @param loginOrEmail email or login
+     * @return {@link User}
+     */
+    User findByLoginOrEmail(String loginOrEmail);
 }

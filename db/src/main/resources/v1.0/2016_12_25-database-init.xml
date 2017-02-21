@@ -59,4 +59,14 @@
             <column name="role" type="VARCHAR(32)"/>
         </addColumn>
     </changeSet>
+
+    <changeSet id="2017-02-21_new_column_enabled_user" author="alexkbit">
+        <preConditions>
+             <tableExists tableName="user"/>
+        </preConditions>
+        <addColumn schemaName="public"
+                   tableName="user">
+            <column name="enabled" type="BOOLEAN"/>
+        </addColumn>
+    </changeSet>
 </databaseChangeLog>

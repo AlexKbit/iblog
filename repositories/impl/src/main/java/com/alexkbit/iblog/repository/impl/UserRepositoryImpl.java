@@ -32,4 +32,9 @@ public class UserRepositoryImpl extends AbstractBaseRepository<User, UserEntity>
         return findOne(() -> userRepositoryJpa.findByEmail(email));
     }
 
+    @Override
+    public User findByLoginOrEmail(String loginOrEmail) {
+        return findOne(() -> userRepositoryJpa.findByEmailOrLogin(loginOrEmail));
+    }
+
 }

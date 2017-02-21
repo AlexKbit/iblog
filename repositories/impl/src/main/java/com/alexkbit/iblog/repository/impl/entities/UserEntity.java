@@ -60,6 +60,12 @@ public class UserEntity extends TimeMarkEntity {
     @Enumerated(EnumType.STRING)
     private Role role;
 
+    /**
+     * User enabled
+     */
+    @Column(name = "usr_enabled")
+    private boolean enabled;
+
     public String getLogin() {
         return login;
     }
@@ -106,5 +112,13 @@ public class UserEntity extends TimeMarkEntity {
 
     public void setRole(Role role) {
         this.role = role;
+    }
+
+    public boolean isEnabled() {
+        return enabled;
+    }
+
+    public void setEnabled(boolean enabled) {
+        this.enabled = enabled;
     }
 }
