@@ -2,7 +2,7 @@ package com.alexkbit.iblog.services.impl;
 
 import com.alexkbit.iblog.model.User;
 import com.alexkbit.iblog.repositories.api.UserRepository;
-import com.alexkbit.iblog.services.impl.exception.ServiceException;
+import com.alexkbit.iblog.servvices.api.exception.ServiceException;
 import com.alexkbit.iblog.servvices.api.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

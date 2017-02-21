@@ -1,4 +1,4 @@
-package com.alexkbit.iblog.services.impl.exception;
+package com.alexkbit.iblog.servvices.api.exception;
 
 /**
  * Runtime Exception for service layer

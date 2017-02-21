@@ -2,7 +2,7 @@ package com.alexkbit.iblog.services.impl;
 
 import com.alexkbit.iblog.model.User;
 import com.alexkbit.iblog.repositories.api.UserRepository;
-import com.alexkbit.iblog.services.impl.exception.ServiceException;
+import com.alexkbit.iblog.servvices.api.exception.ServiceException;
 import org.easymock.EasyMockRunner;
 import org.easymock.EasyMockSupport;
 import org.easymock.Mock;
