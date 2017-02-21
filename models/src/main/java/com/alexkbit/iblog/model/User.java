@@ -30,6 +30,11 @@ public class User extends TimeMarkModel {
      */
     private String surname;
 
+    /**
+     * User role
+     */
+    private Role role;
+
     public String getLogin() {
         return login;
     }
@@ -68,5 +73,17 @@ public class User extends TimeMarkModel {
 
     public void setSurname(String surname) {
         this.surname = surname;
+    }
+
+    public Role getRole() {
+        return role;
+    }
+
+    public void setRole(Role role) {
+        this.role = role;
+    }
+
+    public boolean isAdmin() {
+        return Role.ADMIN == role;
     }
 }

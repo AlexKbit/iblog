@@ -8,7 +8,8 @@
         USR_PASSWORD="Password"
         USR_EMAIL="user1001@mail.com"
         USR_NAME="user"
-        USR_SURNAME="1001"/>
+        USR_SURNAME="1001"
+          USR_ROLE="USER"/>
 
     <USER UUID="8ac8087d-fc14-4e4f-b9d0-5c4b9e05a502"
           CREATED_AT="2016-06-30"
@@ -17,7 +18,8 @@
           USR_PASSWORD="Password"
           USR_EMAIL="user1002@mail.com"
           USR_NAME="user"
-          USR_SURNAME="1002"/>
+          USR_SURNAME="1002"
+          USR_ROLE="USER"/>
 
     <USER UUID="8ac8087d-fc14-4e4f-b9d0-5c4b9e05a503"
           CREATED_AT="2016-06-30"
@@ -26,5 +28,6 @@
           USR_PASSWORD="Password"
           USR_EMAIL="user1003@mail.com"
           USR_NAME="user"
-          USR_SURNAME="1003"/>
+          USR_SURNAME="1003"
+          USR_ROLE="USER"/>
 </dataset>

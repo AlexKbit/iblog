@@ -1,7 +1,11 @@
 package com.alexkbit.iblog.repository.impl.entities;
 
+import com.alexkbit.iblog.model.Role;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 import javax.persistence.Table;
@@ -49,6 +53,13 @@ public class UserEntity extends TimeMarkEntity {
     @Column(name = "usr_surname")
     private String surname;
 
+    /**
+     * User surname
+     */
+    @Column(name = "usr_role")
+    @Enumerated(EnumType.STRING)
+    private Role role;
+
     public String getLogin() {
         return login;
     }
@@ -87,5 +98,13 @@ public class UserEntity extends TimeMarkEntity {
 
     public void setSurname(String surname) {
         this.surname = surname;
+    }
+
+    public Role getRole() {
+        return role;
+    }
+
+    public void setRole(Role role) {
+        this.role = role;
     }
 }
