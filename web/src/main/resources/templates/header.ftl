@@ -19,20 +19,6 @@
                 <ul class="nav navbar-nav">
                     <li><a href="/aboutMe"><i class="fa fa-home"></i><@spring.message "messages.aboutMe"/></a></li>
                 </ul>
-                <#--<ul class="nav navbar-nav navbar-right">
-                    <li>
-                        <a href="?lang=en">
-                            <img src="images/lang/en.png" width="20px" height="20px"/>
-                        </a>
-                    </li>
-                </ul>
-                <ul class="nav navbar-nav navbar-right">
-                    <li>
-                        <a href="?lang=ru">
-                            <img src="images/lang/ru.png" width="20px" height="20px"/>
-                        </a>
-                    </li>
-                </ul>-->
                 <ul class="nav navbar-nav navbar-right">
                     <li class="dropdown">
                         <a id="lang-dropdown" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">

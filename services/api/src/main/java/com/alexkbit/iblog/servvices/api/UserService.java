@@ -1,11 +1,12 @@
 package com.alexkbit.iblog.servvices.api;
 
 import com.alexkbit.iblog.model.User;
+import org.springframework.security.core.userdetails.UserDetailsService;
 
 /**
  * Business service for {@link User}
  */
-public interface UserService {
+public interface UserService extends UserDetailsService {
 
     /**
      * Register new user in system
