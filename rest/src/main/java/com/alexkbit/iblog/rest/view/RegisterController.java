@@ -33,7 +33,7 @@ public class RegisterController {
     }
 
     @RequestMapping(value = "/register/new", method = RequestMethod.POST)
-    public String handleUserCreateForm(@Valid @ModelAttribute("form") UserRegisterForm form, BindingResult bindingResult) {
+    public String registerNewForm(@Valid @ModelAttribute("form") UserRegisterForm form, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             return "register";
         }
@@ -43,6 +43,16 @@ public class RegisterController {
             bindingResult.reject("error.login_or_email.exists", "Email or login already exists");
             return "register";
         }
+        return "register_success";
+    }
+
+    @RequestMapping(value = "/register/new", method = RequestMethod.GET)
+    public String registerNew() {
+        return "register";
+    }
+
+    @RequestMapping(value = "/register/success", method = RequestMethod.GET)
+    public String registerSuccess() {
         return "register_success";
     }
 
