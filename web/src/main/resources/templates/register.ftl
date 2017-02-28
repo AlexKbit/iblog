@@ -2,7 +2,7 @@
 <#import "/spring.ftl" as spring/>
 
 <@single.page pageTitle="">
-<div style="padding-left: 25%; padding-right: 25%">
+<div class="single-center">
     <#--<@spring.bind "form" />-->
     <#--<#if spring.status.error>
         <div class="alert alert-danger" role="alert">
@@ -19,26 +19,38 @@
         </div>
         <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
         <div>
-            <label for="login" class="sr-only">Login</label>
-            <input type="text" class="form-control" name="login" id="login" required>
+            <input type="text" class="form-control" name="login"
+                   id="login" placeholder="<@spring.message "messages.register.label.login"/>"
+                   required>
         </div>
         <div>
-            <label for="email" class="sr-only">Email address</label>
-            <input type="email" class="form-control" name="email" id="email" required>
+            <input type="email" class="form-control" name="email"
+                   id="email" placeholder="<@spring.message "messages.register.label.email"/>"
+                   required>
         </div>
         <div>
-            <label for="password" class="sr-only">Password</label>
-            <input type="password" class="form-control" name="password" id="password" required>
+            <input type="text" class="form-control" name="name"
+                   id="name" placeholder="<@spring.message "messages.register.label.name"/>"
+                   required>
         </div>
         <div>
-            <label for="name" class="sr-only">Name</label>
-            <input type="text" class="form-control" name="name" id="name" required>
+            <input type="text" class="form-control" name="surname"
+                   id="surname" placeholder="<@spring.message "messages.register.label.surname"/>">
         </div>
         <div>
-            <label for="surname" class="sr-only">Surname</label>
-            <input type="text" class="form-control" name="surname" id="surname" required>
+            <input type="password" class="form-control" name="password"
+                   id="password" placeholder="<@spring.message "messages.register.label.password"/>"
+                   required>
         </div>
-        <button type="submit" class="btn btn-lg btn-primary btn-block">Registration</button>
+        <div>
+            <input type="password" class="form-control" name="confirmPassword"
+                   id="password" placeholder="<@spring.message "messages.register.label.confirmPassword"/>"
+                   required>
+        </div>
+        <br/>
+        <button type="submit" class="btn btn-lg btn-primary btn-block">
+            <@spring.message "messages.register.label.register"/>
+        </button>
     </form>
 </div>
 </@single.page>
