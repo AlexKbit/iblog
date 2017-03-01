@@ -8,7 +8,7 @@ import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
 
 /**
- * Created by Savchenko.Ale on 27.02.2017.
+ * Validator for {@link UserRegisterForm}
  */
 @Component
 public class UserRegisterValidator implements Validator {
@@ -23,7 +23,9 @@ public class UserRegisterValidator implements Validator {
 
     @Override
     public void validate(Object o, Errors errors) {
-
+        UserRegisterForm form = (UserRegisterForm) o;
+        validatePasswords(errors, form);
+        validateEmail(errors, form);
     }
 
     private void validatePasswords(Errors errors, UserRegisterForm form) {

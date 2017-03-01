@@ -13,10 +13,10 @@
         </ul>
         </div>
     </#if>-->
+    <div class="text-center">
+        <h2 class="form-signin-heading"><@spring.message "messages.register"/></h2>
+    </div>
     <form role="form" action="/register/new" method="post" class="form-signin">
-        <div class="text-center">
-            <h2 class="form-signin-heading"><@spring.message "messages.register"/></h2>
-        </div>
         <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
         <div>
             <input type="text" class="form-control" name="login"

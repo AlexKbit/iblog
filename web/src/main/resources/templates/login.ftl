@@ -3,11 +3,16 @@
 
 <@single.page pageTitle="">
 <div class="single-center">
-    <form role="form" action="/login" method="post" class="form-signin">
-        <div class="text-center">
-            <h2 class="form-signin-heading"><@spring.message "messages.login"/></h2>
-            <h6 class="form-signin-heading"><@spring.message "messages.login.help"/></h6>
+    <div class="text-center">
+        <h2 class="form-signin-heading"><@spring.message "messages.login"/></h2>
+        <h6 class="form-signin-heading"><@spring.message "messages.login.help"/></h6>
+    </div>
+    <#if error.isPresent()>
+        <div class="alert alert-danger" role="alert">
+            <p><@spring.message "error.incorrect.password"/></p>
         </div>
+    </#if>
+    <form role="form" action="/login" method="post" class="form-signin">
         <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
         <div>
             <input type="email" class="form-control" name="email"
@@ -28,9 +33,5 @@
         <br/>
         <button type="submit" class="btn btn-lg btn-primary btn-block"><@spring.message "messages.login.label.signin"/></button>
     </form>
-
-    <#if error.isPresent()>
-        <p><@spring.message "error.incorrect.password"/></p>
-    </#if>
 </div>
 </@single.page>
