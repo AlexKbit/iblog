@@ -69,4 +69,11 @@
             <column name="enabled" type="BOOLEAN"/>
         </addColumn>
     </changeSet>
+
+    <changeSet id="2017-03-01_rename_columns_enabled_and_role_in_user" author="alexkbit">
+        <renameColumn  schemaName="public" tableName="user"
+                       oldColumnName="role" newColumnName="usr_role" columnDataType="VARCHAR(32)"/>
+        <renameColumn  schemaName="public" tableName="user"
+                       oldColumnName="enabled" newColumnName="usr_enabled" columnDataType="BOOLEAN"/>
+    </changeSet>
 </databaseChangeLog>

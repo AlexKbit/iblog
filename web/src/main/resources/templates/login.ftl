@@ -11,7 +11,7 @@
         <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
         <div>
             <input type="email" class="form-control" name="email"
-                   id="email" placeholder="<@spring.message "messages.login.label.login"/>"
+                   id="email" placeholder="<@spring.message "messages.login.label.email"/>"
                    required autofocus>
         </div>
         <div>

@@ -21,4 +21,18 @@ public interface UserService extends UserDetailsService {
      */
     User get(String uuid);
 
+    /**
+     * Get user by email
+     * @param email email
+     * @return {@link User}
+     */
+    User getByEmail(String email);
+
+    /**
+     * Get user by login
+     * @param login login
+     * @return {@link User}
+     */
+    User getByLogin(String login);
+
 }
