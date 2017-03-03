@@ -29,7 +29,7 @@ public class UserRegisterValidator implements Validator {
     }
 
     private void validatePasswords(Errors errors, UserRegisterForm form) {
-        if (!form.getPassword().equals(form.getPasswordRepeated())) {
+        if (!form.getPassword().equals(form.getConfirmPassword())) {
             errors.reject("error.incorrect.passwordMatch");
         }
     }

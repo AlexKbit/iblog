@@ -19,7 +19,7 @@ public class UserRegisterForm {
 
     private String password;
 
-    private String passwordRepeated;
+    private String confirmPassword;
 
     private Role role = Role.USER;
 
@@ -47,12 +47,12 @@ public class UserRegisterForm {
         this.password = password;
     }
 
-    public String getPasswordRepeated() {
-        return passwordRepeated;
+    public String getConfirmPassword() {
+        return confirmPassword;
     }
 
-    public void setPasswordRepeated(String passwordRepeated) {
-        this.passwordRepeated = passwordRepeated;
+    public void setConfirmPassword(String confirmPassword) {
+        this.confirmPassword = confirmPassword;
     }
 
     public Role getRole() {
@@ -87,7 +87,7 @@ public class UserRegisterForm {
         user.setRole(role);
         user.setEnabled(true);
         user.setName(name);
-        user.setName(surname);
+        user.setSurname(surname);
         return user;
     }
 }
