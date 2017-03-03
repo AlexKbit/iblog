@@ -10,4 +10,6 @@ spring:
 liquibase:
     enabled: true
     change-log: classpath:master.xml
+logging:
+    config: classpath:logback.xml
 

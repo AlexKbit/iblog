@@ -7,5 +7,3 @@ spring:
       password: ${DATABASE_PASSWORD}
   thymeleaf:
     cache: false
-logging:
-    config: classpath:logback-tomcat.xml
