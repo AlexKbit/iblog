@@ -42,26 +42,26 @@
                     <#if !currentUser??>
                         <li class="nb-li">
                             <a href="/login" class="nb-link">
-                                <img src="images/login.png" width="25px" height="25px" title="<@spring.message "messages.login"/>"/>
+                                <img src="images/menu/login.png" width="25px" height="25px" title="<@spring.message "messages.login"/>"/>
                             </a>
                         </li>
                     </#if>
                     <#if currentUser??>
                         <li class="dropdown nb-li">
                             <a id="user-dropdown" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                                <img src="images/menu.png" class="nb-image-small"/></span>
+                                <img src="images/menu/menu.png" class="nb-image-small"/></span>
                             </a>
                             <ul class="dropdown-menu">
                                 <li>
                                     <a href="/profile">
-                                        <img src="images/account.png" class="nb-image-small"/>
+                                        <img src="images/menu/account.png" class="nb-image-small"/>
                                         <@spring.message "messages.menu.account"/>
                                     </a>
                                 </li>
                                 <#if currentUser.role == "ADMIN">
                                 <li>
                                     <a href="/posts/new">
-                                        <img src="images/newPost.png" class="nb-image-small"/>
+                                        <img src="images/menu/newPost.png" class="nb-image-small"/>
                                         <@spring.message "messages.menu.newPost"/>
                                     </a>
                                 </li>
@@ -72,7 +72,7 @@
                                         <form id="logout_form" action="/logout" method="post">
                                             <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
                                         </form>
-                                        <img src="images/logout.png" class="nb-image-small"/>
+                                        <img src="images/menu/logout.png" class="nb-image-small"/>
                                         <@spring.message "messages.menu.logout"/>
                                     </a>
                                 </li>
