@@ -1,15 +1,9 @@
 package com.alexkbit.iblog.model;
 
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.AuthorityUtils;
-import org.springframework.security.core.userdetails.UserDetails;
-
-import java.util.Collection;
-
 /**
  * Model of user
  */
-public class User extends TimeMarkModel implements UserDetails {
+public class User extends TimeMarkModel {
 
     /**
      * Login in the system
@@ -54,38 +48,8 @@ public class User extends TimeMarkModel implements UserDetails {
         this.login = login;
     }
 
-    @Override
-    public Collection<? extends GrantedAuthority> getAuthorities() {
-        return AuthorityUtils.createAuthorityList(this.getRole().toString());
-    }
-
     public String getPassword() {
         return password;
-    }
-
-    @Override
-    public String getUsername() {
-        return login;
-    }
-
-    @Override
-    public boolean isAccountNonExpired() {
-        return false;
-    }
-
-    @Override
-    public boolean isAccountNonLocked() {
-        return enabled;
-    }
-
-    @Override
-    public boolean isCredentialsNonExpired() {
-        return false;
-    }
-
-    @Override
-    public boolean isEnabled() {
-        return enabled;
     }
 
     public void setPassword(String password) {
