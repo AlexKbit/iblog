@@ -52,5 +52,10 @@
             <@spring.message "messages.register.label.register"/>
         </button>
     </form>
+        <div class="text-center">
+            <p>
+                <a href="/"><@spring.message "messages.login.label.getBack"/></a>
+            </p>
+        </div>
 </div>
 </@single.page>

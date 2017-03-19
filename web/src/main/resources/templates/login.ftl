@@ -30,8 +30,14 @@
                 <@spring.message "messages.login.label.remember"/>
             </label>
         </div>
-        <br/>
+        <#--<br/>-->
         <button type="submit" class="btn btn-lg btn-primary btn-block"><@spring.message "messages.login.label.signin"/></button>
     </form>
+    <div class="text-center">
+        <p>
+            <a href="/register/new"><@spring.message "messages.login.label.newAccount"/></a>
+            <a href="/"><@spring.message "messages.login.label.getBack"/></a>
+        </p>
+    </div>
 </div>
 </@single.page>

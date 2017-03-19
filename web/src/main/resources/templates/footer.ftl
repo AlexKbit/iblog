@@ -4,7 +4,7 @@
 <div class="footer" id="page_footer">
     <div class="container">
         <h6 class="text-center">
-            Created by Aleksandr Savchenko: Software Developer
+            Created by Alexander Savchenko: Software Developer
         </h6>
     </div>
 </div>
