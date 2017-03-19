@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 <body>
 <div id="page_header">
-    <nav class="navbar navbar-default navbar-static-top">
+    <nav id="appTab" class="navbar navbar-default navbar-static-top">
         <div class="container-fluid">
             <div class="navbar-header">
                 <a class="navbar-brand" href="/">
@@ -14,7 +14,10 @@
 
             <div class="collapse navbar-collapse" id="navbar-links">
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="/posts"><i class="fa fa-home"></i><@spring.message "messages.posts"/></a></li>
+                    <li><a href="/posts"><i class="fa fa-home"></i><@spring.message "messages.posts"/></a></li>
+                </ul>
+                <ul class="nav navbar-nav">
+                    <li><a href="/library"><i class="fa fa-home"></i><@spring.message "messages.library"/></a></li>
                 </ul>
                 <ul class="nav navbar-nav">
                     <li><a href="/aboutMe"><i class="fa fa-home"></i><@spring.message "messages.aboutMe"/></a></li>
