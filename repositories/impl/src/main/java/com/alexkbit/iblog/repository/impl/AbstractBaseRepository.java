@@ -1,11 +1,13 @@
 package com.alexkbit.iblog.repository.impl;
 
 import com.alexkbit.iblog.model.BaseModel;
+import com.alexkbit.iblog.model.ModelPage;
 import com.alexkbit.iblog.repositories.api.BaseRepository;
 import com.alexkbit.iblog.repository.impl.entities.BaseEntity;
 import org.dozer.DozerBeanMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.data.domain.Page;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import javax.annotation.PostConstruct;
@@ -169,5 +171,23 @@ public abstract class AbstractBaseRepository<M extends BaseModel, E extends Base
      */
     protected List<M> mapToModel(Collection<E> entities) {
         return entities.stream().map(this::mapToModel).collect(Collectors.toList());
+    }
+
+    /**
+     * Map Spring data page to page of models
+     * @param dataPage spring data page
+     * @return page of models
+     */
+    protected ModelPage<M> mapToModel(Page<E> dataPage) {
+        ModelPage<M> modelPage = new ModelPage<>();
+        modelPage.setContent(mapToModel(dataPage.getContent()));
+        modelPage.setNumber(dataPage.getNumber());
+        modelPage.setNumberOfElements(dataPage.getNumberOfElements());
+        modelPage.setSize(dataPage.getSize());
+        modelPage.setTotalPages(dataPage.getTotalPages());
+        modelPage.setTotalElements(dataPage.getTotalElements());
+        modelPage.setFirst(dataPage.isFirst());
+        modelPage.setLast(dataPage.isLast());
+        return modelPage;
     }
 }

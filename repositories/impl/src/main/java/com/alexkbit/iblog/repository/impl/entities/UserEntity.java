@@ -2,13 +2,8 @@ package com.alexkbit.iblog.repository.impl.entities;
 
 import com.alexkbit.iblog.model.Role;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-import javax.persistence.PrePersist;
-import javax.persistence.PreUpdate;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.List;
 
 /**
  * Entity of user
@@ -66,6 +61,9 @@ public class UserEntity extends TimeMarkEntity {
     @Column(name = "usr_enabled")
     private boolean enabled;
 
+    @OneToMany(mappedBy="user")
+    private List<ImageEntity> images;
+
     public String getLogin() {
         return login;
     }
@@ -120,5 +118,13 @@ public class UserEntity extends TimeMarkEntity {
 
     public void setEnabled(boolean enabled) {
         this.enabled = enabled;
+    }
+
+    public List<ImageEntity> getImages() {
+        return images;
+    }
+
+    public void setImages(List<ImageEntity> images) {
+        this.images = images;
     }
 }

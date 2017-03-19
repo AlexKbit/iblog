@@ -76,4 +76,11 @@
         <renameColumn  schemaName="public" tableName="user"
                        oldColumnName="enabled" newColumnName="usr_enabled" columnDataType="BOOLEAN"/>
     </changeSet>
+
+    <changeSet id="2017-03-01_create_primary_key_in_user" author="alexkbit">
+        <addPrimaryKey columnNames="uuid"
+                       constraintName="pk_user"
+                       schemaName="public"
+                       tableName="user"/>
+    </changeSet>
 </databaseChangeLog>
