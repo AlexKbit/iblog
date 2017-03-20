@@ -16,7 +16,8 @@ import static org.junit.Assert.*;
 /**
  * Repository test for {@link UserRepositoryImpl}
  */
-public class UserRepositoryImplTest extends AbstractRepositoryTest {
+@DatabaseSetup(value = "/datasets/repositories/user/user_three.xml")
+public class UserRepositoryImplTest extends AbstractTestRepository {
 
     private String USER_UUID_1 = "8ac8087d-fc14-4e4f-b9d0-5c4b9e05a501";
 
@@ -50,7 +51,6 @@ public class UserRepositoryImplTest extends AbstractRepositoryTest {
     }
 
     @Test
-    @DatabaseSetup(value = "/datasets/repositories/user/user_three.xml")
     public void testGetByUuid() {
         User user = userRepository.findOne(USER_UUID_1);
         assertNotNull(user);
@@ -58,14 +58,12 @@ public class UserRepositoryImplTest extends AbstractRepositoryTest {
     }
 
     @Test
-    @DatabaseSetup(value = "/datasets/repositories/user/user_three.xml")
     public void testGetByUuidNotFound() {
         User user = userRepository.findOne(UUID.randomUUID().toString());
         assertNull(user);
     }
 
     @Test
-    @DatabaseSetup(value = "/datasets/repositories/user/user_three.xml")
     public void testGetByUuids() {
         List<String> expectedIds = Arrays.asList(USER_UUID_1, USER_UUID_2);
         List<User> users = userRepository.findByIds(expectedIds);
@@ -76,7 +74,6 @@ public class UserRepositoryImplTest extends AbstractRepositoryTest {
     }
 
     @Test
-    @DatabaseSetup(value = "/datasets/repositories/user/user_three.xml")
     public void testGetByUuidsNotFound() {
         List<String> ids = Arrays.asList("ids");
         List<User> users = userRepository.findByIds(ids);
@@ -85,7 +82,6 @@ public class UserRepositoryImplTest extends AbstractRepositoryTest {
     }
 
     @Test
-    @DatabaseSetup(value = "/datasets/repositories/user/user_three.xml")
     public void testDelete() {
         assertNotNull(userRepository.findOne(USER_UUID_1));
         userRepository.delete(USER_UUID_1);
@@ -99,7 +95,6 @@ public class UserRepositoryImplTest extends AbstractRepositoryTest {
     }
 
     @Test
-    @DatabaseSetup(value = "/datasets/repositories/user/user_three.xml")
     public void testDeleteModel() {
         User user = userRepository.findOne(USER_UUID_1);
         assertNotNull(user);
@@ -110,7 +105,6 @@ public class UserRepositoryImplTest extends AbstractRepositoryTest {
     }
 
     @Test
-    @DatabaseSetup(value = "/datasets/repositories/user/user_three.xml")
     public void testDeleteByModels() {
         List<User> users = userRepository.findByIds(Arrays.asList(USER_UUID_1, USER_UUID_2));
         assertFalse(users.isEmpty());
@@ -126,28 +120,24 @@ public class UserRepositoryImplTest extends AbstractRepositoryTest {
     }
 
     @Test
-    @DatabaseSetup(value = "/datasets/repositories/user/user_three.xml")
     public void testFindByLogin() {
         String login = "user1001";
         assertNotNull(userRepository.findByLogin(login));
     }
 
     @Test
-    @DatabaseSetup(value = "/datasets/repositories/user/user_three.xml")
     public void testFindByLoginNotExist() {
         String login = "user";
         assertNull(userRepository.findByLogin(login));
     }
 
     @Test
-    @DatabaseSetup(value = "/datasets/repositories/user/user_three.xml")
     public void testFindByEmail() {
         String login = "user1001@mail.com";
         assertNotNull(userRepository.findByEmail(login));
     }
 
     @Test
-    @DatabaseSetup(value = "/datasets/repositories/user/user_three.xml")
     public void testFindByEmailNotExist() {
         String login = "user@mail.com";
         assertNull(userRepository.findByEmail(login));

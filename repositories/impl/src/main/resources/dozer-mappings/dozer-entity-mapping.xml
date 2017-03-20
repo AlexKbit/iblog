@@ -26,10 +26,6 @@
     <mapping>
         <class-a>com.alexkbit.iblog.model.Image</class-a>
         <class-b>com.alexkbit.iblog.repository.impl.entities.ImageEntity</class-b>
-        <field>
-            <a>userId</a>
-            <b>user.id</b>
-        </field>
     </mapping>
 
 

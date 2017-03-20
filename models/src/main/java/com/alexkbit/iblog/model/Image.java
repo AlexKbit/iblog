@@ -6,9 +6,9 @@ package com.alexkbit.iblog.model;
 public class Image extends TimeMarkModel {
 
     /**
-     * Id of user
+     * Owner
      */
-    private String userId;
+    private User user;
 
     /**
      * Name of image
@@ -25,12 +25,12 @@ public class Image extends TimeMarkModel {
      */
     private ImageType type;
 
-    public String getUserId() {
-        return userId;
+    public User getUser() {
+        return user;
     }
 
-    public void setUserId(String userId) {
-        this.userId = userId;
+    public void setUser(User user) {
+        this.user = user;
     }
 
     public String getName() {

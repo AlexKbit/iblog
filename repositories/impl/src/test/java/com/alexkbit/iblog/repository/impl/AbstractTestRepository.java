@@ -25,5 +25,5 @@ import org.springframework.test.context.support.DirtiesContextTestExecutionListe
 @DbUnitConfiguration(dataSetLoader = FlatXmlDataSetLoader.class, databaseConnection = "dataSource")
 @SpringApplicationConfiguration(RepositoryTestApplication.class)
 @ActiveProfiles("repository-tests")
-public class AbstractRepositoryTest extends AbstractTransactionalJUnit4SpringContextTests {
+public class AbstractTestRepository extends AbstractTransactionalJUnit4SpringContextTests {
 }
