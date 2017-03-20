@@ -5,6 +5,8 @@ import com.alexkbit.iblog.model.User;
 import com.alexkbit.iblog.repositories.api.UserRepository;
 import com.alexkbit.iblog.servvices.api.UserService;
 import com.alexkbit.iblog.servvices.api.exception.ServiceException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
@@ -17,17 +19,24 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional
 public class UserServiceImpl implements UserService {
 
+    private static final Logger log = LoggerFactory.getLogger(UserServiceImpl.class);
+
     @Autowired
     private UserRepository userRepository;
 
     @Override
     public User register(User user) {
         if (userRepository.findByLogin(user.getLogin()) != null) {
-            throw new ServiceException(String.format("User with login: %s already exist.", user.getLogin()));
+            String errorMsg = String.format("User with login: %s already exist.", user.getLogin());
+            log.error(errorMsg);
+            throw new ServiceException(errorMsg);
         }
         if (userRepository.findByEmail(user.getEmail()) != null) {
-            throw new ServiceException(String.format("User with email: %s already exist.", user.getEmail()));
+            String errorMsg = String.format("User with email: %s already exist.", user.getEmail());
+            log.error(errorMsg);
+            throw new ServiceException(errorMsg);
         }
+        log.info("Register new user with login = {}", user.getLogin());
         return userRepository.save(user);
     }
 
@@ -36,6 +45,7 @@ public class UserServiceImpl implements UserService {
         if (uuid == null) {
             return null;
         }
+        log.info("Load user by id = {}", uuid);
         return userRepository.findOne(uuid);
     }
 
@@ -44,6 +54,7 @@ public class UserServiceImpl implements UserService {
         if (email == null) {
             return null;
         }
+        log.info("Load user by email = {}", email);
         return userRepository.findByEmail(email);
     }
 
@@ -52,6 +63,7 @@ public class UserServiceImpl implements UserService {
         if (login == null) {
             return null;
         }
+        log.info("Load user by login = {}", login);
         return userRepository.findByLogin(login);
     }
 
@@ -59,8 +71,11 @@ public class UserServiceImpl implements UserService {
     public CurrentUser loadUserByUsername(String loginOrEmail) throws UsernameNotFoundException {
         User user = userRepository.findByLoginOrEmail(loginOrEmail);
         if (user == null) {
-            throw new UsernameNotFoundException(String.format("User with %s was not found", loginOrEmail));
+            String errorMsg = String.format("User with %s was not found", loginOrEmail);
+            log.error(errorMsg);
+            throw new UsernameNotFoundException(errorMsg);
         }
+        log.info("Load user by username = {}", loginOrEmail);
         return new CurrentUser(user);
     }
 }

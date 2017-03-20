@@ -8,7 +8,7 @@ import com.alexkbit.iblog.model.ModelPage;
  */
 public interface ImageService {
 
-    void save(Image image);
+    Image save(Image image);
 
     Image get(String id);
 

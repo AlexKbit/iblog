@@ -1,5 +1,6 @@
 package com.alexkbit.iblog.services.impl;
 
+import com.alexkbit.iblog.model.Role;
 import com.alexkbit.iblog.model.User;
 import com.alexkbit.iblog.repositories.api.UserRepository;
 import com.alexkbit.iblog.servvices.api.exception.ServiceException;
@@ -9,13 +10,12 @@ import org.easymock.Mock;
 import org.easymock.TestSubject;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 
 import java.util.UUID;
 
 import static org.easymock.EasyMock.*;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.fail;
+import static org.junit.Assert.*;
 
 /**
  * Test for {@link UserServiceImpl}
@@ -48,6 +48,72 @@ public class UserServiceImplTest extends EasyMockSupport {
         expect(userRepository.findOne(anyObject())).andReturn(null);
         replayAll();
         assertNull(userService.get(UUID.randomUUID().toString()));
+        verifyAll();
+    }
+
+    @Test
+    public void testGetByEmail() {
+        String id = UUID.randomUUID().toString();
+        User user = new User();
+        user.setId(id);
+        user.setEmail("email");
+        expect(userRepository.findByEmail(eq(user.getEmail()))).andReturn(user);
+        replayAll();
+        assertEquals(id, userService.getByEmail(user.getEmail()).getId());
+        verifyAll();
+    }
+
+    @Test
+    public void testLoadUserByUsername() {
+        String id = UUID.randomUUID().toString();
+        User user = new User();
+        user.setId(id);
+        user.setEmail("email");
+        user.setLogin("login");
+        user.setPassword("pass");
+        user.setRole(Role.ADMIN);
+        expect(userRepository.findByLoginOrEmail(eq(user.getEmail()))).andReturn(user);
+        replayAll();
+        assertEquals(id, userService.loadUserByUsername(user.getEmail()).getId());
+        verifyAll();
+    }
+
+    @Test
+    public void testLoadUserByUsernameThrow() {
+        expect(userRepository.findByLoginOrEmail(anyString())).andReturn(null);
+        replayAll();
+        try {
+            userService.loadUserByUsername("");
+            fail("Should be throw exception");
+        } catch (UsernameNotFoundException ex) {
+            assertNotNull(ex.getMessage());
+        }
+        verifyAll();
+    }
+
+    @Test
+    public void testGetByEmailNotFound() {
+        replayAll();
+        assertNull(userService.getByEmail(null));
+        verifyAll();
+    }
+
+    @Test
+    public void testGetByLogin() {
+        String id = UUID.randomUUID().toString();
+        User user = new User();
+        user.setId(id);
+        user.setLogin("login");
+        expect(userRepository.findByLogin(eq(user.getLogin()))).andReturn(user);
+        replayAll();
+        assertEquals(id, userService.getByLogin(user.getLogin()).getId());
+        verifyAll();
+    }
+
+    @Test
+    public void testGetByLoginNotFound() {
+        replayAll();
+        assertNull(userService.getByLogin(null));
         verifyAll();
     }
 
