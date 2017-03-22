@@ -33,6 +33,7 @@ public class UserRepositoryImplTest extends AbstractTestRepository {
         User user = new User();
         user.setLogin("user");
         user.setEmail("user@mail.com");
+        user.setEnabled(true);
         User newUser = userRepository.save(user);
         assertUser(user, newUser);
     }
@@ -163,6 +164,7 @@ public class UserRepositoryImplTest extends AbstractTestRepository {
         assertNotNull(newUser.getUpdatedAt());
         assertEquals(old.getEmail(), newUser.getEmail());
         assertEquals(old.getLogin(), newUser.getLogin());
+        assertEquals(old.isEnabled(), newUser.isEnabled());
     }
 
 }

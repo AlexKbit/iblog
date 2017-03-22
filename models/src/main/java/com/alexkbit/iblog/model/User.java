@@ -95,4 +95,8 @@ public class User extends TimeMarkModel {
     public void setEnabled(boolean enabled) {
         this.enabled = enabled;
     }
+
+    public boolean isEnabled() {
+        return enabled;
+    }
 }
