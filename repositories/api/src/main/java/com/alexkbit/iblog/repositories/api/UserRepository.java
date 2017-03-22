@@ -1,5 +1,6 @@
 package com.alexkbit.iblog.repositories.api;
 
+import com.alexkbit.iblog.model.ModelPage;
 import com.alexkbit.iblog.model.User;
 
 /**
@@ -27,4 +28,12 @@ public interface UserRepository extends BaseRepository<User> {
      * @return {@link User}
      */
     User findByLoginOrEmail(String loginOrEmail);
+
+    /**
+     * Find users
+     * @param page page number
+     * @param size count on page
+     * @return page
+     */
+    ModelPage<User> findAll(int page, int size);
 }

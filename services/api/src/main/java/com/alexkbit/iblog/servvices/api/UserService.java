@@ -1,5 +1,7 @@
 package com.alexkbit.iblog.servvices.api;
 
+import com.alexkbit.iblog.model.Image;
+import com.alexkbit.iblog.model.ModelPage;
 import com.alexkbit.iblog.model.User;
 import org.springframework.security.core.userdetails.UserDetailsService;
 
@@ -34,5 +36,13 @@ public interface UserService extends UserDetailsService {
      * @return {@link User}
      */
     User getByLogin(String login);
+
+    /**
+     * Gets page of users
+     * @param page number of page
+     * @param count count of users
+     * @return page
+     */
+    ModelPage<Image> get(int page, int count);
 
 }

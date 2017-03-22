@@ -1,10 +1,13 @@
 package com.alexkbit.iblog.repository.impl;
 
+import com.alexkbit.iblog.model.ModelPage;
 import com.alexkbit.iblog.model.User;
 import com.alexkbit.iblog.repositories.api.UserRepository;
 import com.alexkbit.iblog.repository.impl.entities.UserEntity;
 import com.alexkbit.iblog.repository.impl.jpa.UserRepositoryJpa;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -35,6 +38,12 @@ public class UserRepositoryImpl extends AbstractBaseRepository<User, UserEntity>
     @Override
     public User findByLoginOrEmail(String loginOrEmail) {
         return findOne(() -> userRepositoryJpa.findByEmailOrLogin(loginOrEmail));
+    }
+
+    @Override
+    public ModelPage<User> findAll(int page, int size) {
+        Page<UserEntity> result = userRepositoryJpa.findAll(new PageRequest(page, size));
+        return mapToModel(result);
     }
 
 }
