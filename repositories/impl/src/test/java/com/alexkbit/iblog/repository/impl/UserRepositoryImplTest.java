@@ -1,5 +1,6 @@
 package com.alexkbit.iblog.repository.impl;
 
+import com.alexkbit.iblog.model.ModelPage;
 import com.alexkbit.iblog.model.User;
 import com.alexkbit.iblog.repositories.api.UserRepository;
 import com.github.springtestdbunit.annotation.DatabaseSetup;
@@ -10,6 +11,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 import static org.junit.Assert.*;
 
@@ -141,6 +143,18 @@ public class UserRepositoryImplTest extends AbstractTestRepository {
     public void testFindByEmailNotExist() {
         String login = "user@mail.com";
         assertNull(userRepository.findByEmail(login));
+    }
+
+    @Test
+    public void testGetPage() {
+        ModelPage<User> users = userRepository.findAll(0, 10);
+        assertEquals(0, users.getNumber());
+        assertEquals(3, users.getNumberOfElements());
+        assertEquals(3, users.getTotalElements());
+        List<String> ids = users.getContent().stream().map(User::getId).collect(Collectors.toList());
+        assertTrue(ids.contains("8ac8087d-fc14-4e4f-b9d0-5c4b9e05a501"));
+        assertTrue(ids.contains("8ac8087d-fc14-4e4f-b9d0-5c4b9e05a502"));
+        assertTrue(ids.contains("8ac8087d-fc14-4e4f-b9d0-5c4b9e05a503"));
     }
 
     private void assertUser(User old, User newUser) {
