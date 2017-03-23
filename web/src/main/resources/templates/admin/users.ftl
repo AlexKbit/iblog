@@ -32,6 +32,7 @@
                 </#list>
             </tbody>
         </table>
+        <#include "../pagination.ftl">
     </div>
 </div>
 </@layout.page>
