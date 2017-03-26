@@ -44,4 +44,11 @@ public interface UserService extends UserDetailsService {
      */
     ModelPage<User> get(int page, int count);
 
+    /**
+     * Change value of enabled
+     * @param userId id of user
+     * @param enabled value for enabled
+     */
+    void enableUser(String userId, boolean enabled);
+
 }

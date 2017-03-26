@@ -75,6 +75,18 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public void enableUser(String userId, boolean enabled) {
+        log.info("Set enabled = {} for user with id = {}", enabled, userId);
+        User user = userRepository.findOne(userId);
+        if (user == null) {
+            log.info("User with id = {} not found", userId);
+            return;
+        }
+        user.setEnabled(enabled);
+        userRepository.save(user);
+    }
+
+    @Override
     public CurrentUser loadUserByUsername(String loginOrEmail) throws UsernameNotFoundException {
         User user = userRepository.findByLoginOrEmail(loginOrEmail);
         if (user == null) {
