@@ -171,8 +171,40 @@ public class UserServiceImplTest extends EasyMockSupport {
         }
     }
 
+    @Test
+    public void testEnableUser() {
+        User user = createUser();
+        expect(userRepository.findOne(eq(user.getId()))).andReturn(user);
+        expect(userRepository.save(eq(user))).andReturn(user);
+        replayAll();
+        userService.enableUser(user.getId(), true);
+        assertTrue(user.isEnabled());
+        verifyAll();
+    }
+
+    @Test
+    public void testDisableUser() {
+        User user = createUser();
+        expect(userRepository.findOne(eq(user.getId()))).andReturn(user);
+        expect(userRepository.save(eq(user))).andReturn(user);
+        replayAll();
+        userService.enableUser(user.getId(), false);
+        assertFalse(user.isEnabled());
+        verifyAll();
+    }
+
+    @Test
+    public void testEnableNotFound() {
+        User user = createUser();
+        expect(userRepository.findOne(eq(user.getId()))).andReturn(null);
+        replayAll();
+        userService.enableUser(user.getId(), true);
+        verifyAll();
+    }
+
     private User createUser() {
         User user = new User();
+        user.setId(UUID.randomUUID().toString());
         user.setLogin(USER_LOGIN);
         user.setEmail(USER_EMAIL);
         return user;
