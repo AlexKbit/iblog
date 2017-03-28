@@ -4,19 +4,19 @@
 <@layout.page pageTitle="">
 <div>
     <div class="text-center">
-        <h3>System Users</h3>
+        <h3><@spring.message "messages.admin.users.title"/></h3>
     </div>
 
     <div class="table-hover">
         <table class="table">
             <thead>
                 <tr>
-                    <th>Login</th>
-                    <th>E-mail</th>
-                    <th>Name</th>
-                    <th>Surname</th>
-                    <th>Role</th>
-                    <th>Enabled</th>
+                    <th><@spring.message "messages.admin.users.table.login"/></th>
+                    <th><@spring.message "messages.admin.users.table.email"/></th>
+                    <th><@spring.message "messages.admin.users.table.name"/></th>
+                    <th><@spring.message "messages.admin.users.table.surname"/></th>
+                    <th><@spring.message "messages.admin.users.table.role"/></th>
+                    <th><@spring.message "messages.admin.users.table.enabled"/></th>
                     <th></th>
                 </tr>
             </thead>
@@ -28,7 +28,11 @@
                     <td>${user.name}</td>
                     <td>${user.surname}</td>
                     <td>${user.role}</td>
-                    <td>${user.enabled?string('Enabled', 'Disabled')}</td>
+                    <#if user.enabled>
+                        <td><@spring.message "messages.admin.users.enable"/></td>
+                    <#else>
+                        <td><@spring.message "messages.admin.users.disable"/></td>
+                    </#if>
                     <td>
                         <form action="/admin/users" method="post">
                             <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
@@ -37,7 +41,11 @@
                             <input type="hidden" name="userId" value="${user.id}"/>
                             <input type="hidden" name="enable" value="${user.enabled?string('false','true')}"/>
                             <button type="submit" class="btn btn-primary">
-                                ${user.enabled?string('Disable','Enable')}
+                                <#if user.enabled>
+                                    <@spring.message "messages.admin.users.disable"/>
+                                <#else>
+                                    <@spring.message "messages.admin.users.enable"/>
+                                </#if>
                             </button>
                         </form>
                     </td>
