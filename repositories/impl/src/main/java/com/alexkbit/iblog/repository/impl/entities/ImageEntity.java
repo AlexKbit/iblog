@@ -2,6 +2,8 @@ package com.alexkbit.iblog.repository.impl.entities;
 
 import javax.persistence.*;
 
+import java.util.List;
+
 import static javax.persistence.FetchType.LAZY;
 
 /**
@@ -36,6 +38,9 @@ public class ImageEntity extends TimeMarkEntity {
     @Enumerated(EnumType.STRING)
     private ImageType type;
 
+    @OneToMany(mappedBy="image")
+    private List<BookEntity> books;
+
     public UserEntity getUser() {
         return user;
     }
@@ -66,5 +71,13 @@ public class ImageEntity extends TimeMarkEntity {
 
     public void setType(ImageType type) {
         this.type = type;
+    }
+
+    public List<BookEntity> getBooks() {
+        return books;
+    }
+
+    public void setBooks(List<BookEntity> books) {
+        this.books = books;
     }
 }

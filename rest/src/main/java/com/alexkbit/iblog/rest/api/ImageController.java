@@ -1,9 +1,6 @@
 package com.alexkbit.iblog.rest.api;
 
 import com.alexkbit.iblog.model.Image;
-import com.alexkbit.iblog.model.User;
-import com.alexkbit.iblog.rest.RESTController;
-import com.alexkbit.iblog.rest.dto.UserDTO;
 import com.alexkbit.iblog.servvices.api.ImageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.CacheControl;
@@ -20,7 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 @RequestMapping("/image")
-public class ImageController extends RESTController<User, UserDTO> {
+public class ImageController {
 
     @Autowired
     private ImageService imageService;

@@ -1,66 +1,49 @@
-package com.alexkbit.iblog.repository.impl.entities;
-
-import javax.persistence.*;
+package com.alexkbit.iblog.model;
 
 /**
- * Entity of book
+ * Model of book
  */
-@Entity
-@Table(name = "book", schema = "public")
-public class BookEntity extends TimeMarkEntity {
+public class Book extends TimeMarkModel {
 
     /**
      * Name of book
      */
-    @Column(name = "book_name")
     private String name;
 
     /**
      * Name of author
      */
-    @Column(name = "book_author")
     private String author;
 
     /**
      * Count of pages
      */
-    @Column(name = "book_page_count")
     private Integer pageCount;
 
     /**
      * Book current page
      */
-    @Column(name = "book_current_page")
     private Integer currentPage;
 
-    @ManyToOne(fetch=FetchType.LAZY)
-    @JoinColumn(name="book_image")
-    private ImageEntity image;
+    /**
+     * Image of album page
+     */
+    private Image image;
 
     /**
      * Book language
      */
-    @Column(name = "book_language")
-    @Enumerated(EnumType.STRING)
-    private BookLanguageEntity language;
+    private BookLanguage language;
 
     /**
      * Year publish of book
      */
-    @Column(name = "book_publish_year")
     private Integer publishYear;
 
     /**
      * Book rate
      */
-    @Column(name = "book_rate")
     private Double rate;
-
-    @PrePersist
-    @PreUpdate
-    public void init() {
-        super.init();
-    }
 
     public String getName() {
         return name;
@@ -94,19 +77,19 @@ public class BookEntity extends TimeMarkEntity {
         this.currentPage = currentPage;
     }
 
-    public ImageEntity getImage() {
+    public Image getImage() {
         return image;
     }
 
-    public void setImage(ImageEntity image) {
+    public void setImage(Image image) {
         this.image = image;
     }
 
-    public BookLanguageEntity getLanguage() {
+    public BookLanguage getLanguage() {
         return language;
     }
 
-    public void setLanguage(BookLanguageEntity language) {
+    public void setLanguage(BookLanguage language) {
         this.language = language;
     }
 
