@@ -64,6 +64,9 @@ public class UserEntity extends TimeMarkEntity {
     @OneToMany(mappedBy="user")
     private List<ImageEntity> images;
 
+    @OneToMany(mappedBy="user")
+    private List<BookEntity> books;
+
     public String getLogin() {
         return login;
     }
@@ -126,5 +129,13 @@ public class UserEntity extends TimeMarkEntity {
 
     public void setImages(List<ImageEntity> images) {
         this.images = images;
+    }
+
+    public List<BookEntity> getBooks() {
+        return books;
+    }
+
+    public void setBooks(List<BookEntity> books) {
+        this.books = books;
     }
 }

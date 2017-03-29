@@ -34,6 +34,10 @@ public class BookEntity extends TimeMarkEntity {
     private Integer currentPage;
 
     @ManyToOne(fetch=FetchType.LAZY)
+    @JoinColumn(name="book_user")
+    private UserEntity user;
+
+    @ManyToOne(fetch=FetchType.LAZY)
     @JoinColumn(name="book_image")
     private ImageEntity image;
 
@@ -124,5 +128,13 @@ public class BookEntity extends TimeMarkEntity {
 
     public void setRate(Double rate) {
         this.rate = rate;
+    }
+
+    public UserEntity getUser() {
+        return user;
+    }
+
+    public void setUser(UserEntity user) {
+        this.user = user;
     }
 }

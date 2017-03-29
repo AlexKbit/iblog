@@ -16,6 +16,11 @@ public class Book extends TimeMarkModel {
     private String author;
 
     /**
+     * Owner of book
+     */
+    private User user;
+
+    /**
      * Count of pages
      */
     private Integer pageCount;
@@ -107,5 +112,13 @@ public class Book extends TimeMarkModel {
 
     public void setRate(Double rate) {
         this.rate = rate;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 }
