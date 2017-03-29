@@ -17,7 +17,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
 
 /**
- * Test for {@link ImageServiceImpl}
+ * Test for {@link BookServiceImpl}
  */
 @RunWith(EasyMockRunner.class)
 public class BookServiceImplTest extends EasyMockSupport {
