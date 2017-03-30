@@ -47,4 +47,9 @@
         </createTable>
     </changeSet>
 
+    <changeSet id="2017_03_19-update-book-table" author="alexkbit">
+        <modifyDataType  schemaName="public" tableName="user"
+                         columnName="book_publish_year" newDataType="INT"/>
+    </changeSet>
+
 </databaseChangeLog>
