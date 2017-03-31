@@ -3,14 +3,17 @@
 
 <@layout.page pageTitle="">
 <div>
-    <form name="uploadingForm" enctype="multipart/form-data" action="/admin/book/image" method="POST">
+    <div>
+        <#if book?? && book.image??>
+            <img src="/image/${book.image.id}" class="image-book" onclick="$('#uploadingFile').click()">
+        <#else>
+            <img src="/images/noImage.png" class="image-book" onclick="$('#uploadingFile').click()">
+        </#if>
+    </div>
+    <form id="uploadingForm" name="uploadingForm" enctype="multipart/form-data" action="/admin/book/image" method="POST">
         <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-        <p>
-            <input id="fileInput" type="file" name="uploadingFiles">
-        </p>
-        <p>
-            <input type="submit" value="Upload files">
-        </p>
+        <input id="uploadingFile" type="file" name="uploadingFiles"
+               class="hide-block" onchange="$('#uploadingForm').submit()">
     </form>
 </div>
 </@layout.page>

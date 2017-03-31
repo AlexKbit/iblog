@@ -13,6 +13,15 @@
     width: 25px;
 }
 
+.image-book {
+    height: 250px;
+    width: 200px;
+}
+
+.hide-block {
+    display: none !important;
+}
+
 .clickable-link {
     cursor: pointer;
 }
