@@ -1,9 +1,11 @@
 package com.alexkbit.iblog.model;
 
 /**
- * Created by aleksandrsavchenko on 19/03/2017.
+ * Possible types of image
  */
 public enum ImageType {
     JPG,
-    PNG;
+    JPEG,
+    PNG,
+    GIF;
 }

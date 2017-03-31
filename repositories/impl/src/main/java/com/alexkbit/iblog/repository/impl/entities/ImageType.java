@@ -5,5 +5,7 @@ package com.alexkbit.iblog.repository.impl.entities;
  */
 public enum ImageType {
     JPG,
-    PNG;
+    JPEG,
+    PNG,
+    GIF;
 }

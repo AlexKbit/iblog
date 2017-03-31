@@ -26,7 +26,7 @@ public class ImageEntity extends TimeMarkEntity {
     /**
      * Data of image
      */
-    @Lob
+    //@Lob
     @Basic(fetch=LAZY)
     @Column(name="img_data")
     private byte[] data;

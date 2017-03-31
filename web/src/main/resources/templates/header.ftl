@@ -69,6 +69,12 @@
                                         </a>
                                     </li>
                                     <li>
+                                        <a href="/admin/book">
+                                            <img src="/images/menu/newBook.png" class="nb-image-small"/>
+                                            <@spring.message "messages.menu.newBook"/>
+                                        </a>
+                                    </li>
+                                    <li>
                                         <a href="/posts/new">
                                             <img src="/images/menu/newPost.png" class="nb-image-small"/>
                                             <@spring.message "messages.menu.newPost"/>
