@@ -2,12 +2,16 @@
 <#import "../spring.ftl" as spring/>
 
 <@layout.page pageTitle="">
-<div>
-    <div class="col-md-4">
+<div class="panel panel-default row">
+    <br/>
+    <div class="col-lg-4">
+        <label class="col-form-label">
+            <@spring.message "messages.book.albumImage"/>
+        </label>
         <#if book?? && book.image??>
-            <img src="/image/${book.image.id}" class="image-book" onclick="$('#uploadingFile').click()">
+            <img src="/image/${book.image.id}" class="image-book" border="1" onclick="$('#uploadingFile').click()">
         <#else>
-            <img src="/images/noImage.png" class="image-book" onclick="$('#uploadingFile').click()">
+            <img src="/images/noImage.png" class="image-book" border="1" onclick="$('#uploadingFile').click()">
         </#if>
         <form id="uploadingForm" name="uploadingForm" enctype="multipart/form-data" action="/admin/book/image" method="POST">
             <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
@@ -15,7 +19,7 @@
                    class="hide-block" onchange="$('#uploadingForm').submit()">
         </form>
     </div>
-    <div>
+    <div class="col-lg-6">
         <form action="/admin/users" method="post">
             <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
             <input type="hidden" name="image" value=""/>
@@ -82,10 +86,14 @@
                            value="" id="input-book-endDate">
                 </div>
             </div>
-            <button type="submit" class="btn btn-primary">
-                <@spring.message "messages.save"/>
-            </button>
+            <div>
+                <button type="submit" class="btn btn-primary">
+                    <@spring.message "messages.save"/>
+                </button>
+                <a href="/" class="btn btn-primary"><@spring.message "messages.back"/></a>
+            </div>
         </form>
+        <br/>
     </div>
 </div>
 </@layout.page>
