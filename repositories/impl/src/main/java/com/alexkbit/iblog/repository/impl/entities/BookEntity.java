@@ -1,6 +1,7 @@
 package com.alexkbit.iblog.repository.impl.entities;
 
 import javax.persistence.*;
+import java.util.Date;
 
 /**
  * Entity of book
@@ -59,6 +60,12 @@ public class BookEntity extends TimeMarkEntity {
      */
     @Column(name = "book_rate")
     private Double rate;
+
+    /**
+     * Date end of read
+     */
+    @Column(name = "book_end_read")
+    private Date endDate;
 
     @PrePersist
     @PreUpdate
@@ -136,5 +143,13 @@ public class BookEntity extends TimeMarkEntity {
 
     public void setUser(UserEntity user) {
         this.user = user;
+    }
+
+    public Date getEndDate() {
+        return endDate;
+    }
+
+    public void setEndDate(Date endDate) {
+        this.endDate = endDate;
     }
 }

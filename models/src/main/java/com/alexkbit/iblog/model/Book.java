@@ -1,5 +1,7 @@
 package com.alexkbit.iblog.model;
 
+import java.util.Date;
+
 /**
  * Model of book
  */
@@ -49,6 +51,11 @@ public class Book extends TimeMarkModel {
      * Book rate
      */
     private Double rate;
+
+    /**
+     * Date for end of read
+     */
+    private Date endDate;
 
     public String getName() {
         return name;
@@ -120,5 +127,13 @@ public class Book extends TimeMarkModel {
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    public Date getEndDate() {
+        return endDate;
+    }
+
+    public void setEndDate(Date endDate) {
+        this.endDate = endDate;
     }
 }

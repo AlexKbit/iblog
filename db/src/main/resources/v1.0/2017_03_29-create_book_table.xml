@@ -48,8 +48,14 @@
     </changeSet>
 
     <changeSet id="2017_03_19-update-book-table" author="alexkbit">
-        <modifyDataType  schemaName="public" tableName="user"
+        <modifyDataType  schemaName="public" tableName="book"
                          columnName="book_publish_year" newDataType="INT"/>
+    </changeSet>
+
+    <changeSet id="2017_04_01-add-book_end_read-book-table" author="alexkbit">
+        <addColumn schemaName="public" tableName="user">
+            <column name="book_end_read" type="TIMESTAMP(6) WITHOUT TIME ZONE"/>
+        </addColumn>
     </changeSet>
 
 </databaseChangeLog>
