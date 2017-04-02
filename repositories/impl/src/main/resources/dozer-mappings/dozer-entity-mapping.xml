@@ -27,6 +27,14 @@
         <class-a>com.alexkbit.iblog.model.Image</class-a>
         <class-b>com.alexkbit.iblog.repository.impl.entities.ImageEntity</class-b>
     </mapping>
+    <mapping>
+        <class-a>com.alexkbit.iblog.model.BookLanguage</class-a>
+        <class-b>com.alexkbit.iblog.repository.impl.entities.BookLanguageEntity</class-b>
+    </mapping>
+    <mapping>
+        <class-a>com.alexkbit.iblog.model.Book</class-a>
+        <class-b>com.alexkbit.iblog.repository.impl.entities.BookEntity</class-b>
+    </mapping>
 
 
 </mappings>
