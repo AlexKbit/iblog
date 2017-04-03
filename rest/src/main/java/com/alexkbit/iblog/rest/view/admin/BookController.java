@@ -1,6 +1,7 @@
 package com.alexkbit.iblog.rest.view.admin;
 
 
+import com.alexkbit.iblog.model.Book;
 import com.alexkbit.iblog.model.CurrentUser;
 import com.alexkbit.iblog.model.Image;
 import com.alexkbit.iblog.model.ImageType;
@@ -58,10 +59,10 @@ public class BookController {
     public ModelAndView bookPost(@ModelAttribute("form") BookForm form,
                                  Authentication authentication) {
         CurrentUser currentUser = (CurrentUser) authentication.getPrincipal();
-        /* TODO
+        Book book = form.toBook();
         book.setUser(currentUser.getUser());
-        book.setImage(imageService.get(imageId));
-        bookService.save(book);*/
+        book.setImage(imageService.get(form.getImageId()));
+        bookService.save(book);
         return new ModelAndView("library");
     }
 }

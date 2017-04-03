@@ -87,7 +87,7 @@
                 </label>
                 <div class="col-10">
                     <input class="form-control" type="date" name="endDate"
-                           value="" id="input-book-endDate">
+                           value="${book.endDate}" id="input-book-endDate">
                 </div>
             </div>
             <div class="form-group row">

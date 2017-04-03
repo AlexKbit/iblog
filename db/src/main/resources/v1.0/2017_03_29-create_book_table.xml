@@ -58,4 +58,11 @@
         </addColumn>
     </changeSet>
 
+    <changeSet id="2017_04_01-update-book_end_read-book-table" author="alexkbit">
+        <dropColumn tableName="user" columnName="book_end_read"/>
+        <addColumn schemaName="public" tableName="book">
+            <column name="book_end_read" type="TIMESTAMP(6) WITHOUT TIME ZONE"/>
+        </addColumn>
+    </changeSet>
+
 </databaseChangeLog>

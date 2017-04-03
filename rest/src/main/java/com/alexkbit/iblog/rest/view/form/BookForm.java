@@ -1,6 +1,8 @@
 package com.alexkbit.iblog.rest.view.form;
 
+import com.alexkbit.iblog.model.Book;
 import com.alexkbit.iblog.model.BookLanguage;
+import com.alexkbit.iblog.rest.formatters.DateFormatter;
 
 import java.time.LocalDate;
 import java.util.Date;
@@ -26,7 +28,7 @@ public class BookForm {
 
     private double rate;
 
-    private Date endDate = new Date();
+    private String endDate = DateFormatter.formatDate(new Date());
 
     public String getName() {
         return name;
@@ -92,11 +94,24 @@ public class BookForm {
         this.rate = rate;
     }
 
-    public Date getEndDate() {
+    public String getEndDate() {
         return endDate;
     }
 
-    public void setEndDate(Date endDate) {
+    public void setEndDate(String endDate) {
         this.endDate = endDate;
+    }
+
+    public Book toBook() {
+        Book book = new Book();
+        book.setName(name);
+        book.setAuthor(author);
+        book.setRate(rate);
+        book.setPublishYear(publishYear);
+        book.setCurrentPage(currentPage);
+        book.setLanguage(language);
+        book.setPageCount(pageCount);
+        book.setEndDate(DateFormatter.parseDate(endDate));
+        return book;
     }
 }

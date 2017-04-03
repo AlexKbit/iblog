@@ -12,6 +12,8 @@ import com.github.springtestdbunit.annotation.DatabaseSetup;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import java.util.Date;
+
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
@@ -53,6 +55,7 @@ public class BookRepositoryImplTest extends AbstractTestRepository {
         book.setPublishYear(2017);
         book.setName("name");
         book.setRate(5.0);
+        book.setEndDate(new Date());
         Book newBook = bookRepository.save(book);
         assertNotNull(newBook.getId());
         assertNotNull(newBook.getCreatedAt());
@@ -63,6 +66,7 @@ public class BookRepositoryImplTest extends AbstractTestRepository {
         assertEquals(book.getLanguage(), newBook.getLanguage());
         assertEquals(book.getPageCount(), newBook.getPageCount());
         assertEquals(book.getPublishYear(), newBook.getPublishYear());
+        assertEquals(book.getEndDate(), newBook.getEndDate());
         assertEquals(book.getRate(), newBook.getRate());
         assertEquals(USER_UUID, newBook.getUser().getId());
         assertEquals(IMAGE_UUID, newBook.getImage().getId());
