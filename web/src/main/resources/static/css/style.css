@@ -18,6 +18,11 @@
     width: 200px;
 }
 
+.image-book-small {
+    height: 125px;
+    width: 100px;
+}
+
 .hide-block {
     display: none !important;
 }
