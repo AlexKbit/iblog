@@ -1,6 +1,7 @@
 package com.alexkbit.iblog.services.impl;
 
 import com.alexkbit.iblog.model.Book;
+import com.alexkbit.iblog.model.ModelPage;
 import com.alexkbit.iblog.repositories.api.BookRepository;
 import com.alexkbit.iblog.servvices.api.BookService;
 import com.alexkbit.iblog.servvices.api.ImageService;
@@ -30,5 +31,11 @@ public class BookServiceImpl implements BookService {
         Book newBook = bookRepository.save(book);
         log.info("Save new book with id = {}", newBook.getId());
         return newBook;
+    }
+
+    @Override
+    public ModelPage<Book> get(int page, int count) {
+        log.info("Load page = {} with count = {} of books", page, count);
+        return bookRepository.findAll(page, count);
     }
 }

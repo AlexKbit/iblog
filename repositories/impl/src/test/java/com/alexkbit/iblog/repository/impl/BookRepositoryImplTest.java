@@ -1,10 +1,7 @@
 package com.alexkbit.iblog.repository.impl;
 
 
-import com.alexkbit.iblog.model.Book;
-import com.alexkbit.iblog.model.BookLanguage;
-import com.alexkbit.iblog.model.Image;
-import com.alexkbit.iblog.model.User;
+import com.alexkbit.iblog.model.*;
 import com.alexkbit.iblog.repositories.api.BookRepository;
 import com.alexkbit.iblog.repositories.api.ImageRepository;
 import com.alexkbit.iblog.repositories.api.UserRepository;
@@ -13,9 +10,10 @@ import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.Date;
+import java.util.List;
+import java.util.stream.Collectors;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.*;
 
 /**
  * Repository test for {@link BookRepositoryImpl}
@@ -77,5 +75,15 @@ public class BookRepositoryImplTest extends AbstractTestRepository {
         Book book = bookRepository.findOne(SINGLE_BOOK_UUID);
         assertNotNull(book);
         assertEquals(book.getId(), SINGLE_BOOK_UUID);
+    }
+
+    @Test
+    public void testGetPage() {
+        ModelPage<Book> books = bookRepository.findAll(0, 10);
+        assertEquals(0, books.getNumber());
+        assertEquals(1, books.getNumberOfElements());
+        assertEquals(1, books.getTotalElements());
+        List<String> ids = books.getContent().stream().map(Book::getId).collect(Collectors.toList());
+        assertTrue(ids.contains(SINGLE_BOOK_UUID));
     }
 }

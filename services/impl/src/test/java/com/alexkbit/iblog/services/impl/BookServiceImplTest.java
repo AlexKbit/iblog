@@ -1,6 +1,7 @@
 package com.alexkbit.iblog.services.impl;
 
 import com.alexkbit.iblog.model.Book;
+import com.alexkbit.iblog.model.ModelPage;
 import com.alexkbit.iblog.repositories.api.BookRepository;
 import org.easymock.EasyMockRunner;
 import org.easymock.EasyMockSupport;
@@ -11,10 +12,8 @@ import org.junit.runner.RunWith;
 
 import java.util.UUID;
 
-import static org.easymock.EasyMock.anyObject;
-import static org.easymock.EasyMock.expect;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNull;
+import static org.easymock.EasyMock.*;
+import static org.junit.Assert.*;
 
 /**
  * Test for {@link BookServiceImpl}
@@ -43,6 +42,14 @@ public class BookServiceImplTest extends EasyMockSupport {
     public void testSaveNull() {
         replayAll();
         assertNull(bookService.save(null));
+        verifyAll();
+    }
+
+    @Test
+    public void testGetPage() {
+        expect(bookRepository.findAll(eq(0), eq(10))).andReturn(new ModelPage<>());
+        replayAll();
+        assertNotNull(bookService.get(0,10));
         verifyAll();
     }
 
