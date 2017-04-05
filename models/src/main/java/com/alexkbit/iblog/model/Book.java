@@ -1,5 +1,6 @@
 package com.alexkbit.iblog.model;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 /**
@@ -40,12 +41,12 @@ public class Book extends TimeMarkModel {
     /**
      * Book language
      */
-    private BookLanguage language;
+    private BookLanguage language = BookLanguage.EN;
 
     /**
      * Year publish of book
      */
-    private Integer publishYear;
+    private int publishYear = LocalDate.now().getYear();
 
     /**
      * Book rate
@@ -55,7 +56,7 @@ public class Book extends TimeMarkModel {
     /**
      * Date for end of read
      */
-    private Date endDate;
+    private Date endDate = new Date();
 
     public String getName() {
         return name;
@@ -135,5 +136,9 @@ public class Book extends TimeMarkModel {
 
     public void setEndDate(Date endDate) {
         this.endDate = endDate;
+    }
+
+    public int getSuccess() {
+        return currentPage / pageCount * 100;
     }
 }

@@ -1,16 +1,11 @@
-package com.alexkbit.iblog.rest.view.form;
+package com.alexkbit.iblog.rest.dto;
 
-import com.alexkbit.iblog.model.Book;
 import com.alexkbit.iblog.model.BookLanguage;
-import com.alexkbit.iblog.rest.formatters.DateFormatter;
-
-import java.time.LocalDate;
-import java.util.Date;
 
 /**
- * Form for book
+ * DTO for book
  */
-public class BookForm {
+public class BookDTO extends BaseDTO {
 
     private String name = "";
 
@@ -22,13 +17,13 @@ public class BookForm {
 
     private int currentPage;
 
-    private BookLanguage language = BookLanguage.EN;
+    private BookLanguage language;
 
-    private int publishYear = LocalDate.now().getYear();
+    private int publishYear;
 
     private double rate;
 
-    private String endDate = DateFormatter.formatDate(new Date());
+    private String endDate;
 
     public String getName() {
         return name;
@@ -102,16 +97,4 @@ public class BookForm {
         this.endDate = endDate;
     }
 
-    public Book toBook() {
-        Book book = new Book();
-        book.setName(name);
-        book.setAuthor(author);
-        book.setRate(rate);
-        book.setPublishYear(publishYear);
-        book.setCurrentPage(currentPage);
-        book.setLanguage(language);
-        book.setPageCount(pageCount);
-        book.setEndDate(DateFormatter.parseDate(endDate));
-        return book;
-    }
 }

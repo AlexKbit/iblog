@@ -1,6 +1,7 @@
 package com.alexkbit.iblog.rest;
 
 import com.alexkbit.iblog.model.BaseModel;
+import com.alexkbit.iblog.model.ModelPage;
 import com.alexkbit.iblog.rest.dto.BaseDTO;
 import org.dozer.DozerBeanMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -82,5 +83,23 @@ public abstract class RESTController<M extends BaseModel, D extends BaseDTO> {
      */
     protected List<M> mapToModel(Collection<D> entities) {
         return entities.stream().map(this::mapToModel).collect(Collectors.toList());
+    }
+
+    /**
+     * Map page to page
+     * @param page page with content of {@link M}
+     * @return page with content of {@link D}
+     */
+    protected ModelPage<D> mapToDTO(ModelPage<M> page) {
+        ModelPage<D> result = new ModelPage<>();
+        result.setTotalPages(page.getTotalPages());
+        result.setSize(page.getSize());
+        result.setNumberOfElements(page.getNumberOfElements());
+        result.setNumber(page.getNumber());
+        result.setFirst(page.isFirst());
+        result.setLast(page.isLast());
+        result.setTotalElements(page.getTotalElements());
+        result.setContent(mapToDTO(page.getContent()));
+        return result;
     }
 }

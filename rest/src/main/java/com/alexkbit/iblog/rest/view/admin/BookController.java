@@ -5,7 +5,8 @@ import com.alexkbit.iblog.model.Book;
 import com.alexkbit.iblog.model.CurrentUser;
 import com.alexkbit.iblog.model.Image;
 import com.alexkbit.iblog.model.ImageType;
-import com.alexkbit.iblog.rest.view.form.BookForm;
+import com.alexkbit.iblog.rest.RESTController;
+import com.alexkbit.iblog.rest.dto.BookDTO;
 import com.alexkbit.iblog.servvices.api.BookService;
 import com.alexkbit.iblog.servvices.api.ImageService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,7 +28,7 @@ import java.io.IOException;
 @Controller
 @PreAuthorize("hasAuthority('ADMIN')")
 @RequestMapping("admin")
-public class BookController {
+public class BookController extends RESTController<Book, BookDTO> {
 
     @Autowired
     private BookService bookService;
@@ -37,11 +38,11 @@ public class BookController {
 
     @RequestMapping(value = "/book", method = RequestMethod.GET)
     public ModelAndView get() {
-        return new ModelAndView("admin/book", "book", new BookForm());
+        return new ModelAndView("admin/book", "book", new BookDTO());
     }
 
     @RequestMapping(value = "/book/image", method = RequestMethod.POST)
-    public ModelAndView uploadingPost(@ModelAttribute BookForm bookForm,
+    public ModelAndView uploadingPost(@ModelAttribute BookDTO bookDTO,
                                       @RequestParam("uploadingFile") MultipartFile uploadingFile,
                                       Authentication authentication) throws IOException {
         CurrentUser currentUser = (CurrentUser) authentication.getPrincipal();
@@ -51,17 +52,17 @@ public class BookController {
         image.setType(ImageType.valueOf(uploadingFile.getContentType().split("/")[1].toUpperCase()));
         image.setUser(currentUser.getUser());
         image = imageService.save(image);
-        bookForm.setImageId(image.getId());
-        return new ModelAndView("admin/book", "book", bookForm);
+        bookDTO.setImageId(image.getId());
+        return new ModelAndView("admin/book", "book", bookDTO);
     }
 
     @RequestMapping(value = "/book", method = RequestMethod.POST)
-    public ModelAndView bookPost(@ModelAttribute("form") BookForm form,
+    public ModelAndView bookPost(@ModelAttribute("form") BookDTO dto,
                                  Authentication authentication) {
         CurrentUser currentUser = (CurrentUser) authentication.getPrincipal();
-        Book book = form.toBook();
+        Book book = mapToModel(dto);
         book.setUser(currentUser.getUser());
-        book.setImage(imageService.get(form.getImageId()));
+        book.setImage(imageService.get(dto.getImageId()));
         bookService.save(book);
         return new ModelAndView("library");
     }

@@ -19,4 +19,16 @@
         <class-a>com.alexkbit.iblog.model.User</class-a>
         <class-b>com.alexkbit.iblog.rest.dto.UserDTO</class-b>
     </mapping>
+    <mapping>
+        <class-a>com.alexkbit.iblog.model.Book</class-a>
+        <class-b>com.alexkbit.iblog.rest.dto.BookDTO</class-b>
+        <field custom-converter="com.alexkbit.iblog.rest.converters.DateConverter">
+            <a>endDate</a>
+            <b>endDate</b>
+        </field>
+        <field>
+            <a>image.id</a>
+            <b>imageId</b>
+        </field>
+    </mapping>
 </mappings>
