@@ -53,4 +53,23 @@ public class BookServiceImplTest extends EasyMockSupport {
         verifyAll();
     }
 
+    @Test
+    public void testGetByUuid() {
+        String id = UUID.randomUUID().toString();
+        Book book = new Book();
+        book.setId(id);
+        expect(bookRepository.findOne(id)).andReturn(book);
+        replayAll();
+        assertEquals(id, bookService.get(id).getId());
+        verifyAll();
+    }
+
+    @Test
+    public void testGetByUuidNotFound() {
+        expect(bookRepository.findOne(anyObject())).andReturn(null);
+        replayAll();
+        assertNull(bookService.get(UUID.randomUUID().toString()));
+        verifyAll();
+    }
+
 }

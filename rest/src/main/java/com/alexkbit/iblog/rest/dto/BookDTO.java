@@ -2,6 +2,9 @@ package com.alexkbit.iblog.rest.dto;
 
 import com.alexkbit.iblog.model.BookLanguage;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+
 /**
  * DTO for book
  */
@@ -13,17 +16,17 @@ public class BookDTO extends BaseDTO {
 
     private String imageId;
 
-    private int pageCount;
+    private String pageCount = "1";
 
-    private int currentPage;
+    private String currentPage = "0";
 
-    private BookLanguage language;
+    private BookLanguage language = BookLanguage.EN;
 
-    private int publishYear;
+    private String publishYear = Integer.toString(LocalDate.now().getYear());
 
-    private double rate;
+    private Double rate = 0D;
 
-    private String endDate;
+    private String endDate = LocalDate.now().format(DateTimeFormatter.ISO_LOCAL_DATE);
 
     public String getName() {
         return name;
@@ -49,19 +52,19 @@ public class BookDTO extends BaseDTO {
         this.imageId = imageId;
     }
 
-    public int getPageCount() {
+    public String getPageCount() {
         return pageCount;
     }
 
-    public void setPageCount(int pageCount) {
+    public void setPageCount(String pageCount) {
         this.pageCount = pageCount;
     }
 
-    public int getCurrentPage() {
+    public String getCurrentPage() {
         return currentPage;
     }
 
-    public void setCurrentPage(int currentPage) {
+    public void setCurrentPage(String currentPage) {
         this.currentPage = currentPage;
     }
 
@@ -73,19 +76,19 @@ public class BookDTO extends BaseDTO {
         this.language = language;
     }
 
-    public int getPublishYear() {
+    public String getPublishYear() {
         return publishYear;
     }
 
-    public void setPublishYear(int publishYear) {
+    public void setPublishYear(String publishYear) {
         this.publishYear = publishYear;
     }
 
-    public double getRate() {
+    public Double getRate() {
         return rate;
     }
 
-    public void setRate(double rate) {
+    public void setRate(Double rate) {
         this.rate = rate;
     }
 
@@ -96,5 +99,4 @@ public class BookDTO extends BaseDTO {
     public void setEndDate(String endDate) {
         this.endDate = endDate;
     }
-
 }

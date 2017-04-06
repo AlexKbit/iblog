@@ -22,6 +22,9 @@
     <div class="col-lg-6">
         <form action="/admin/book" role="form" method="post">
             <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+            <#if book.id??>
+                <input type="hidden" name="id" value="${book.id}"/>
+            </#if>
             <#if book.imageId??>
                 <input type="hidden" name="imageId" value="${book.imageId}"/>
             <#else>
@@ -51,6 +54,7 @@
                 </label>
                 <div class="col-10">
                     <input class="form-control" type="number" name="pageCount"
+                           min="1" max="9999" step="1"
                            value="${book.pageCount}" id="input-book-pageCount">
                 </div>
             </div>
@@ -60,6 +64,7 @@
                 </label>
                 <div class="col-10">
                     <input class="form-control" type="number" name="currentPage"
+                           min="0" max="9999" step="1"
                            value="${book.currentPage}" id="input-book-currentPage">
                 </div>
             </div>
@@ -69,6 +74,7 @@
                 </label>
                 <div class="col-10">
                     <input class="form-control" type="number" name="publishYear"
+                           min="1900" max="9999" step="1"
                            value="${book.publishYear}" id="input-book-publishYear"">
                 </div>
             </div>

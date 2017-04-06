@@ -16,6 +16,13 @@ public interface BookService {
     Book save(Book book);
 
     /**
+     * Get book by id
+     * @param uuid UUID
+     * @return {@link Book}
+     */
+    Book get(String uuid);
+
+    /**
      * Gets page of users
      * @param page number of page
      * @param count count of users

@@ -16,11 +16,16 @@
                         <#else>
                             <img src="/images/noImage.png" class="image-book-small">
                         </#if>
+                        <#if currentUser?? && currentUser.role == "ADMIN">
+                            <a href="/admin/book/${book.id}" class="btn btn-block">
+                                <@spring.message "messages.edit"/>
+                            </a>
+                        </#if>
                     </div>
                     <div class="col-md-9">
                         <div class="row">
                             <div class="col-md-2">
-                                <label>Name: </label>
+                                <label><@spring.message "messages.book.name"/>:</label>
                             </div>
                             <div class="col-md-2">
                                 <output class="output-info">${book.name}</output>
@@ -28,49 +33,49 @@
                         </div>
                         <div class="row">
                             <div class="col-md-2">
-                                <label>Author: </label>
+                                <label><@spring.message "messages.book.author"/>:</label>
                             </div>
                             <div class="col-md-2">
                                 <output class="output-info">${book.author}</output>
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-md-2">
-                                <label>PageCount: </label>
+                            <div class="col-md-3">
+                                <label><@spring.message "messages.book.pageCount"/>:</label>
                             </div>
                             <div class="col-md-2">
                                 <output class="output-info">${book.pageCount}</output>
                             </div>
-                            <div class="col-md-2">
-                                <label>CurrentPage: </label>
+                            <div class="col-md-3">
+                                <label><@spring.message "messages.book.currentPage"/>:</label>
                             </div>
                             <div class="col-md-2">
                                 <output class="output-info">${book.currentPage}</output>
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-md-2">
-                                <label>PublishYear: </label>
+                            <div class="col-md-3">
+                                <label><@spring.message "messages.book.publishYear"/>:</label>
                             </div>
                             <div class="col-md-2">
                                 <output class="output-info">${book.publishYear}</output>
                             </div>
-                            <div class="col-md-2">
-                                <label>Language: </label>
+                            <div class="col-md-3">
+                                <label><@spring.message "messages.book.language"/>:</label>
                             </div>
                             <div class="col-md-2">
                                 <output class="output-info">${book.language}</output>
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-md-2">
-                                <label>End date: </label>
+                            <div class="col-md-3">
+                                <label><@spring.message "messages.book.endDate"/>:</label>
                             </div>
-                            <div class="col-md-2">
+                            <div class="col-md-3">
                                 <output class="output-info">${book.endDate}</output>
                             </div>
                             <div class="col-md-2">
-                                <label>Rate: </label>
+                                <label><@spring.message "messages.book.rate"/>:</label>
                             </div>
                             <div class="col-md-2">
                                 <output class="output-info">${book.rate}</output>
@@ -80,7 +85,7 @@
                             <div class="progress" style="width: 90%">
                                 <div class="progress-bar" role="progressbar"
                                      aria-valuenow="${book.currentPage}" aria-valuemin="0"
-                                     aria-valuemax="${book.pageCount}" style="width: ${book.currentPage/book.pageCount*100}%">
+                                     aria-valuemax="${book.pageCount}" <#--style="width: ${book.currentPage/book.pageCount*100}%"-->>
                                 </div>
                             </div>
                         </div>
