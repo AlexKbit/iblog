@@ -35,7 +35,8 @@
         </div>
         <div>
             <input type="text" class="form-control" name="surname"
-                   id="surname" placeholder="<@spring.message "messages.register.label.surname"/>">
+                   id="surname" placeholder="<@spring.message "messages.register.label.surname"/>"
+                   required>
         </div>
         <div>
             <input type="password" class="form-control" name="password"

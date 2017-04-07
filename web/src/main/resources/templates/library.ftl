@@ -2,7 +2,7 @@
 <#import "/spring.ftl" as spring/>
 
 <@layout.page pageTitle="">
-<div>
+<div xmlns="http://www.w3.org/1999/html">
     <div class="text-center">
         <h3><@spring.message "messages.library"/></h3>
     </div>
@@ -17,9 +17,17 @@
                             <img src="/images/noImage.png" class="image-book-small">
                         </#if>
                         <#if currentUser?? && currentUser.role == "ADMIN">
-                            <a href="/admin/book/${book.id}" class="btn btn-block">
+                        <div>
+                            <a href="/admin/book/${book.id}" class="btn" style="float: left">
                                 <@spring.message "messages.edit"/>
                             </a>
+                            <form action="/admin/book/${book.id}" method="delete">
+                                <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+                                <a class="btn" type="submit">
+                                    <@spring.message "messages.delete"/>
+                                </a>
+                            </form>
+                        </div>
                         </#if>
                     </div>
                     <div class="col-md-9">
@@ -27,7 +35,7 @@
                             <div class="col-md-2">
                                 <label><@spring.message "messages.book.name"/>:</label>
                             </div>
-                            <div class="col-md-2">
+                            <div class="col-md-4">
                                 <output class="output-info">${book.name}</output>
                             </div>
                         </div>
@@ -35,7 +43,7 @@
                             <div class="col-md-2">
                                 <label><@spring.message "messages.book.author"/>:</label>
                             </div>
-                            <div class="col-md-2">
+                            <div class="col-md-4">
                                 <output class="output-info">${book.author}</output>
                             </div>
                         </div>
@@ -46,35 +54,35 @@
                             <div class="col-md-2">
                                 <output class="output-info">${book.pageCount}</output>
                             </div>
+                            <div class="col-md-4">
+                                <label><@spring.message "messages.book.publishYear"/>:</label>
+                            </div>
+                            <div class="col-md-1">
+                                <output class="output-info">${book.publishYear}</output>
+                            </div>
+                        </div>
+                        <div class="row">
                             <div class="col-md-3">
                                 <label><@spring.message "messages.book.currentPage"/>:</label>
                             </div>
                             <div class="col-md-2">
                                 <output class="output-info">${book.currentPage}</output>
                             </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-3">
-                                <label><@spring.message "messages.book.publishYear"/>:</label>
-                            </div>
-                            <div class="col-md-2">
-                                <output class="output-info">${book.publishYear}</output>
-                            </div>
-                            <div class="col-md-3">
-                                <label><@spring.message "messages.book.language"/>:</label>
-                            </div>
-                            <div class="col-md-2">
-                                <output class="output-info">${book.language}</output>
-                            </div>
-                        </div>
-                        <div class="row">
                             <div class="col-md-3">
                                 <label><@spring.message "messages.book.endDate"/>:</label>
                             </div>
                             <div class="col-md-3">
                                 <output class="output-info">${book.endDate}</output>
                             </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-3">
+                                <label><@spring.message "messages.book.language"/>:</label>
+                            </div>
                             <div class="col-md-2">
+                                <output class="output-info">${book.language}</output>
+                            </div>
+                            <div class="col-md-1">
                                 <label><@spring.message "messages.book.rate"/>:</label>
                             </div>
                             <div class="col-md-2">
