@@ -80,21 +80,13 @@
                                 <label><@spring.message "messages.book.language"/>:</label>
                             </div>
                             <div class="col-md-2">
-                                <output class="output-info">${book.language}</output>
+                                <img src="/images/lang/${book.language?lower_case}.png" class="nb-image-small"/>
                             </div>
                             <div class="col-md-1">
                                 <label><@spring.message "messages.book.rate"/>:</label>
                             </div>
                             <div class="col-md-2">
                                 <output class="output-info">${book.rate}</output>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="progress" style="width: 90%">
-                                <div class="progress-bar" role="progressbar"
-                                     aria-valuenow="${book.currentPage}" aria-valuemin="0"
-                                     aria-valuemax="${book.pageCount}" <#--style="width: ${book.currentPage/book.pageCount*100}%"-->>
-                                </div>
                             </div>
                         </div>
                     </div>

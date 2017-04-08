@@ -36,7 +36,8 @@
                 </label>
                 <div class="col-10">
                     <input class="form-control" type="text" name="name"
-                           value="${book.name}" id="input-book-name">
+                           value="${book.name}" id="input-book-name"
+                           required>
                 </div>
             </div>
             <div class="form-group row">
@@ -45,7 +46,8 @@
                 </label>
                 <div class="col-10">
                     <input class="form-control" type="text" name="author"
-                           value="${book.author}" id="input-book-author">
+                           value="${book.author}" id="input-book-author"
+                           required>
                 </div>
             </div>
             <div class="form-group row">
@@ -55,7 +57,8 @@
                 <div class="col-10">
                     <input class="form-control" type="number" name="pageCount"
                            min="1" max="9999" step="1"
-                           value="${book.pageCount}" id="input-book-pageCount">
+                           value="${book.pageCount}" id="input-book-pageCount"
+                           required>
                 </div>
             </div>
             <div class="form-group row">
@@ -65,7 +68,8 @@
                 <div class="col-10">
                     <input class="form-control" type="number" name="currentPage"
                            min="0" max="9999" step="1"
-                           value="${book.currentPage}" id="input-book-currentPage">
+                           value="${book.currentPage}" id="input-book-currentPage"
+                           required>
                 </div>
             </div>
             <div class="form-group row">
@@ -75,7 +79,8 @@
                 <div class="col-10">
                     <input class="form-control" type="number" name="publishYear"
                            min="1900" max="9999" step="1"
-                           value="${book.publishYear}" id="input-book-publishYear"">
+                           value="${book.publishYear}" id="input-book-publishYear"
+                           required>
                 </div>
             </div>
             <div class="form-group row">
@@ -84,7 +89,8 @@
                 </label>
                 <div class="col-10">
                     <input class="form-control" type="text" name="language"
-                           value="${book.language}" id="input-book-language">
+                           value="${book.language}" id="input-book-language"
+                           required>
                 </div>
             </div>
             <div class="form-group row">
@@ -93,7 +99,8 @@
                 </label>
                 <div class="col-10">
                     <input class="form-control" type="date" name="endDate"
-                           value="${book.endDate}" id="input-book-endDate">
+                           value="${book.endDate}" id="input-book-endDate"
+                           required>
                 </div>
             </div>
             <div class="form-group row">
@@ -102,7 +109,8 @@
                 </label>
                 <div class="col-10">
                     <input class="form-control" type="number" name="rate"
-                           value="${book.rate}" id="input-book-rate" max="5" min="0" step="0.1">
+                           value="${book.rate}" id="input-book-rate" max="5" min="0" step="0.1"
+                           required>
                 </div>
             </div>
             <div>
