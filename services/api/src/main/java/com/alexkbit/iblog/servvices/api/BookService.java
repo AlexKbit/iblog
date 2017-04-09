@@ -23,6 +23,12 @@ public interface BookService {
     Book get(String uuid);
 
     /**
+     * Delete book by id
+     * @param uuid UUID
+     */
+    void delete(String uuid);
+
+    /**
      * Gets page of users
      * @param page number of page
      * @param count count of users

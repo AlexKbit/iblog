@@ -43,6 +43,15 @@ public class BookServiceImpl implements BookService {
     }
 
     @Override
+    public void delete(String uuid) {
+        if (uuid == null) {
+            return;
+        }
+        log.info("Delete book with id = {}", uuid);
+        bookRepository.delete(uuid);
+    }
+
+    @Override
     public ModelPage<Book> get(int page, int count) {
         log.info("Load page = {} with count = {} of books", page, count);
         return bookRepository.findAll(page, count);

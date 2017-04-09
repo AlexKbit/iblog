@@ -65,6 +65,23 @@ public class BookServiceImplTest extends EasyMockSupport {
     }
 
     @Test
+    public void testDeleteByUuid() {
+        String id = UUID.randomUUID().toString();
+        bookRepository.delete(eq(id));
+        expectLastCall();
+        replayAll();
+        bookService.delete(id);
+        verifyAll();
+    }
+
+    @Test
+    public void testDeleteWhenIdIsNull() {
+        replayAll();
+        bookService.delete(null);
+        verifyAll();
+    }
+
+    @Test
     public void testGetByUuidNotFound() {
         expect(bookRepository.findOne(anyObject())).andReturn(null);
         replayAll();

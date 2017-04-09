@@ -66,4 +66,10 @@ public class BookController extends RESTController<Book, BookDTO> {
         bookService.save(book);
         return "redirect:/library";
     }
+
+    @RequestMapping(value = "/book/delete/{id}", method = RequestMethod.POST)
+    public String delete(@PathVariable("id") String bookId) {
+        bookService.delete(bookId);
+        return "redirect:/library";
+    }
 }

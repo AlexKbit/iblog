@@ -21,9 +21,10 @@
                             <a href="/admin/book/${book.id}" class="btn" style="float: left">
                                 <@spring.message "messages.edit"/>
                             </a>
-                            <form action="/admin/book/${book.id}" method="delete">
+                            <form id="delete${book.id}"
+                                    action="/admin/book/delete/${book.id}" method="post">
                                 <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-                                <a class="btn" type="submit">
+                                <a class="btn" onclick="$('#delete${book.id}').submit()">
                                     <@spring.message "messages.delete"/>
                                 </a>
                             </form>
