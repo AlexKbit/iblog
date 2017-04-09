@@ -1,6 +1,7 @@
 package com.alexkbit.iblog.services.impl;
 
 import com.alexkbit.iblog.model.CurrentUser;
+import com.alexkbit.iblog.model.Image;
 import com.alexkbit.iblog.model.ModelPage;
 import com.alexkbit.iblog.model.User;
 import com.alexkbit.iblog.repositories.api.UserRepository;
@@ -83,6 +84,17 @@ public class UserServiceImpl implements UserService {
             return;
         }
         user.setEnabled(enabled);
+        userRepository.save(user);
+    }
+
+    @Override
+    public void changeAvatar(String userId, Image image) {
+        if (userId == null || image == null) {
+            return;
+        }
+        User user = this.get(userId);
+        log.info("Set new avatar {} for user {}", image.getId(), userId);
+        user.setAvatar(image);
         userRepository.save(user);
     }
 

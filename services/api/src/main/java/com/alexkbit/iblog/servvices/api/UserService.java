@@ -1,5 +1,6 @@
 package com.alexkbit.iblog.servvices.api;
 
+import com.alexkbit.iblog.model.Image;
 import com.alexkbit.iblog.model.ModelPage;
 import com.alexkbit.iblog.model.User;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -50,5 +51,12 @@ public interface UserService extends UserDetailsService {
      * @param enabled value for enabled
      */
     void enableUser(String userId, boolean enabled);
+
+    /**
+     * Change avatar for user
+     * @param userId id of user
+     * @param image avatar
+     */
+    void changeAvatar(String userId, Image image);
 
 }

@@ -1,5 +1,6 @@
 package com.alexkbit.iblog.services.impl;
 
+import com.alexkbit.iblog.model.Image;
 import com.alexkbit.iblog.model.ModelPage;
 import com.alexkbit.iblog.model.Role;
 import com.alexkbit.iblog.model.User;
@@ -199,6 +200,27 @@ public class UserServiceImplTest extends EasyMockSupport {
         expect(userRepository.findOne(eq(user.getId()))).andReturn(null);
         replayAll();
         userService.enableUser(user.getId(), true);
+        verifyAll();
+    }
+
+    @Test
+    public void testChangeAvatar() {
+        User user = createUser();
+        Image avatar = new Image();
+        avatar.setId(UUID.randomUUID().toString());
+        expect(userRepository.findOne(eq(user.getId()))).andReturn(user);
+        user.setAvatar(avatar);
+        expect(userRepository.save(eq(user))).andReturn(user);
+        replayAll();
+        userService.changeAvatar(user.getId(), avatar);
+        assertEquals(avatar.getId(), user.getAvatar().getId());
+        verifyAll();
+    }
+
+    @Test
+    public void testChangeAvatarIsEmpty() {
+        replayAll();
+        userService.changeAvatar(UUID.randomUUID().toString(), null);
         verifyAll();
     }
 
