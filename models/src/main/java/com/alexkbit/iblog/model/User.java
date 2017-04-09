@@ -31,6 +31,11 @@ public class User extends TimeMarkModel {
     private String surname;
 
     /**
+     * User avatar
+     */
+    private Image avatar;
+
+    /**
      * User role
      */
     private Role role;
@@ -98,5 +103,13 @@ public class User extends TimeMarkModel {
 
     public boolean isEnabled() {
         return enabled;
+    }
+
+    public Image getAvatar() {
+        return avatar;
+    }
+
+    public void setAvatar(Image avatar) {
+        this.avatar = avatar;
     }
 }

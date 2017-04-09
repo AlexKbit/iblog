@@ -8,5 +8,6 @@
   <include file="2016_12_25-database-init.xml" relativeToChangelogFile="true"/>
   <include file="2017_03_19-create_image_table.xml" relativeToChangelogFile="true"/>
   <include file="2017_03_29-create_book_table.xml" relativeToChangelogFile="true"/>
+  <include file="2017_04_09-create_user_column_avatar.xml" relativeToChangelogFile="true"/>
 
 </databaseChangeLog>

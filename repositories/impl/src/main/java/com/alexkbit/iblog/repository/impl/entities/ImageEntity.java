@@ -26,7 +26,6 @@ public class ImageEntity extends TimeMarkEntity {
     /**
      * Data of image
      */
-    //@Lob
     @Basic(fetch=LAZY)
     @Column(name="img_data")
     private byte[] data;
@@ -40,6 +39,9 @@ public class ImageEntity extends TimeMarkEntity {
 
     @OneToMany(mappedBy="image")
     private List<BookEntity> books;
+
+    @OneToMany(mappedBy="avatar")
+    private List<UserEntity> avatars;
 
     public UserEntity getUser() {
         return user;
@@ -79,5 +81,13 @@ public class ImageEntity extends TimeMarkEntity {
 
     public void setBooks(List<BookEntity> books) {
         this.books = books;
+    }
+
+    public List<UserEntity> getAvatars() {
+        return avatars;
+    }
+
+    public void setAvatars(List<UserEntity> avatars) {
+        this.avatars = avatars;
     }
 }

@@ -49,6 +49,13 @@ public class UserEntity extends TimeMarkEntity {
     private String surname;
 
     /**
+     * User avatar
+     */
+    @ManyToOne(fetch=FetchType.LAZY)
+    @JoinColumn(name="usr_avatar")
+    private ImageEntity avatar;
+
+    /**
      * User surname
      */
     @Column(name = "usr_role")
@@ -137,5 +144,13 @@ public class UserEntity extends TimeMarkEntity {
 
     public void setBooks(List<BookEntity> books) {
         this.books = books;
+    }
+
+    public ImageEntity getAvatar() {
+        return avatar;
+    }
+
+    public void setAvatar(ImageEntity avatar) {
+        this.avatar = avatar;
     }
 }

@@ -3,7 +3,6 @@
 
 <@single.page pageTitle="">
 <div class="single-center">
-    <#--<@spring.bind "form" />-->
     <#--<#if spring.status.error>
         <div class="alert alert-danger" role="alert">
         <ul>
