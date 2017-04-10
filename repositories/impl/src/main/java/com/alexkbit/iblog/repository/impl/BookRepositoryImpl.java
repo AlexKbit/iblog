@@ -28,7 +28,7 @@ public class BookRepositoryImpl extends AbstractBaseRepository<Book, BookEntity>
 
     @Override
     public ModelPage<Book> findAll(int page, int size) {
-        Page<BookEntity> result = bookRepositoryJpa.findAll(new PageRequest(page, size));
+        Page<BookEntity> result = bookRepositoryJpa.findAllByOrderByEndDateAsc(new PageRequest(page, size));
         return mapToModel(result);
     }
 }
