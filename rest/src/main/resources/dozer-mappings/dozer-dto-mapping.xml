@@ -18,6 +18,10 @@
     <mapping>
         <class-a>com.alexkbit.iblog.model.User</class-a>
         <class-b>com.alexkbit.iblog.rest.dto.UserDTO</class-b>
+        <field>
+            <a>avatar.id</a>
+            <b>avatarId</b>
+        </field>
     </mapping>
     <mapping>
         <class-a>com.alexkbit.iblog.model.Book</class-a>

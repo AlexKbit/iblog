@@ -56,7 +56,7 @@
                             </a>
                             <ul class="dropdown-menu">
                                 <li>
-                                    <a href="/account">
+                                    <a href="/account/${currentUser.id}">
                                         <img src="/images/menu/account.png" class="nb-image-small"/>
                                         <@spring.message "messages.menu.account"/>
                                     </a>

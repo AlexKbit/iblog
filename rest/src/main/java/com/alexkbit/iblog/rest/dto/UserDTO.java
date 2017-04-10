@@ -1,5 +1,7 @@
 package com.alexkbit.iblog.rest.dto;
 
+import com.alexkbit.iblog.model.Role;
+
 /**
  * DTO for User
  */
@@ -24,6 +26,21 @@ public class UserDTO extends BaseDTO {
      * User surname
      */
     private String surname;
+
+    /**
+     * User avatar
+     */
+    private String avatarId;
+
+    /**
+     * User role
+     */
+    private Role role;
+
+    /**
+     * Is user enabled
+     */
+    private boolean enabled;
 
     public String getLogin() {
         return login;
@@ -55,5 +72,29 @@ public class UserDTO extends BaseDTO {
 
     public void setSurname(String surname) {
         this.surname = surname;
+    }
+
+    public String getAvatarId() {
+        return avatarId;
+    }
+
+    public void setAvatarId(String avatarId) {
+        this.avatarId = avatarId;
+    }
+
+    public Role getRole() {
+        return role;
+    }
+
+    public void setRole(Role role) {
+        this.role = role;
+    }
+
+    public boolean isEnabled() {
+        return enabled;
+    }
+
+    public void setEnabled(boolean enabled) {
+        this.enabled = enabled;
     }
 }

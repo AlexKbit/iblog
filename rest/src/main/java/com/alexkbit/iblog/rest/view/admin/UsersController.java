@@ -1,5 +1,8 @@
 package com.alexkbit.iblog.rest.view.admin;
 
+import com.alexkbit.iblog.model.User;
+import com.alexkbit.iblog.rest.RESTController;
+import com.alexkbit.iblog.rest.dto.UserDTO;
 import com.alexkbit.iblog.servvices.api.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -16,7 +19,7 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 @PreAuthorize("hasAuthority('ADMIN')")
 @RequestMapping("admin")
-public class UsersController {
+public class UsersController extends RESTController<User, UserDTO> {
 
     @Autowired
     private UserService userService;
@@ -24,7 +27,7 @@ public class UsersController {
     @RequestMapping("/users")
     public ModelAndView get(@RequestParam(value = "page", defaultValue = "0") Integer page,
                             @RequestParam(value = "count", defaultValue = "25") Integer count) {
-        return new ModelAndView("admin/users", "page", userService.get(page, count));
+        return new ModelAndView("admin/users", "page", mapToDTO(userService.get(page, count)));
     }
 
     @RequestMapping(value = "/users", method = RequestMethod.POST)
