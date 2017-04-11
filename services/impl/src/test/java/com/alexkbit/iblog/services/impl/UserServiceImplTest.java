@@ -35,6 +35,24 @@ public class UserServiceImplTest extends EasyMockSupport {
     private UserServiceImpl userService = new UserServiceImpl();
 
     @Test
+    public void testSave() {
+        String id = UUID.randomUUID().toString();
+        User user = new User();
+        user.setId(id);
+        expect(userRepository.save(anyObject(User.class))).andReturn(user);
+        replayAll();
+        assertEquals(id, userService.save(new User()).getId());
+        verifyAll();
+    }
+
+    @Test
+    public void testSaveNull() {
+        replayAll();
+        assertNull(userService.save(null));
+        verifyAll();
+    }
+
+    @Test
     public void testGetByUuid() {
         String id = UUID.randomUUID().toString();
         User user = new User();

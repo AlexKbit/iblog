@@ -27,6 +27,14 @@ public class UserServiceImpl implements UserService {
     private UserRepository userRepository;
 
     @Override
+    public User save(User user) {
+        if (user == null) {
+            return null;
+        }
+        return userRepository.save(user);
+    }
+
+    @Override
     public User register(User user) {
         if (userRepository.findByLogin(user.getLogin()) != null) {
             String errorMsg = String.format("User with login: %s already exist.", user.getLogin());
