@@ -18,6 +18,7 @@
                     <th><@spring.message "messages.admin.users.table.role"/></th>
                     <th><@spring.message "messages.admin.users.table.enabled"/></th>
                     <th></th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>
@@ -48,6 +49,11 @@
                                 </#if>
                             </button>
                         </form>
+                    </td>
+                    <td>
+                        <a href="/account/${user.id}" class="btn btn-primary">
+                            <@spring.message "messages.edit"/>
+                        </a>
                     </td>
                 </tr>
                 </#list>
