@@ -36,6 +36,10 @@
     display: none !important;
 }
 
+.account-form-label {
+    padding-top: 5px;
+}
+
 .clickable-link {
     cursor: pointer;
 }

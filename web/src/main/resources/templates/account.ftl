@@ -12,6 +12,7 @@
         </#if>
         <form id="uploadingForm" name="uploadingForm" enctype="multipart/form-data" action="/account/avatar" method="POST">
             <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+            <input type="hidden" name="id" value="${user.id}"/>
             <input id="uploadingFile" type="file" name="uploadingFile"
                    class="hide-block" onchange="$('#uploadingForm').submit()">
         </form>
@@ -26,39 +27,41 @@
                 <input type="hidden" name="avatarId" value=""/>
             </#if>
             <div class="form-group row">
-                <label for="input-book-name" class="col-2 col-form-label">
-                    <@spring.message "messages.admin.users.table.login"/>
+                <label class="col-md-3">
+                    <@spring.message "messages.admin.users.table.login"/>:
                 </label>
-                <div class="col-10">
-                    <output class="form-control" type="text" value="${user.login}">
+                <div class="col-md-6">
+                    <samp>
+                        ${user.login}
+                    </samp>
                 </div>
             </div>
             <div class="form-group row">
-                <label for="input-book-name" class="col-2 col-form-label">
-                    <@spring.message "messages.admin.users.table.email"/>
+                <label class="col-md-3">
+                    <@spring.message "messages.admin.users.table.email"/>:
                 </label>
-                <div class="col-10">
-                    <output class="form-control" type="text" value="${user.email}">
+                <div class="col-md-6">
+                    <samp>
+                        ${user.email}
+                    </samp>
                 </div>
             </div>
             <div class="form-group row">
-                <label for="input-book-name" class="col-2 col-form-label">
-                    <@spring.message "messages.admin.users.table.name"/>
+                <label class="col-md-3 account-form-label">
+                    <@spring.message "messages.admin.users.table.name"/>:
                 </label>
-                <div class="col-10">
-                    <input class="form-control" type="text" name="name"
-                           value="${user.name}" id="input-user-name"
-                           required>
+                <div class="col-md-6">
+                    <input type="text" class="form-control" name="name"
+                           value="${user.name}" required>
                 </div>
             </div>
             <div class="form-group row">
-                <label for="input-book-author" class="col-2 col-form-label">
-                    <@spring.message "messages.book.author"/>
+                <label class="col-md-3 account-form-label">
+                    <@spring.message "messages.admin.users.table.surname"/>:
                 </label>
-                <div class="col-10">
-                    <input class="form-control" type="text" name="surname"
-                           value="${user.surname}" id="input-user-surname"
-                           required>
+                <div class="col-md-6">
+                    <input type="text" class="form-control name="surname"
+                           value="${user.surname}" required>
                 </div>
             </div>
             <div>
