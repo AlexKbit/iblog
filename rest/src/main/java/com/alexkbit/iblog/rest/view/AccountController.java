@@ -14,11 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -28,7 +24,6 @@ import java.io.IOException;
  * Login Controller
  */
 @Controller
-@PreAuthorize("hasAnyAuthority('ADMIN', 'USER')")
 @RequestMapping("account")
 public class AccountController extends RESTController<User, UserDTO> {
 
@@ -38,6 +33,7 @@ public class AccountController extends RESTController<User, UserDTO> {
     @Autowired
     private ImageService imageService;
 
+    @PreAuthorize("@currentUserServiceImpl.canAccessUser(principal, #userId)")
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public ModelAndView get(@PathVariable("id") String userId, Authentication authentication) {
         CurrentUser currentUser = (CurrentUser) authentication.getPrincipal();
@@ -48,22 +44,25 @@ public class AccountController extends RESTController<User, UserDTO> {
         return new ModelAndView("error");
     }
 
+    @PreAuthorize("@currentUserServiceImpl.canAccessUser(principal, #userDTO.id)")
     @RequestMapping(value = "/avatar", method = RequestMethod.POST)
-    public ModelAndView uploadingPost(@ModelAttribute UserDTO userDTO,
+    public ModelAndView uploadingAvatar(@ModelAttribute UserDTO userDTO,
                                       @RequestParam("uploadingFile") MultipartFile uploadingFile) throws IOException {
         Image image = ImageFileConverter.convertTo(uploadingFile);
         image.setUser(userService.get(userDTO.getId()));
         image = imageService.save(image);
-        userDTO.setAvatarId(image.getId());
-        return new ModelAndView("account", "user", userDTO);
+        image.getUser().setAvatar(image);
+        User user = userService.save(image.getUser());
+        return new ModelAndView("account", "user", mapToDTO(user));
     }
 
-    @RequestMapping(value = "/", method = RequestMethod.POST)
-    public ModelAndView uploadingPost(@ModelAttribute UserDTO userDTO) {
+    @PreAuthorize("@currentUserServiceImpl.canAccessUser(principal, #userDTO.id)")
+    @RequestMapping(value = "/edit", method = RequestMethod.POST)
+    public ModelAndView post(@ModelAttribute UserDTO userDTO) {
         User user = userService.get(userDTO.getId());
         user.setName(userDTO.getName());
         user.setSurname(userDTO.getSurname());
-        //user = userService.save(user);
+        user = userService.save(user);
         return new ModelAndView("account", "user", mapToDTO(user));
     }
 }

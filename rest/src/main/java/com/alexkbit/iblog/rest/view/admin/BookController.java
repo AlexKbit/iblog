@@ -45,7 +45,7 @@ public class BookController extends RESTController<Book, BookDTO> {
     }
 
     @RequestMapping(value = "/book/image", method = RequestMethod.POST)
-    public ModelAndView uploadingPost(@ModelAttribute BookDTO bookDTO,
+    public ModelAndView uploadingImage(@ModelAttribute BookDTO bookDTO,
                                       @RequestParam("uploadingFile") MultipartFile uploadingFile,
                                       Authentication authentication) throws IOException {
         CurrentUser currentUser = (CurrentUser) authentication.getPrincipal();
@@ -57,7 +57,7 @@ public class BookController extends RESTController<Book, BookDTO> {
     }
 
     @RequestMapping(value = "/book", method = RequestMethod.POST)
-    public String bookPost(@ModelAttribute("form") BookDTO dto,
+    public String post(@ModelAttribute("form") BookDTO dto,
                                  Authentication authentication) {
         CurrentUser currentUser = (CurrentUser) authentication.getPrincipal();
         Book book = mapToModel(dto);

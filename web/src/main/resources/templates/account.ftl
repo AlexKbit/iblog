@@ -13,14 +13,20 @@
         <form id="uploadingForm" name="uploadingForm" enctype="multipart/form-data" action="/account/avatar" method="POST">
             <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
             <input type="hidden" name="id" value="${user.id}"/>
+            <input type="hidden" name="email" value="${user.email}"/>
+            <input type="hidden" name="login" value="${user.login}"/>
+            <input type="hidden" name="name" id="uploadUserName" value=""/>
+            <input type="hidden" name="surname" id="uploadUserSurName" value=""/>
             <input id="uploadingFile" type="file" name="uploadingFile"
-                   class="hide-block" onchange="$('#uploadingForm').submit()">
+                   class="hide-block" onchange="submitAvatar()">
         </form>
     </div>
     <div class="col-lg-6">
-        <form action="/account" role="form" method="post">
+        <form action="/account/edit" role="form" method="post">
             <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
             <input type="hidden" name="id" value="${user.id}"/>
+            <input type="hidden" name="email" value="${user.email}"/>
+            <input type="hidden" name="login" value="${user.login}"/>
             <#if user.avatarId??>
                 <input type="hidden" name="avatarId" value="${user.avatarId}"/>
             <#else>
@@ -52,7 +58,7 @@
                 </label>
                 <div class="col-md-6">
                     <input type="text" class="form-control" name="name"
-                           value="${user.name}" required>
+                           id="userName" value="${user.name}" required>
                 </div>
             </div>
             <div class="form-group row">
@@ -60,8 +66,8 @@
                     <@spring.message "messages.admin.users.table.surname"/>:
                 </label>
                 <div class="col-md-6">
-                    <input type="text" class="form-control name="surname"
-                           value="${user.surname}" required>
+                    <input type="text" class="form-control" name="surname"
+                           id="userSurName" value="${user.surname}" required>
                 </div>
             </div>
             <div>
