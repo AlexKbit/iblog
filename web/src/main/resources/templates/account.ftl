@@ -2,7 +2,8 @@
 <#import "/spring.ftl" as spring/>
 
 <@layout.page pageTitle="">
-<div class="panel panel-default row">
+<div class="panel panel-default">
+    <div class="panel-body">
     <br/>
     <div class="col-lg-4">
         <#if user.avatarId??>
@@ -78,6 +79,7 @@
             </div>
         </form>
         <br/>
+    </div>
     </div>
 </div>
 </@layout.page>
