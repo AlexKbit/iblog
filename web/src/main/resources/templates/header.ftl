@@ -14,13 +14,13 @@
 
             <div class="collapse navbar-collapse" id="navbar-links">
                 <ul class="nav navbar-nav">
-                    <li><a href="/posts"><i class="fa fa-home"></i><@spring.message "messages.posts"/></a></li>
+                    <li id="appTab_posts"><a href="/posts"><i class="fa fa-home"></i><@spring.message "messages.posts"/></a></li>
                 </ul>
                 <ul class="nav navbar-nav">
-                    <li><a href="/library"><i class="fa fa-home"></i><@spring.message "messages.library"/></a></li>
+                    <li id="appTab_library"><a href="/library"><i class="fa fa-home"></i><@spring.message "messages.library"/></a></li>
                 </ul>
                 <ul class="nav navbar-nav">
-                    <li><a href="/aboutMe"><i class="fa fa-home"></i><@spring.message "messages.aboutMe"/></a></li>
+                    <li id="appTab_aboutMe"><a href="/aboutMe"><i class="fa fa-home"></i><@spring.message "messages.aboutMe"/></a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li class="dropdown">
