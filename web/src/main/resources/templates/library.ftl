@@ -36,7 +36,7 @@
                             <div class="col-md-2">
                                 <label><@spring.message "messages.book.name"/>:</label>
                             </div>
-                            <div class="col-md-4">
+                            <div class="col-md-9">
                                 <output class="output-info">${book.name}</output>
                             </div>
                         </div>
@@ -44,7 +44,7 @@
                             <div class="col-md-2">
                                 <label><@spring.message "messages.book.author"/>:</label>
                             </div>
-                            <div class="col-md-4">
+                            <div class="col-md-9">
                                 <output class="output-info">${book.author}</output>
                             </div>
                         </div>
