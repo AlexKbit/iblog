@@ -17,20 +17,20 @@ public class BaseEntity {
      */
     @Id
     @Column(name = "uuid", length = 36)
-    private UUID id;
+    private String id;
 
-    public UUID getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(UUID id) {
+    public void setId(String id) {
         this.id = id;
     }
 
     @PrePersist
-    public void init() {
+    protected void init() {
         if (id == null) {
-            id = UUID.randomUUID();
+            id = UUID.randomUUID().toString();
         }
     }
 }

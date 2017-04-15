@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset>
+
+    <BOOK UUID="Bac8087d-fc14-4e4f-b9d0-5c4b9e05a100"
+          CREATED_AT="2016-06-30"
+          UPDATED_AT="2016-12-30"
+          BOOK_USER="8ac8087d-fc14-4e4f-b9d0-5c4b9e05a501"
+          BOOK_IMAGE="1ac8087d-fc14-4e4f-b9d0-5c4b9e05a502"
+          BOOK_NAME="book1"
+          BOOK_AUTHOR="author1"
+          BOOK_PAGE_COUNT="600"
+          BOOK_CURRENT_PAGE="1"
+          BOOK_LANGUAGE="EN"
+          BOOK_PUBLISH_YEAR="2017"
+          BOOK_RATE="5"/>
+</dataset>

@@ -3,7 +3,7 @@ package com.alexkbit.iblog.model;
 /**
  * Model of user
  */
-public class User extends BaseModel {
+public class User extends TimeMarkModel {
 
     /**
      * Login in the system
@@ -29,6 +29,21 @@ public class User extends BaseModel {
      * User surname
      */
     private String surname;
+
+    /**
+     * User avatar
+     */
+    private Image avatar;
+
+    /**
+     * User role
+     */
+    private Role role;
+
+    /**
+     * Is user enabled
+     */
+    private boolean enabled;
 
     public String getLogin() {
         return login;
@@ -68,5 +83,33 @@ public class User extends BaseModel {
 
     public void setSurname(String surname) {
         this.surname = surname;
+    }
+
+    public Role getRole() {
+        return role;
+    }
+
+    public void setRole(Role role) {
+        this.role = role;
+    }
+
+    public boolean isAdmin() {
+        return Role.ADMIN == role;
+    }
+
+    public void setEnabled(boolean enabled) {
+        this.enabled = enabled;
+    }
+
+    public boolean isEnabled() {
+        return enabled;
+    }
+
+    public Image getAvatar() {
+        return avatar;
+    }
+
+    public void setAvatar(Image avatar) {
+        this.avatar = avatar;
     }
 }

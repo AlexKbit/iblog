@@ -1,7 +1,5 @@
 package com.alexkbit.iblog.model;
 
-import java.util.UUID;
-
 /**
  * Base object for models
  */
@@ -10,13 +8,13 @@ public class BaseModel {
     /**
      * Unique id of model
      */
-    private UUID id;
+    private String id;
 
-    public UUID getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(UUID id) {
+    public void setId(String id) {
         this.id = id;
     }
 }

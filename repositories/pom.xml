@@ -16,5 +16,12 @@
         <module>impl</module>
     </modules>
 
+    <dependencies>
+        <dependency>
+            <groupId>com.alexkbit.iblog</groupId>
+            <artifactId>com-iblog-db</artifactId>
+        </dependency>
+    </dependencies>
+
 
 </project>
