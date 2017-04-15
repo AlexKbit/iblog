@@ -39,6 +39,6 @@ public interface UserRepositoryJpa extends JpaRepository<UserEntity, String> {
      * @param pageable pageable
      * @return page
      */
-    Page<UserEntity> findAllByOrderByCreatedAtAsc(Pageable pageable);
+    Page<UserEntity> findAllByOrderByCreatedAtDesc(Pageable pageable);
 
 }

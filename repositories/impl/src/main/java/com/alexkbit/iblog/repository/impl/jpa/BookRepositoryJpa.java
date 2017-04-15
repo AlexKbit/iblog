@@ -16,5 +16,5 @@ public interface BookRepositoryJpa extends JpaRepository<BookEntity, String> {
      * @param pageable pageable
      * @return page
      */
-    Page<BookEntity> findAllByOrderByEndDateAsc(Pageable pageable);
+    Page<BookEntity> findAllByOrderByEndDateDesc(Pageable pageable);
 }

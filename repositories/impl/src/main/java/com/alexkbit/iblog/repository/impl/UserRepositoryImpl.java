@@ -42,7 +42,7 @@ public class UserRepositoryImpl extends AbstractBaseRepository<User, UserEntity>
 
     @Override
     public ModelPage<User> findAll(int page, int size) {
-        Page<UserEntity> result = userRepositoryJpa.findAllByOrderByCreatedAtAsc(new PageRequest(page, size));
+        Page<UserEntity> result = userRepositoryJpa.findAllByOrderByCreatedAtDesc(new PageRequest(page, size));
         return mapToModel(result);
     }
 

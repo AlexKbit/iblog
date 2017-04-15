@@ -21,7 +21,7 @@ public class LibraryController extends RESTController<Book, BookDTO> {
 
     @RequestMapping("/library")
     public ModelAndView get(@RequestParam(value = "page", defaultValue = "0") Integer page,
-                            @RequestParam(value = "count", defaultValue = "10") Integer count) {
+                            @RequestParam(value = "count", defaultValue = "5") Integer count) {
         return new ModelAndView("library", "page", mapToDTO(bookService.get(page, count)));
     }
 }
