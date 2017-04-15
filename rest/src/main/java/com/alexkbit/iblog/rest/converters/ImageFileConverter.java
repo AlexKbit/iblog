@@ -11,6 +11,12 @@ import java.io.IOException;
  */
 public class ImageFileConverter {
 
+    /**
+     * Convert {@link MultipartFile} to {@link Image}
+     * @param uploadingFile uploading file
+     * @return {@link Image}
+     * @throws IOException
+     */
     public static Image convertTo(MultipartFile uploadingFile) throws IOException {
         Image image = new Image();
         image.setData(uploadingFile.getBytes());

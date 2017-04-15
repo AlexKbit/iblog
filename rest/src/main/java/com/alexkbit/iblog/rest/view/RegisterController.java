@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import javax.validation.Valid;
 
 /**
- * Created by Savchenko.Ale on 27.02.2017.
+ * Controller for registration page
  */
 @Controller
 public class RegisterController {

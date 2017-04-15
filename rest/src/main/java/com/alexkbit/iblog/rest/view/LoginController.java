@@ -10,7 +10,7 @@ import org.springframework.web.servlet.ModelAndView;
 import java.util.Optional;
 
 /**
- * Login Controller
+ * Controller for login page
  */
 @Controller
 public class LoginController {

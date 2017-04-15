@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 /**
- * Sample REST Controller
+ * Controller for page of posts
  */
 @Controller
 public class PostsController {

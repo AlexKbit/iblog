@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 /**
- * System users Controller
+ * Controller for page with list of users
  */
 @Controller
 @PreAuthorize("hasAuthority('ADMIN')")

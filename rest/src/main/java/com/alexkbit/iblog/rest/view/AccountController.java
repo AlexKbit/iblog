@@ -21,7 +21,7 @@ import org.springframework.web.servlet.ModelAndView;
 import java.io.IOException;
 
 /**
- * Login Controller
+ * Controller for page of account
  */
 @Controller
 @RequestMapping("account")

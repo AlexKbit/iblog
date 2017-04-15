@@ -13,6 +13,12 @@ import org.springframework.data.repository.query.Param;
  */
 public interface ImageRepositoryJpa extends JpaRepository<ImageEntity, String> {
 
+    /**
+     * Find image by user id
+     * @param userId id of user
+     * @param pageable pageable
+     * @return page with images
+     */
     @Query("select i from ImageEntity i where i.user.id =:userId")
     Page<ImageEntity> findByUserId(@Param("userId") String userId, Pageable pageable);
 

@@ -7,7 +7,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
- * Converter for date
+ * Converter for date to format: yyyy-MM-dd exanple: 2017-02-15
  */
 public class DateConverter extends DozerConverter<Date, String> {
 

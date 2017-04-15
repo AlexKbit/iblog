@@ -20,7 +20,7 @@ import org.springframework.web.servlet.ModelAndView;
 import java.io.IOException;
 
 /**
- * Book Controller
+ * Controller for book page
  */
 @Controller
 @PreAuthorize("hasAuthority('ADMIN')")

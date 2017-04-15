@@ -5,7 +5,7 @@ import com.alexkbit.iblog.model.User;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 /**
- * Created by Savchenko.Ale on 27.02.2017.
+ * Form for create new Users
  */
 public class UserRegisterForm {
 

@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 /**
- * Created by Savchenko.Ale on 31.01.2017.
+ * Controller for home page
  */
 @Controller
 public class HomeController {
