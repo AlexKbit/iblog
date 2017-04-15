@@ -9,5 +9,6 @@
   <include file="2017_03_19-create_image_table.xml" relativeToChangelogFile="true"/>
   <include file="2017_03_29-create_book_table.xml" relativeToChangelogFile="true"/>
   <include file="2017_04_09-create_user_column_avatar.xml" relativeToChangelogFile="true"/>
+  <include file="2017_04_15-DATA_insert_user-admin.xml" relativeToChangelogFile="true"/>
 
 </databaseChangeLog>

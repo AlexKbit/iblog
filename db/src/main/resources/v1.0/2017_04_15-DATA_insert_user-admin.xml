@@ -1,0 +1,23 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+    <changeSet id="2017_04_15-DATA_insert_user-admin" author="alexkbit">
+        <preConditions>
+            <tableExists tableName="user"/>
+        </preConditions>
+        <insert schemaName="public" tableName="user">
+            <column name="uuid">3509a95a-cbf5-4743-8530-2460c1bfa991</column>
+            <column name="usr_login">admin</column>
+            <column name="usr_password">$2a$10$PM1FLqXqU.MDZymvXphPiecjNfK/o8daUn6Qo9iTEj5Rw8FNmNZyi</column>
+            <column name="usr_email">admin@admin.com</column>
+            <column name="usr_name">Admin</column>
+            <column name="usr_surname">Admin</column>
+            <column name="usr_role">ADMIN</column>
+            <column name="usr_enabled">true</column>
+        </insert>
+    </changeSet>
+
+</databaseChangeLog>
