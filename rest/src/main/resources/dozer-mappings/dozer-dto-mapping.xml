@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mappings xmlns="http://dozer.sourceforge.net"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://dozer.sourceforge.net http://dozer.sourceforge.net/schema/beanmapping.xsd">
+
+    <!-- Dozer mapping for DTOs -->
+
+    <configuration>
+        <stop-on-errors>true</stop-on-errors>
+        <wildcard>true</wildcard>
+        <trim-strings>false</trim-strings>
+    </configuration>
+
+    <mapping>
+        <class-a>com.alexkbit.iblog.model.BaseModel</class-a>
+        <class-b>com.alexkbit.iblog.rest.dto.BaseDTO</class-b>
+    </mapping>
+    <mapping>
+        <class-a>com.alexkbit.iblog.model.User</class-a>
+        <class-b>com.alexkbit.iblog.rest.dto.UserDTO</class-b>
+        <field>
+            <a>avatar.id</a>
+            <b>avatarId</b>
+        </field>
+    </mapping>
+    <mapping>
+        <class-a>com.alexkbit.iblog.model.Book</class-a>
+        <class-b>com.alexkbit.iblog.rest.dto.BookDTO</class-b>
+        <field custom-converter="com.alexkbit.iblog.rest.converters.DateConverter">
+            <a>endDate</a>
+            <b>endDate</b>
+        </field>
+        <field>
+            <a>image.id</a>
+            <b>imageId</b>
+        </field>
+    </mapping>
+</mappings>

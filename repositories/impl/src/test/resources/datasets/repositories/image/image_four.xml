@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset>
+
+    <IMAGE UUID="1ac8087d-fc14-4e4f-b9d0-5c4b9e05a501"
+          CREATED_AT="2016-06-30"
+          UPDATED_AT="2016-12-30"
+          IMG_USER="8ac8087d-fc14-4e4f-b9d0-5c4b9e05a501"
+          IMG_NAME="image1"
+          IMG_DATA="data1"
+          IMG_TYPE="JPG"/>
+
+    <IMAGE UUID="1ac8087d-fc14-4e4f-b9d0-5c4b9e05a502"
+          CREATED_AT="2016-06-30"
+          UPDATED_AT="2016-12-30"
+          IMG_USER="8ac8087d-fc14-4e4f-b9d0-5c4b9e05a501"
+          IMG_NAME="image2"
+          IMG_DATA="data2"
+          IMG_TYPE="JPG"/>
+
+    <IMAGE UUID="1ac8087d-fc14-4e4f-b9d0-5c4b9e05a503"
+          CREATED_AT="2016-06-30"
+          UPDATED_AT="2016-12-30"
+          IMG_USER="8ac8087d-fc14-4e4f-b9d0-5c4b9e05a501"
+          IMG_NAME="image3"
+          IMG_DATA="data3"
+          IMG_TYPE="JPG"/>
+
+    <IMAGE UUID="1ac8087d-fc14-4e4f-b9d0-5c4b9e05a504"
+          CREATED_AT="2016-06-30"
+          UPDATED_AT="2016-12-30"
+          IMG_USER="8ac8087d-fc14-4e4f-b9d0-5c4b9e05a502"
+          IMG_NAME="image4"
+          IMG_DATA="data4"
+          IMG_TYPE="JPG"/>
+</dataset>

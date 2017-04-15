@@ -1,17 +1,21 @@
 package com.alexkbit.iblog.repository.impl;
 
 import com.alexkbit.iblog.model.BaseModel;
+import com.alexkbit.iblog.model.ModelPage;
 import com.alexkbit.iblog.repositories.api.BaseRepository;
 import com.alexkbit.iblog.repository.impl.entities.BaseEntity;
 import org.dozer.DozerBeanMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.data.domain.Page;
+import org.springframework.data.jpa.repository.JpaRepository;
 
 import javax.annotation.PostConstruct;
 import java.lang.reflect.ParameterizedType;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
-import java.util.UUID;
+import java.util.function.Supplier;
 import java.util.stream.Collectors;
 
 /**
@@ -50,14 +54,19 @@ public abstract class AbstractBaseRepository<M extends BaseModel, E extends Base
     }
 
     /**
+     * Gets inner jpa repository for this
+     * @return {@link JpaRepository}
+     */
+    protected abstract JpaRepository<E, String> getRepository();
+
+    /**
      * {@inheritDoc}
      */
     @Override
     public M save(M model) {
         E entity = mapToEntity(model);
-        saveEntity(entity);
-        model.setId(entity.getId());
-        return model;
+        getRepository().save(entity);
+        return mapToModel(entity);
     }
 
     /**
@@ -66,7 +75,7 @@ public abstract class AbstractBaseRepository<M extends BaseModel, E extends Base
     @Override
     public List<M> save(Collection<M> models) {
         List<E> entities = mapToEntity(models);
-        saveEntities(entities);
+        getRepository().save(entities);
         return mapToModel(entities);
     }
 
@@ -74,13 +83,28 @@ public abstract class AbstractBaseRepository<M extends BaseModel, E extends Base
      * {@inheritDoc}
      */
     @Override
-    public M findOne(UUID id) {
-        E entity = findById(id);
-        if (entity != null) {
-            return mapToModel(entity);
-        } else {
+    public M findOne(final String id) {
+        return findOne(() -> this.getRepository().findOne(id));
+    }
+
+    protected M findOne(Supplier<E> supplier) {
+        E entity = supplier.get();
+        if (entity == null) {
             return null;
         }
+        return mapToModel(entity);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public List<M> findByIds(Collection<String> ids) {
+        List<E> entities = getRepository().findAll(ids);
+        if (entities == null || entities.isEmpty()) {
+            return Collections.emptyList();
+        }
+        return mapToModel(entities);
     }
 
     /**
@@ -91,7 +115,7 @@ public abstract class AbstractBaseRepository<M extends BaseModel, E extends Base
         if (model == null) {
             return;
         }
-        deleteById(model.getId());
+        getRepository().delete(model.getId());
     }
 
     /**
@@ -102,7 +126,15 @@ public abstract class AbstractBaseRepository<M extends BaseModel, E extends Base
         if (models == null || models.isEmpty()) {
             return;
         }
-        models.stream().map(M::getId).forEach(id -> deleteById(id));
+        models.stream().map(M::getId).forEach(id -> getRepository().delete(id));
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void delete(String id) {
+        getRepository().delete(id);
     }
 
     /**
@@ -142,31 +174,20 @@ public abstract class AbstractBaseRepository<M extends BaseModel, E extends Base
     }
 
     /**
-     * Save entity to DB.
-     *
-     * @param entity {@link E}
+     * Map Spring data page to page of models
+     * @param dataPage spring data page
+     * @return page of models
      */
-    protected abstract void saveEntity(E entity);
-
-    /**
-     * Save entities to DB.
-     *
-     * @param entities collection of entity
-     */
-    protected abstract void saveEntities(Collection<E> entities);
-
-    /**
-     * Find entity by uuid.
-     *
-     * @param uuid uuid
-     * @return entity
-     */
-    protected abstract E findById(UUID uuid);
-
-    /**
-     * Delete entity by id from DB.
-     *
-     * @param id id of entity
-     */
-    protected abstract void deleteById(UUID id);
+    protected ModelPage<M> mapToModel(Page<E> dataPage) {
+        ModelPage<M> modelPage = new ModelPage<>();
+        modelPage.setContent(mapToModel(dataPage.getContent()));
+        modelPage.setNumber(dataPage.getNumber());
+        modelPage.setNumberOfElements(dataPage.getNumberOfElements());
+        modelPage.setSize(dataPage.getSize());
+        modelPage.setTotalPages(dataPage.getTotalPages());
+        modelPage.setTotalElements(dataPage.getTotalElements());
+        modelPage.setFirst(dataPage.isFirst());
+        modelPage.setLast(dataPage.isLast());
+        return modelPage;
+    }
 }

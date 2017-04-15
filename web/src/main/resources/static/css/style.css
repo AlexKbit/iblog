@@ -1,0 +1,46 @@
+
+.output-info {
+    padding-top: 0px !important;
+}
+
+.single-center {
+    padding-left: 25%;
+    padding-right: 25%;
+}
+
+.nb-li {
+    height: 50px;
+}
+
+.nb-image-small {
+    height: 25px;
+    width: 25px;
+}
+
+.image-book {
+    height: 250px;
+    width: 200px;
+}
+
+.image-avatar {
+    height: 200px;
+    width: 200px;
+}
+
+.image-book-small {
+    height: 125px;
+    width: 100px;
+}
+
+.hide-block {
+    display: none !important;
+}
+
+.account-form-label {
+    padding-top: 5px;
+}
+
+.clickable-link {
+    cursor: pointer;
+}
+

@@ -6,7 +6,13 @@ spring:
       date: '@build.date@'
       version: '@build.version@'
   profiles.active: local
+  messages.encoding: UTF-8
+  freemarker:
+    expose-request-attributes: true
+    expose-spring-macro-helpers: true
 liquibase:
     enabled: true
     change-log: classpath:master.xml
+logging:
+    config: classpath:logback.xml
 

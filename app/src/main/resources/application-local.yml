@@ -5,5 +5,5 @@ spring:
       url: jdbc:postgresql://localhost:5432/iblog_local
       username: user
       password: user
-logging:
-    config: classpath:logback-tomcat-local.xml
+  thymeleaf:
+    cache: false
