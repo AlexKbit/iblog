@@ -4,7 +4,7 @@ import com.alexkbit.iblog.model.Image;
 import com.alexkbit.iblog.model.ModelPage;
 
 /**
- * Created by aleksandrsavchenko on 19/03/2017.
+ * Service for image
  */
 public interface ImageService {
 
