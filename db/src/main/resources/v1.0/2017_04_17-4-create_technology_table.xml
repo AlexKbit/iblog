@@ -1,0 +1,35 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+    <changeSet id="2017_04_17-4-create_technology_table" author="alexkbit">
+        <createTable tableName="technology">
+            <column name="uuid" type="VARCHAR(36)">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_technology"/>
+            </column>
+            <column name="created_at" type="TIMESTAMP(6) WITHOUT TIME ZONE" defaultValueComputed="CURRENT_TIMESTAMP"/>
+            <column name="updated_at" type="TIMESTAMP(6) WITHOUT TIME ZONE"/>
+            <column name="tech_resume" type="VARCHAR(36)">
+                <constraints nullable="false"
+                             foreignKeyName="fk_technology2resume"
+                             referencedTableName="resume"
+                             referencedColumnNames="uuid" />
+            </column>
+            <column name="tech_name" type="VARCHAR(512)">
+                <constraints nullable="true" />
+            </column>
+            <column name="tech_description" type="TEXT">
+                <constraints nullable="true" />
+            </column>
+            <column name="tech_image" type="VARCHAR(36)">
+                <constraints nullable="true"
+                             foreignKeyName="fk_technology2image"
+                             referencedTableName="image"
+                             referencedColumnNames="uuid" />
+            </column>
+        </createTable>
+    </changeSet>
+
+</databaseChangeLog>

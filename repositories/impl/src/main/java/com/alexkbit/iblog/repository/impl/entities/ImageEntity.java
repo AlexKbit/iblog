@@ -43,6 +43,9 @@ public class ImageEntity extends TimeMarkEntity {
     @OneToMany(mappedBy="avatar")
     private List<UserEntity> avatars;
 
+    @OneToMany(mappedBy="image")
+    private List<TechnologyEntity> technologies;
+
     public UserEntity getUser() {
         return user;
     }
@@ -89,5 +92,13 @@ public class ImageEntity extends TimeMarkEntity {
 
     public void setAvatars(List<UserEntity> avatars) {
         this.avatars = avatars;
+    }
+
+    public List<TechnologyEntity> getTechnologies() {
+        return technologies;
+    }
+
+    public void setTechnologies(List<TechnologyEntity> technologies) {
+        this.technologies = technologies;
     }
 }

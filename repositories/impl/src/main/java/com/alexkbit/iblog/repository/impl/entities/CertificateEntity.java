@@ -1,25 +1,39 @@
-package com.alexkbit.iblog.model;
+package com.alexkbit.iblog.repository.impl.entities;
 
+import javax.persistence.*;
 import java.util.Date;
 
 /**
  * Model of Certificate
  */
-public class Certificate extends BaseModel {
+@Entity
+@Table(name = "certificate")
+public class CertificateEntity extends BaseEntity {
+
+    /**
+     * Resume
+     */
+    @ManyToOne(fetch=FetchType.LAZY)
+    @JoinColumn(name="cert_resume")
+    private ResumeEntity resume;
 
     /**
      * Name of certificate
      */
+    @Column(name = "cert_name")
     private String name;
 
     /**
      * Date of create
      */
+    @Column(name = "cert_end")
+    @Temporal(TemporalType.TIMESTAMP)
     private Date date;
 
     /**
      * Link to resource
      */
+    @Column(name = "cert_url", length = 1024)
     private String url;
 
     public String getName() {
@@ -44,5 +58,13 @@ public class Certificate extends BaseModel {
 
     public void setUrl(String url) {
         this.url = url;
+    }
+
+    public ResumeEntity getResume() {
+        return resume;
+    }
+
+    public void setResume(ResumeEntity resume) {
+        this.resume = resume;
     }
 }

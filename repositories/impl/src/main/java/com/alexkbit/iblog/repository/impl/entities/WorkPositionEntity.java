@@ -1,40 +1,59 @@
-package com.alexkbit.iblog.model;
+package com.alexkbit.iblog.repository.impl.entities;
 
+import javax.persistence.*;
 import java.util.Date;
 
 /**
- * Model of work position
+ * Entity of work position
  */
-public class WorkPosition extends BaseModel {
+@Entity
+@Table(name = "work_position")
+public class WorkPositionEntity extends BaseEntity {
+
 
     /**
-     * Name of work company
+     * Resume
      */
+    @ManyToOne(fetch=FetchType.LAZY)
+    @JoinColumn(name="wp_resume")
+    private ResumeEntity resume;
+
+    /**
+     * Name of company
+     */
+    @Column(name = "wp_company_name")
     private String companyName;
 
     /**
-     * Name of position in company
+     * Name of position
      */
+    @Column(name = "wp_position_name")
     private String positionName;
 
     /**
-     * Description of position
+     * Description
      */
+    @Column(name = "wp_description")
     private String description;
 
     /**
      * Date of start work
      */
+    @Column(name = "wp_start_work")
+    @Temporal(TemporalType.TIMESTAMP)
     private Date start;
 
     /**
      * Date of end work
      */
+    @Column(name = "wp_end_work")
+    @Temporal(TemporalType.TIMESTAMP)
     private Date end;
 
     /**
      * Work at the current time
      */
+    @Column(name = "wp_until_now")
     private Boolean untilNow;
 
     public String getCompanyName() {
@@ -83,5 +102,13 @@ public class WorkPosition extends BaseModel {
 
     public void setUntilNow(Boolean untilNow) {
         this.untilNow = untilNow;
+    }
+
+    public ResumeEntity getResume() {
+        return resume;
+    }
+
+    public void setResume(ResumeEntity resume) {
+        this.resume = resume;
     }
 }

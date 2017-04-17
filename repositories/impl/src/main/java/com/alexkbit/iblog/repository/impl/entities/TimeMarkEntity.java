@@ -6,7 +6,7 @@ import java.util.Date;
 import java.util.TimeZone;
 
 /**
- * Created by aleksandrsavchenko on 28/12/2016.
+ * Entity with marks of time
  */
 @MappedSuperclass
 public class TimeMarkEntity extends BaseEntity {

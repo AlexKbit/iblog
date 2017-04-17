@@ -74,6 +74,9 @@ public class UserEntity extends TimeMarkEntity {
     @OneToMany(mappedBy="user")
     private List<BookEntity> books;
 
+    @OneToMany(mappedBy="user")
+    private List<ResumeEntity> resumes;
+
     public String getLogin() {
         return login;
     }
@@ -152,5 +155,13 @@ public class UserEntity extends TimeMarkEntity {
 
     public void setAvatar(ImageEntity avatar) {
         this.avatar = avatar;
+    }
+
+    public List<ResumeEntity> getResumes() {
+        return resumes;
+    }
+
+    public void setResumes(List<ResumeEntity> resumes) {
+        this.resumes = resumes;
     }
 }

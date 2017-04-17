@@ -10,5 +10,9 @@
   <include file="2017_03_29-create_book_table.xml" relativeToChangelogFile="true"/>
   <include file="2017_04_09-create_user_column_avatar.xml" relativeToChangelogFile="true"/>
   <include file="2017_04_15-DATA_insert_user-admin.xml" relativeToChangelogFile="true"/>
+  <include file="2017_04_17-1-create_resume_table.xml" relativeToChangelogFile="true"/>
+  <include file="2017_04_17-2-create_certificate_table.xml" relativeToChangelogFile="true"/>
+  <include file="2017_04_17-3-create_work-position_table.xml" relativeToChangelogFile="true"/>
+  <include file="2017_04_17-4-create_technology_table.xml" relativeToChangelogFile="true"/>
 
 </databaseChangeLog>
