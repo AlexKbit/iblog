@@ -147,6 +147,17 @@ public class UserRepositoryImplTest extends AbstractTestRepository {
     }
 
     @Test
+    public void testFindByLoginOrEmail() {
+        String login = "user1001";
+        User user1 = userRepository.findByLoginOrEmail(login);
+        assertNotNull(user1);
+        String email = "user1001@mail.com";
+        User user2 = userRepository.findByLoginOrEmail(email);
+        assertNotNull(user2);
+        assertEquals(user1.getId(), user2.getId());
+    }
+
+    @Test
     public void testGetPage() {
         ModelPage<User> users = userRepository.findAll(0, 10);
         assertEquals(0, users.getNumber());
