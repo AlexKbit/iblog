@@ -35,6 +35,22 @@
         <class-a>com.alexkbit.iblog.model.Book</class-a>
         <class-b>com.alexkbit.iblog.repository.impl.entities.BookEntity</class-b>
     </mapping>
+    <mapping>
+        <class-a>com.alexkbit.iblog.model.WorkPosition</class-a>
+        <class-b>com.alexkbit.iblog.repository.impl.entities.WorkPositionEntity</class-b>
+    </mapping>
+    <mapping>
+        <class-a>com.alexkbit.iblog.model.Certificate</class-a>
+        <class-b>com.alexkbit.iblog.repository.impl.entities.CertificateEntity</class-b>
+    </mapping>
+    <mapping>
+        <class-a>com.alexkbit.iblog.model.Technology</class-a>
+        <class-b>com.alexkbit.iblog.repository.impl.entities.TechnologyEntity</class-b>
+    </mapping>
+    <mapping>
+        <class-a>com.alexkbit.iblog.model.Resume</class-a>
+        <class-b>com.alexkbit.iblog.repository.impl.entities.ResumeEntity</class-b>
+    </mapping>
 
 
 </mappings>
