@@ -23,4 +23,8 @@ public class ResumeRepositoryImpl extends AbstractBaseRepository<Resume, ResumeE
         return resumeRepositoryJpa;
     }
 
+    @Override
+    public Resume getByUserId(String userId) {
+        return mapToModel(resumeRepositoryJpa.findByUserId(userId));
+    }
 }
