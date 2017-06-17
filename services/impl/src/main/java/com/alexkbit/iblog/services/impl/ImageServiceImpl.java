@@ -28,7 +28,7 @@ public class ImageServiceImpl implements ImageService {
             return null;
         }
         Image newImage = imageRepository.save(image);
-        log.info("Save new image with id = {}", newImage.getId());
+        log.debug("Save new image with id = {}", newImage.getId());
         return newImage;
     }
 
@@ -37,13 +37,13 @@ public class ImageServiceImpl implements ImageService {
         if (id == null) {
             return null;
         }
-        log.info("Load image by id = {}", id);
+        log.debug("Load image by id = {}", id);
         return imageRepository.findOne(id);
     }
 
     @Override
     public PageModel<Image> getByUser(String userId, int page, int count) {
-        log.info("Load images by user {} page = {} count = {}", userId, page, count);
+        log.debug("Load images by user {} page = {} count = {}", userId, page, count);
         return imageRepository.findByUserId(userId, page, count);
     }
 }

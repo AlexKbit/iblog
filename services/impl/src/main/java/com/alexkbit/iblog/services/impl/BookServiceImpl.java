@@ -29,7 +29,7 @@ public class BookServiceImpl implements BookService {
             return null;
         }
         Book newBook = bookRepository.save(book);
-        log.info("Save new book with id = {}", newBook.getId());
+        log.debug("Save new book with id = {}", newBook.getId());
         return newBook;
     }
 
@@ -38,7 +38,7 @@ public class BookServiceImpl implements BookService {
         if (uuid == null) {
             return null;
         }
-        log.info("Load book by id = {}", uuid);
+        log.debug("Load book by id = {}", uuid);
         return bookRepository.findOne(uuid);
     }
 
@@ -47,13 +47,13 @@ public class BookServiceImpl implements BookService {
         if (uuid == null) {
             return;
         }
-        log.info("Delete book with id = {}", uuid);
+        log.debug("Delete book with id = {}", uuid);
         bookRepository.delete(uuid);
     }
 
     @Override
     public PageModel<Book> get(int page, int count) {
-        log.info("Load page = {} with count = {} of books", page, count);
+        log.debug("Load page = {} with count = {} of books", page, count);
         return bookRepository.findAll(page, count);
     }
 }

@@ -55,7 +55,7 @@ public class UserServiceImpl implements UserService {
         if (uuid == null) {
             return null;
         }
-        log.info("Load user by id = {}", uuid);
+        log.debug("Load user by id = {}", uuid);
         return userRepository.findOne(uuid);
     }
 
@@ -64,7 +64,7 @@ public class UserServiceImpl implements UserService {
         if (email == null) {
             return null;
         }
-        log.info("Load user by email = {}", email);
+        log.debug("Load user by email = {}", email);
         return userRepository.findByEmail(email);
     }
 
@@ -73,22 +73,22 @@ public class UserServiceImpl implements UserService {
         if (login == null) {
             return null;
         }
-        log.info("Load user by login = {}", login);
+        log.debug("Load user by login = {}", login);
         return userRepository.findByLogin(login);
     }
 
     @Override
     public PageModel<User> get(int page, int count) {
-        log.info("Load page = {} with count = {} of users", page, count);
+        log.debug("Load page = {} with count = {} of users", page, count);
         return userRepository.findAll(page, count);
     }
 
     @Override
     public void enableUser(String userId, boolean enabled) {
-        log.info("Set enabled = {} for user with id = {}", enabled, userId);
+        log.debug("Set enabled = {} for user with id = {}", enabled, userId);
         User user = userRepository.findOne(userId);
         if (user == null) {
-            log.info("User with id = {} not found", userId);
+            log.debug("User with id = {} not found", userId);
             return;
         }
         user.setEnabled(enabled);
@@ -101,7 +101,7 @@ public class UserServiceImpl implements UserService {
             return;
         }
         User user = this.get(userId);
-        log.info("Set new avatar {} for user {}", image.getId(), userId);
+        log.debug("Set new avatar {} for user {}", image.getId(), userId);
         user.setAvatar(image);
         userRepository.save(user);
     }
@@ -114,7 +114,7 @@ public class UserServiceImpl implements UserService {
             log.error(errorMsg);
             throw new UsernameNotFoundException(errorMsg);
         }
-        log.info("Load user by username = {}", loginOrEmail);
+        log.debug("Load user by username = {}", loginOrEmail);
         return new CurrentUser(user);
     }
 }

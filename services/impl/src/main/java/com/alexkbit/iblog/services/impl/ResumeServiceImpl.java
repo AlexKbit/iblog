@@ -24,13 +24,13 @@ public class ResumeServiceImpl implements ResumeService {
     @Override
     public Resume save(Resume resume) {
         Resume newResume = resumeRepository.save(resume);
-        log.info("Save resume with id = {}", newResume.getId());
+        log.debug("Save resume with id = {}", newResume.getId());
         return newResume;
     }
 
     @Override
     public Resume get(String id) {
-        log.info("Get resume by id = {}", id);
+        log.debug("Get resume by id = {}", id);
         return resumeRepository.findOne(id);
     }
 
