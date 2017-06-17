@@ -8,7 +8,7 @@ import java.util.List;
  */
 @Entity
 @Table(name = "resume")
-public class ResumeEntity extends BaseEntity {
+public class ResumeEntity extends TimeMarkEntity {
 
     /**
      * User of resume

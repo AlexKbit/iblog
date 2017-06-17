@@ -7,7 +7,7 @@ import javax.persistence.*;
  */
 @Entity
 @Table(name = "technology")
-public class TechnologyEntity extends BaseEntity {
+public class TechnologyEntity extends TimeMarkEntity {
 
     /**
      * Name of technology

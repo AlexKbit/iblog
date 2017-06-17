@@ -8,7 +8,7 @@ import java.util.Date;
  */
 @Entity
 @Table(name = "certificate")
-public class CertificateEntity extends BaseEntity {
+public class CertificateEntity extends TimeMarkEntity {
 
     /**
      * Resume
@@ -26,7 +26,7 @@ public class CertificateEntity extends BaseEntity {
     /**
      * Date of create
      */
-    @Column(name = "cert_end")
+    @Column(name = "cert_date")
     @Temporal(TemporalType.TIMESTAMP)
     private Date date;
 

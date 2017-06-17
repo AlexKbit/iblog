@@ -8,7 +8,7 @@ import java.util.Date;
  */
 @Entity
 @Table(name = "work_position")
-public class WorkPositionEntity extends BaseEntity {
+public class WorkPositionEntity extends TimeMarkEntity {
 
 
     /**

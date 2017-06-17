@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset>
+
+    <RESUME UUID="4ac8087d-fc14-4e4f-b9d0-5c4b9e05a001"
+            CREATED_AT="2017-06-10"
+            UPDATED_AT="2017-06-10"
+            RES_USER="8ac8087d-fc14-4e4f-b9d0-5c4b9e05a501"
+            RES_ABOUT="text"/>
+
+    <CERTIFICATE UUID="4ac8087d-fc14-4e4f-b9d0-5cccce05a001"
+            CREATED_AT="2017-06-10"
+            UPDATED_AT="2017-06-10"
+            CERT_RESUME="4ac8087d-fc14-4e4f-b9d0-5c4b9e05a001"
+            CERT_NAME="Oracle Certificate Java Professional"
+            CERT_DATE="2017-06-10"
+            CERT_URL="google.com"/>
+
+    <TECHNOLOGY UUID="4ac8087d-fc14-4e4f-b9d0-5tttte05a001"
+            CREATED_AT="2017-06-10"
+            UPDATED_AT="2017-06-10"
+            TECH_RESUME="4ac8087d-fc14-4e4f-b9d0-5c4b9e05a001"
+            TECH_NAME="Java"
+            TECH_DESCRIPTION="language of programming"/>
+
+    <TECHNOLOGY UUID="4ac8087d-fc14-4e4f-b9d0-5tttte05a002"
+            CREATED_AT="2017-06-10"
+            UPDATED_AT="2017-06-10"
+            TECH_RESUME="4ac8087d-fc14-4e4f-b9d0-5c4b9e05a001"
+            TECH_NAME="Scala"
+            TECH_DESCRIPTION="language of programming"/>
+
+    <WORK_POSITION UUID="4ac8087d-fc14-4e4f-b9d0-5tttte05a002"
+            CREATED_AT="2017-06-10"
+            UPDATED_AT="2017-06-10"
+            WP_RESUME="4ac8087d-fc14-4e4f-b9d0-5c4b9e05a001"
+            WP_COMPANY_NAME="Google Inc."
+            WP_POSITION_NAME="Senior Software Engineer"
+            WP_DESCRIPTION="description"
+            WP_START_WORK="2015-01-10"
+            WP_UNTIL_NOW="TRUE"/>
+
+</dataset>

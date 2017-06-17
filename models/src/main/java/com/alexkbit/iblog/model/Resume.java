@@ -5,7 +5,7 @@ import java.util.List;
 /**
  * Model of user resume
  */
-public class Resume extends BaseModel {
+public class Resume extends TimeMarkModel {
 
     /**
      * User of resume
