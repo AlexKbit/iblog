@@ -19,7 +19,7 @@ public class Resume extends TimeMarkModel {
     private String aboutMe;
 
     /**
-     * List of technologies
+     * Set of technologies
      */
     private List<Technology> technologies = new ArrayList<>();
 

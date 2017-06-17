@@ -23,6 +23,7 @@ import static org.junit.Assert.assertNotNull;
 @DatabaseSetup(value = {
         "/datasets/repositories/user/user_three.xml",
         "/datasets/repositories/image/image_four.xml",
+        "/datasets/repositories/technology/technology_two.xml",
         "/datasets/repositories/resume/resume_one.xml"})
 public class ResumeRepositoryImplTest extends AbstractTestRepository {
 
@@ -73,8 +74,6 @@ public class ResumeRepositoryImplTest extends AbstractTestRepository {
         assertEquals(resume.getPositions().get(0).getEnd(), newResume.getPositions().get(0).getEnd());
         assertEquals(resume.getPositions().get(0).getUntilNow(), newResume.getPositions().get(0).getUntilNow());
         assertEquals(resume.getTechnologies().size(), newResume.getTechnologies().size());
-        assertEquals(resume.getTechnologies().get(0).getName(), newResume.getTechnologies().get(0).getName());
-        assertEquals(resume.getTechnologies().get(0).getDescription(), newResume.getTechnologies().get(0).getDescription());
         assertEquals(resume.getAboutMe(), newResume.getAboutMe());
     }
 

@@ -26,7 +26,11 @@ public class ResumeEntity extends TimeMarkEntity {
     /**
      * List of technologies
      */
-    @OneToMany(mappedBy="resume")
+    @ManyToMany
+    @JoinTable(
+        name="resume_technologies",
+        joinColumns=@JoinColumn(name="resume", referencedColumnName="uuid"),
+        inverseJoinColumns=@JoinColumn(name="technology", referencedColumnName="uuid"))
     private List<TechnologyEntity> technologies;
 
     /**

@@ -15,19 +15,13 @@
             CERT_DATE="2017-06-10"
             CERT_URL="google.com"/>
 
-    <TECHNOLOGY UUID="4ac8087d-fc14-4e4f-b9d0-5tttte05a001"
-            CREATED_AT="2017-06-10"
-            UPDATED_AT="2017-06-10"
-            TECH_RESUME="4ac8087d-fc14-4e4f-b9d0-5c4b9e05a001"
-            TECH_NAME="Java"
-            TECH_DESCRIPTION="language of programming"/>
+    <RESUME_TECHNOLOGIES
+            RESUME="4ac8087d-fc14-4e4f-b9d0-5c4b9e05a001"
+            TECHNOLOGY="4ac8087d-fc14-4e4f-b9d0-5tttte05a001"/>
 
-    <TECHNOLOGY UUID="4ac8087d-fc14-4e4f-b9d0-5tttte05a002"
-            CREATED_AT="2017-06-10"
-            UPDATED_AT="2017-06-10"
-            TECH_RESUME="4ac8087d-fc14-4e4f-b9d0-5c4b9e05a001"
-            TECH_NAME="Scala"
-            TECH_DESCRIPTION="language of programming"/>
+    <RESUME_TECHNOLOGIES
+            RESUME="4ac8087d-fc14-4e4f-b9d0-5c4b9e05a001"
+            TECHNOLOGY="4ac8087d-fc14-4e4f-b9d0-5tttte05a002"/>
 
     <WORK_POSITION UUID="4ac8087d-fc14-4e4f-b9d0-5tttte05a002"
             CREATED_AT="2017-06-10"

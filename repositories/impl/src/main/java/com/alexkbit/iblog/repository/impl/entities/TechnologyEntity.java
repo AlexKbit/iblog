@@ -1,6 +1,7 @@
 package com.alexkbit.iblog.repository.impl.entities;
 
 import javax.persistence.*;
+import java.util.List;
 
 /**
  * Entity of technology
@@ -16,13 +17,6 @@ public class TechnologyEntity extends TimeMarkEntity {
     private String name;
 
     /**
-     * Resume
-     */
-    @ManyToOne(fetch=FetchType.LAZY)
-    @JoinColumn(name="tech_resume")
-    private ResumeEntity resume;
-
-    /**
      * Description for this technology
      */
     @Column(name = "tech_description")
@@ -34,6 +28,9 @@ public class TechnologyEntity extends TimeMarkEntity {
     @ManyToOne(fetch= FetchType.LAZY)
     @JoinColumn(name="tech_image")
     private ImageEntity image;
+
+    @ManyToMany(mappedBy="technologies")
+    private List<ResumeEntity> resumes;
 
     public String getName() {
         return name;
@@ -59,11 +56,11 @@ public class TechnologyEntity extends TimeMarkEntity {
         this.image = image;
     }
 
-    public ResumeEntity getResume() {
-        return resume;
+    public List<ResumeEntity> getResumes() {
+        return resumes;
     }
 
-    public void setResume(ResumeEntity resume) {
-        this.resume = resume;
+    public void setResumes(List<ResumeEntity> resumes) {
+        this.resumes = resumes;
     }
 }
