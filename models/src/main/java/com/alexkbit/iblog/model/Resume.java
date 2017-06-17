@@ -1,5 +1,6 @@
 package com.alexkbit.iblog.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -20,17 +21,17 @@ public class Resume extends TimeMarkModel {
     /**
      * List of technologies
      */
-    private List<Technology> technologies;
+    private List<Technology> technologies = new ArrayList<>();
 
     /**
      * List of work positions
      */
-    private List<WorkPosition> positions;
+    private List<WorkPosition> positions = new ArrayList<>();
 
     /**
      * List of certificates
      */
-    private List<Certificate> certificates;
+    private List<Certificate> certificates = new ArrayList<>();
 
     public User getUser() {
         return user;

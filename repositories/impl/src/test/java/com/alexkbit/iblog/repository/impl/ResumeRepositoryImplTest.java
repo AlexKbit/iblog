@@ -12,6 +12,7 @@ import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.Arrays;
+import java.util.Date;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
@@ -44,16 +45,36 @@ public class ResumeRepositoryImplTest extends AbstractTestRepository {
         Technology t = new Technology();
         t.setName("Java");
         resume.setTechnologies(Arrays.asList(t));
-        resume.setCertificates(Arrays.asList(new Certificate()));
-        resume.setPositions(Arrays.asList(new WorkPosition()));
+        Certificate certificate = new Certificate();
+        certificate.setName("OCJP");
+        certificate.setDate(new Date());
+        certificate.setUrl("url");
+        resume.setCertificates(Arrays.asList(certificate));
+        WorkPosition wp = new WorkPosition();
+        wp.setCompanyName("Google");
+        wp.setDescription("good");
+        wp.setPositionName("Developer");
+        wp.setUntilNow(true);
+        resume.setPositions(Arrays.asList(wp));
 
         Resume newResume = resumeRepository.save(resume);
         assertNotNull(newResume.getId());
         assertNotNull(newResume.getCreatedAt());
         assertNotNull(newResume.getUpdatedAt());
         assertEquals(resume.getCertificates().size(), newResume.getCertificates().size());
+        assertEquals(resume.getCertificates().get(0).getName(), newResume.getCertificates().get(0).getName());
+        assertEquals(resume.getCertificates().get(0).getDate(), newResume.getCertificates().get(0).getDate());
+        assertEquals(resume.getCertificates().get(0).getUrl(), newResume.getCertificates().get(0).getUrl());
         assertEquals(resume.getPositions().size(), newResume.getPositions().size());
+        assertEquals(resume.getPositions().get(0).getCompanyName(), newResume.getPositions().get(0).getCompanyName());
+        assertEquals(resume.getPositions().get(0).getDescription(), newResume.getPositions().get(0).getDescription());
+        assertEquals(resume.getPositions().get(0).getPositionName(), newResume.getPositions().get(0).getPositionName());
+        assertEquals(resume.getPositions().get(0).getStart(), newResume.getPositions().get(0).getStart());
+        assertEquals(resume.getPositions().get(0).getEnd(), newResume.getPositions().get(0).getEnd());
+        assertEquals(resume.getPositions().get(0).getUntilNow(), newResume.getPositions().get(0).getUntilNow());
         assertEquals(resume.getTechnologies().size(), newResume.getTechnologies().size());
+        assertEquals(resume.getTechnologies().get(0).getName(), newResume.getTechnologies().get(0).getName());
+        assertEquals(resume.getTechnologies().get(0).getDescription(), newResume.getTechnologies().get(0).getDescription());
         assertEquals(resume.getAboutMe(), newResume.getAboutMe());
     }
 
