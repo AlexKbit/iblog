@@ -1,6 +1,6 @@
 package com.alexkbit.iblog.repository.impl;
 
-import com.alexkbit.iblog.model.ModelPage;
+import com.alexkbit.iblog.model.PageModel;
 import com.alexkbit.iblog.model.User;
 import com.alexkbit.iblog.repositories.api.UserRepository;
 import com.github.springtestdbunit.annotation.DatabaseSetup;
@@ -159,7 +159,7 @@ public class UserRepositoryImplTest extends AbstractTestRepository {
 
     @Test
     public void testGetPage() {
-        ModelPage<User> users = userRepository.findAll(0, 10);
+        PageModel<User> users = userRepository.findAll(0, 10);
         assertEquals(0, users.getNumber());
         assertEquals(3, users.getNumberOfElements());
         assertEquals(3, users.getTotalElements());

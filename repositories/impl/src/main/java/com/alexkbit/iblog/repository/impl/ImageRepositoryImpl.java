@@ -1,7 +1,7 @@
 package com.alexkbit.iblog.repository.impl;
 
 import com.alexkbit.iblog.model.Image;
-import com.alexkbit.iblog.model.ModelPage;
+import com.alexkbit.iblog.model.PageModel;
 import com.alexkbit.iblog.repositories.api.ImageRepository;
 import com.alexkbit.iblog.repositories.api.UserRepository;
 import com.alexkbit.iblog.repository.impl.entities.ImageEntity;
@@ -14,7 +14,7 @@ import org.springframework.stereotype.Repository;
 
 
 /**
- * Implementation of {@link UserRepository}
+ * Implementation of {@link UserRepository}.
  */
 @Repository
 public class ImageRepositoryImpl extends AbstractBaseRepository<Image, ImageEntity> implements ImageRepository {
@@ -28,7 +28,7 @@ public class ImageRepositoryImpl extends AbstractBaseRepository<Image, ImageEnti
     }
 
     @Override
-    public ModelPage<Image> findByUserId(String userId, int page, int size) {
+    public PageModel<Image> findByUserId(String userId, int page, int size) {
         Page<ImageEntity> result = imageRepositoryJpa.findByUserId(userId, new PageRequest(page, size));
         return mapToModel(result);
     }

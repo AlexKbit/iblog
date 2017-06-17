@@ -1,7 +1,7 @@
 package com.alexkbit.iblog.servvices.api;
 
 import com.alexkbit.iblog.model.Book;
-import com.alexkbit.iblog.model.ModelPage;
+import com.alexkbit.iblog.model.PageModel;
 
 /**
  * Business service for {@link Book}
@@ -34,5 +34,5 @@ public interface BookService {
      * @param count count of users
      * @return page
      */
-    ModelPage<Book> get(int page, int count);
+    PageModel<Book> get(int page, int count);
 }

@@ -1,7 +1,7 @@
 package com.alexkbit.iblog.services.impl;
 
 import com.alexkbit.iblog.model.Image;
-import com.alexkbit.iblog.model.ModelPage;
+import com.alexkbit.iblog.model.PageModel;
 import com.alexkbit.iblog.repositories.api.ImageRepository;
 import com.alexkbit.iblog.servvices.api.ImageService;
 import org.slf4j.Logger;
@@ -42,7 +42,7 @@ public class ImageServiceImpl implements ImageService {
     }
 
     @Override
-    public ModelPage<Image> getByUser(String userId, int page, int count) {
+    public PageModel<Image> getByUser(String userId, int page, int count) {
         log.info("Load images by user {} page = {} count = {}", userId, page, count);
         return imageRepository.findByUserId(userId, page, count);
     }

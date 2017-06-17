@@ -1,7 +1,7 @@
 package com.alexkbit.iblog.services.impl;
 
 import com.alexkbit.iblog.model.Image;
-import com.alexkbit.iblog.model.ModelPage;
+import com.alexkbit.iblog.model.PageModel;
 import com.alexkbit.iblog.repositories.api.ImageRepository;
 import org.easymock.EasyMockRunner;
 import org.easymock.EasyMockSupport;
@@ -61,7 +61,7 @@ public class ImageServiceImplTest extends EasyMockSupport {
     @Test
     public void testGetByUser() {
         String id = UUID.randomUUID().toString();
-        expect(imageRepository.findByUserId(eq(id), eq(0), eq(10))).andReturn(new ModelPage<>());
+        expect(imageRepository.findByUserId(eq(id), eq(0), eq(10))).andReturn(new PageModel<>());
         replayAll();
         assertNotNull(id, imageService.getByUser(id, 0, 10));
         verifyAll();

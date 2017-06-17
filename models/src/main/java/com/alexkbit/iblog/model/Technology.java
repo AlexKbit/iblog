@@ -3,7 +3,7 @@ package com.alexkbit.iblog.model;
 /**
  * Model for technology
  */
-public class Technology extends BaseModel {
+public class Technology extends TimeMarkModel {
 
     /**
      * Name of technology

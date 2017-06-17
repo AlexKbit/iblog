@@ -5,7 +5,7 @@ import java.util.Date;
 /**
  * Model of Certificate
  */
-public class Certificate extends BaseModel {
+public class Certificate extends TimeMarkModel {
 
     /**
      * Name of certificate

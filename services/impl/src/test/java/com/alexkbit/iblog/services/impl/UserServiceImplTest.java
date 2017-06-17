@@ -1,7 +1,7 @@
 package com.alexkbit.iblog.services.impl;
 
 import com.alexkbit.iblog.model.Image;
-import com.alexkbit.iblog.model.ModelPage;
+import com.alexkbit.iblog.model.PageModel;
 import com.alexkbit.iblog.model.Role;
 import com.alexkbit.iblog.model.User;
 import com.alexkbit.iblog.repositories.api.UserRepository;
@@ -73,7 +73,7 @@ public class UserServiceImplTest extends EasyMockSupport {
 
     @Test
     public void testGetPage() {
-        expect(userRepository.findAll(eq(0), eq(10))).andReturn(new ModelPage<>());
+        expect(userRepository.findAll(eq(0), eq(10))).andReturn(new PageModel<>());
         replayAll();
         assertNotNull(userService.get(0,10));
         verifyAll();

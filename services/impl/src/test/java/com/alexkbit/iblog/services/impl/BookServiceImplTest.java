@@ -1,7 +1,7 @@
 package com.alexkbit.iblog.services.impl;
 
 import com.alexkbit.iblog.model.Book;
-import com.alexkbit.iblog.model.ModelPage;
+import com.alexkbit.iblog.model.PageModel;
 import com.alexkbit.iblog.repositories.api.BookRepository;
 import org.easymock.EasyMockRunner;
 import org.easymock.EasyMockSupport;
@@ -47,7 +47,7 @@ public class BookServiceImplTest extends EasyMockSupport {
 
     @Test
     public void testGetPage() {
-        expect(bookRepository.findAll(eq(0), eq(10))).andReturn(new ModelPage<>());
+        expect(bookRepository.findAll(eq(0), eq(10))).andReturn(new PageModel<>());
         replayAll();
         assertNotNull(bookService.get(0,10));
         verifyAll();

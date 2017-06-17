@@ -3,7 +3,7 @@ package com.alexkbit.iblog.repository.impl;
 
 import com.alexkbit.iblog.model.Image;
 import com.alexkbit.iblog.model.ImageType;
-import com.alexkbit.iblog.model.ModelPage;
+import com.alexkbit.iblog.model.PageModel;
 import com.alexkbit.iblog.repositories.api.ImageRepository;
 import com.alexkbit.iblog.repositories.api.UserRepository;
 import com.github.springtestdbunit.annotation.DatabaseSetup;
@@ -64,7 +64,7 @@ public class ImageRepositoryImplTest extends AbstractTestRepository {
 
     @Test
     public void testFindByUserId() {
-        ModelPage<Image> images = imageRepository.findByUserId(USER_UUID_1, 0, 10);
+        PageModel<Image> images = imageRepository.findByUserId(USER_UUID_1, 0, 10);
         assertEquals(0, images.getNumber());
         assertEquals(3, images.getNumberOfElements());
         assertEquals(3, images.getTotalElements());
@@ -76,7 +76,7 @@ public class ImageRepositoryImplTest extends AbstractTestRepository {
 
     @Test
     public void testFindByUserIdNotFound() {
-        ModelPage<Image> images = imageRepository.findByUserId(UUID.randomUUID().toString(), 0, 10);
+        PageModel<Image> images = imageRepository.findByUserId(UUID.randomUUID().toString(), 0, 10);
         assertEquals(0, images.getNumber());
         assertEquals(0, images.getNumberOfElements());
         assertEquals(0, images.getTotalElements());

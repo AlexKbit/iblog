@@ -79,7 +79,7 @@ public class BookRepositoryImplTest extends AbstractTestRepository {
 
     @Test
     public void testGetPage() {
-        ModelPage<Book> books = bookRepository.findAll(0, 10);
+        PageModel<Book> books = bookRepository.findAll(0, 10);
         assertEquals(0, books.getNumber());
         assertEquals(1, books.getNumberOfElements());
         assertEquals(1, books.getTotalElements());

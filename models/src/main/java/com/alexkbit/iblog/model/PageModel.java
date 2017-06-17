@@ -5,7 +5,7 @@ import java.util.List;
 /**
  * Model of page
  */
-public class ModelPage<M> {
+public class PageModel<M> {
 
     private long totalElements;
 

@@ -2,7 +2,7 @@ package com.alexkbit.iblog.services.impl;
 
 import com.alexkbit.iblog.model.CurrentUser;
 import com.alexkbit.iblog.model.Image;
-import com.alexkbit.iblog.model.ModelPage;
+import com.alexkbit.iblog.model.PageModel;
 import com.alexkbit.iblog.model.User;
 import com.alexkbit.iblog.repositories.api.UserRepository;
 import com.alexkbit.iblog.servvices.api.UserService;
@@ -78,7 +78,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public ModelPage<User> get(int page, int count) {
+    public PageModel<User> get(int page, int count) {
         log.info("Load page = {} with count = {} of users", page, count);
         return userRepository.findAll(page, count);
     }

@@ -5,7 +5,7 @@ import java.util.Date;
 /**
  * Model of work position
  */
-public class WorkPosition extends BaseModel {
+public class WorkPosition extends TimeMarkModel {
 
     /**
      * Name of work company

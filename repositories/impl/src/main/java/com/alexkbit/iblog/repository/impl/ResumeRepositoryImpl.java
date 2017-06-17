@@ -10,7 +10,7 @@ import org.springframework.stereotype.Repository;
 
 
 /**
- * Implementation of {@link ResumeRepository}
+ * Implementation of {@link ResumeRepository}.
  */
 @Repository
 public class ResumeRepositoryImpl extends AbstractBaseRepository<Resume, ResumeEntity> implements ResumeRepository {

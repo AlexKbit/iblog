@@ -1,7 +1,7 @@
 package com.alexkbit.iblog.servvices.api;
 
 import com.alexkbit.iblog.model.Image;
-import com.alexkbit.iblog.model.ModelPage;
+import com.alexkbit.iblog.model.PageModel;
 import com.alexkbit.iblog.model.User;
 import org.springframework.security.core.userdetails.UserDetailsService;
 
@@ -50,7 +50,7 @@ public interface UserService extends UserDetailsService {
      * @param count count of users
      * @return page
      */
-    ModelPage<User> get(int page, int count);
+    PageModel<User> get(int page, int count);
 
     /**
      * Change value of enabled

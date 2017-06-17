@@ -1,7 +1,7 @@
 package com.alexkbit.iblog.servvices.api;
 
 import com.alexkbit.iblog.model.Image;
-import com.alexkbit.iblog.model.ModelPage;
+import com.alexkbit.iblog.model.PageModel;
 
 /**
  * Service for image
@@ -29,5 +29,5 @@ public interface ImageService {
      * @param count count on page
      * @return page
      */
-    ModelPage<Image> getByUser(String userId, int page, int count);
+    PageModel<Image> getByUser(String userId, int page, int count);
 }

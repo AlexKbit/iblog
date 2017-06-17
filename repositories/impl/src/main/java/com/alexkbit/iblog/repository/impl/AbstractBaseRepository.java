@@ -1,7 +1,7 @@
 package com.alexkbit.iblog.repository.impl;
 
 import com.alexkbit.iblog.model.BaseModel;
-import com.alexkbit.iblog.model.ModelPage;
+import com.alexkbit.iblog.model.PageModel;
 import com.alexkbit.iblog.repositories.api.BaseRepository;
 import com.alexkbit.iblog.repository.impl.entities.BaseEntity;
 import org.dozer.DozerBeanMapper;
@@ -19,12 +19,12 @@ import java.util.function.Supplier;
 import java.util.stream.Collectors;
 
 /**
- * Abstract implementation of {@link BaseRepository}
+ * Abstract implementation of {@link BaseRepository}.
  */
 public abstract class AbstractBaseRepository<M extends BaseModel, E extends BaseEntity> implements BaseRepository<M> {
 
     /**
-     * Dozer mapper
+     * Dozer mapper.
      */
     @Autowired
     @Qualifier(value = "entitiesDozerMapper")
@@ -54,7 +54,7 @@ public abstract class AbstractBaseRepository<M extends BaseModel, E extends Base
     }
 
     /**
-     * Gets inner jpa repository for this
+     * Gets inner jpa repository for this.
      * @return {@link JpaRepository}
      */
     protected abstract JpaRepository<E, String> getRepository();
@@ -138,7 +138,7 @@ public abstract class AbstractBaseRepository<M extends BaseModel, E extends Base
     }
 
     /**
-     * Map model to entity
+     * Map model to entity.
      * @param model {@link M}
      * @return {@link E}
      */
@@ -147,7 +147,7 @@ public abstract class AbstractBaseRepository<M extends BaseModel, E extends Base
     }
 
     /**
-     * Map entity to model
+     * Map entity to model.
      * @param entity {@link E}
      * @return {@link M}
      */
@@ -156,7 +156,7 @@ public abstract class AbstractBaseRepository<M extends BaseModel, E extends Base
     }
 
     /**
-     * Map models to entities
+     * Map models to entities.
      * @param models collection of {@link M}
      * @return list of {@link E}
      */
@@ -165,7 +165,7 @@ public abstract class AbstractBaseRepository<M extends BaseModel, E extends Base
     }
 
     /**
-     * Map entities to models
+     * Map entities to models.
      * @param entities collection of {@link E}
      * @return list of {@link M}
      */
@@ -174,20 +174,20 @@ public abstract class AbstractBaseRepository<M extends BaseModel, E extends Base
     }
 
     /**
-     * Map Spring data page to page of models
+     * Map Spring data page to page of models.
      * @param dataPage spring data page
      * @return page of models
      */
-    protected ModelPage<M> mapToModel(Page<E> dataPage) {
-        ModelPage<M> modelPage = new ModelPage<>();
-        modelPage.setContent(mapToModel(dataPage.getContent()));
-        modelPage.setNumber(dataPage.getNumber());
-        modelPage.setNumberOfElements(dataPage.getNumberOfElements());
-        modelPage.setSize(dataPage.getSize());
-        modelPage.setTotalPages(dataPage.getTotalPages());
-        modelPage.setTotalElements(dataPage.getTotalElements());
-        modelPage.setFirst(dataPage.isFirst());
-        modelPage.setLast(dataPage.isLast());
-        return modelPage;
+    protected PageModel<M> mapToModel(Page<E> dataPage) {
+        PageModel<M> pageModel = new PageModel<>();
+        pageModel.setContent(mapToModel(dataPage.getContent()));
+        pageModel.setNumber(dataPage.getNumber());
+        pageModel.setNumberOfElements(dataPage.getNumberOfElements());
+        pageModel.setSize(dataPage.getSize());
+        pageModel.setTotalPages(dataPage.getTotalPages());
+        pageModel.setTotalElements(dataPage.getTotalElements());
+        pageModel.setFirst(dataPage.isFirst());
+        pageModel.setLast(dataPage.isLast());
+        return pageModel;
     }
 }
