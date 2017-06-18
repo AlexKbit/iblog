@@ -28,7 +28,7 @@ public class SearchSpecificationsUtils {
     }
 
     private static Predicate buildSearchPredicate(String searchQuery, Expression<String> searchField, CriteriaBuilder cb) {
-        if (searchQuery == null) {
+        if (searchQuery == null || searchQuery.isEmpty()) {
             return null;
         }
         searchQuery = searchQuery.toLowerCase().replace(QUOTE, "");

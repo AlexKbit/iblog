@@ -24,6 +24,14 @@
         </field>
     </mapping>
     <mapping>
+        <class-a>com.alexkbit.iblog.model.Technology</class-a>
+        <class-b>com.alexkbit.iblog.rest.dto.TechnologyDTO</class-b>
+        <field>
+            <a>image.id</a>
+            <b>imageId</b>
+        </field>
+    </mapping>
+    <mapping>
         <class-a>com.alexkbit.iblog.model.Book</class-a>
         <class-b>com.alexkbit.iblog.rest.dto.BookDTO</class-b>
         <field custom-converter="com.alexkbit.iblog.rest.converters.DateConverter">

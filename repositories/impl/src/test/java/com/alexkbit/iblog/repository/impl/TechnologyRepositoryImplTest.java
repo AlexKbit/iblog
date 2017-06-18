@@ -44,4 +44,12 @@ public class TechnologyRepositoryImplTest extends AbstractTestRepository {
         assertEquals(searchName, page.getContent().get(0).getName());
     }
 
+    @Test
+    public void testSearchAll() {
+        PageModel<Technology> page = technologyRepository.searchByName("", new PagingModel(0,10));
+        assertNotNull(page);
+        assertFalse(page.getContent().isEmpty());
+        assertEquals(2, page.getContent().size());
+    }
+
 }
