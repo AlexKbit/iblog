@@ -6,6 +6,12 @@
     <div class="text-center">
         <h3><@spring.message "messages.admin.tags.title"/></h3>
     </div>
+    <div class="input-group">
+        <input type="text" class="form-control" value="${page.search}">
+        <span class="input-group-btn">
+        <button class="btn btn-default" type="button"><@spring.message "messages.search"/></button>
+      </span>
+    </div>
 
     <div class="table-hover">
         <table class="table">

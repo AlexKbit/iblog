@@ -23,6 +23,8 @@ public class PageModel<M> {
 
     private boolean last;
 
+    private String search;
+
     public long getTotalElements() {
         return totalElements;
     }
@@ -85,5 +87,13 @@ public class PageModel<M> {
 
     public void setLast(boolean last) {
         this.last = last;
+    }
+
+    public String getSearch() {
+        return search;
+    }
+
+    public void setSearch(String search) {
+        this.search = search;
     }
 }

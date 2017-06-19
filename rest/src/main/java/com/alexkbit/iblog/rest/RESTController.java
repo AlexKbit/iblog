@@ -100,6 +100,7 @@ public abstract class RESTController<M extends BaseModel, D extends BaseDTO> {
         result.setLast(page.isLast());
         result.setTotalElements(page.getTotalElements());
         result.setContent(mapToDTO(page.getContent()));
+        result.setSearch(page.getSearch());
         return result;
     }
 }

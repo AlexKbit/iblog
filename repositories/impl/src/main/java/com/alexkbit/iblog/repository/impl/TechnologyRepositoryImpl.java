@@ -33,6 +33,8 @@ public class TechnologyRepositoryImpl extends AbstractBaseRepository<Technology,
     public PageModel<Technology> searchByName(String query, PagingModel paging) {
         Pageable pageable = new PageRequest(paging.getPage(), paging.getSize());
         Specification<TechnologyEntity> spec = SearchSpecificationsUtils.searchSpecification(query, "name");
-        return mapToModel(technologyRepositoryJpa.findAll(spec, pageable));
+        PageModel page = mapToModel(technologyRepositoryJpa.findAll(spec, pageable));
+        page.setSearch(query);
+        return page;
     }
 }
