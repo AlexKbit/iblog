@@ -7,19 +7,14 @@
     <br/>
     <div class="col-lg-4">
         <#if user.avatarId??>
-            <img src="/image/${user.avatarId}" class="image-avatar img-circle" onclick="$('#uploadingFile').click()">
+            <img id="imageBlock" src="/image/${user.avatarId}" class="image-avatar img-circle" onclick="$('#uploadingFile').click()">
         <#else>
-            <img src="/images/person.png" class="image-avatar img-circle" onclick="$('#uploadingFile').click()">
+            <img id="imageBlock" src="/images/person.png" class="image-avatar img-circle" onclick="$('#uploadingFile').click()">
         </#if>
-        <form id="uploadingForm" name="uploadingForm" enctype="multipart/form-data" action="/account/avatar" method="POST">
+        <form id="uploadingForm" name="uploadingForm">
             <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-            <input type="hidden" name="id" value="${user.id}"/>
-            <input type="hidden" name="email" value="${user.email}"/>
-            <input type="hidden" name="login" value="${user.login}"/>
-            <input type="hidden" name="name" id="uploadUserName" value=""/>
-            <input type="hidden" name="surname" id="uploadUserSurName" value=""/>
             <input id="uploadingFile" type="file" name="uploadingFile"
-                   class="hide-block" onchange="submitAvatar()">
+                   class="hide-block" onchange="uploadImage($('#uploadingFile'), $('#imageId'), $('#imageBlock'), '${_csrf.parameterName}', '${_csrf.token}')">
         </form>
     </div>
     <div class="col-lg-6">
@@ -29,9 +24,9 @@
             <input type="hidden" name="email" value="${user.email}"/>
             <input type="hidden" name="login" value="${user.login}"/>
             <#if user.avatarId??>
-                <input type="hidden" name="avatarId" value="${user.avatarId}"/>
+                <input id="imageId" type="hidden" name="avatarId" value="${user.avatarId}"/>
             <#else>
-                <input type="hidden" name="avatarId" value=""/>
+                <input id="imageId" type="hidden" name="avatarId" value=""/>
             </#if>
             <div class="form-group row">
                 <label class="col-md-3">

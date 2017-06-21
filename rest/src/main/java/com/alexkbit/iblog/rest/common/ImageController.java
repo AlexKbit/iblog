@@ -1,4 +1,4 @@
-package com.alexkbit.iblog.rest.api;
+package com.alexkbit.iblog.rest.common;
 
 import com.alexkbit.iblog.model.Image;
 import com.alexkbit.iblog.servvices.api.ImageService;

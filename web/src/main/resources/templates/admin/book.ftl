@@ -10,14 +10,14 @@
             <@spring.message "messages.book.albumImage"/>
         </label>
         <#if book.imageId??>
-            <img src="/image/${book.imageId}" class="image-book" border="1" onclick="$('#uploadingFile').click()">
+            <img id="imageBlock" src="/image/${book.imageId}" class="image-book" border="1" onclick="$('#uploadingFile').click()">
         <#else>
-            <img src="/images/noImage.png" class="image-book" border="1" onclick="$('#uploadingFile').click()">
+            <img id="imageBlock" src="/images/noImage.png" class="image-book" border="1" onclick="$('#uploadingFile').click()">
         </#if>
-        <form id="uploadingForm" name="uploadingForm" enctype="multipart/form-data" action="/admin/book/image" method="POST">
+        <form id="uploadingForm" name="uploadingForm">
             <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
             <input id="uploadingFile" type="file" name="uploadingFile"
-                   class="hide-block" onchange="$('#uploadingForm').submit()">
+                   class="hide-block" onchange="uploadImage($('#uploadingFile'), $('#imageId'), $('#imageBlock'), '${_csrf.parameterName}', '${_csrf.token}')">
         </form>
     </div>
     <div class="col-lg-6">
@@ -27,9 +27,9 @@
                 <input type="hidden" name="id" value="${book.id}"/>
             </#if>
             <#if book.imageId??>
-                <input type="hidden" name="imageId" value="${book.imageId}"/>
+                <input type="hidden" name="imageId" id="imageId" value="${book.imageId}"/>
             <#else>
-                <input type="hidden" name="imageId" value=""/>
+                <input type="hidden" name="imageId" id="imageId" value=""/>
             </#if>
             <div class="form-group row">
                 <label for="input-book-name" class="col-2 col-form-label">
