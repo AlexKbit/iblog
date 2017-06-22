@@ -17,3 +17,12 @@ function uploadImage(fileUpload, imageIdField, imageSRC, csrfName, token) {
         }
     });
 }
+
+function searhResult(query, search) {
+    location.href=query+"&query="+$('#'+search).val()
+}
+
+function showMsgBox(msgBox) {
+    msgBox.show();
+    setTimeout(function() { msgBox.hide(); }, 3000);
+}

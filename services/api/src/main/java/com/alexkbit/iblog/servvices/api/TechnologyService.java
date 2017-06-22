@@ -24,6 +24,12 @@ public interface TechnologyService {
     Technology get(String id);
 
     /**
+     * Delete {@link Technology} by id.
+     * @param uuid UUID
+     */
+    void delete(String uuid);
+
+    /**
      * Search {@link Technology} by name.
      * @param query full name or part of name
      * @param paging {@link PagingModel}

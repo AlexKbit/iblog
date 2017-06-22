@@ -43,6 +43,15 @@ public class TechnologyServiceImpl implements TechnologyService {
     }
 
     @Override
+    public void delete(String uuid) {
+        if (uuid == null) {
+            return;
+        }
+        log.debug("Delete technology with id = {}", uuid);
+        technologyRepository.delete(uuid);
+    }
+
+    @Override
     public PageModel<Technology> searchByName(String query, PagingModel paging) {
         log.debug("Search technology by name = {} paging = {}", query, paging);
         return technologyRepository.searchByName(query, paging);

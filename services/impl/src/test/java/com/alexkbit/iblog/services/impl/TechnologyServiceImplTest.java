@@ -13,8 +13,7 @@ import org.junit.runner.RunWith;
 
 import java.util.UUID;
 
-import static org.easymock.EasyMock.anyObject;
-import static org.easymock.EasyMock.expect;
+import static org.easymock.EasyMock.*;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
@@ -72,6 +71,23 @@ public class TechnologyServiceImplTest extends EasyMockSupport {
     public void testGetByUuidIsNull() {
         replayAll();
         assertNull(technologyService.get(null));
+        verifyAll();
+    }
+
+    @Test
+    public void testDeleteByUuid() {
+        String id = UUID.randomUUID().toString();
+        technologyRepository.delete(eq(id));
+        expectLastCall();
+        replayAll();
+        technologyService.delete(id);
+        verifyAll();
+    }
+
+    @Test
+    public void testDeleteWhenIdIsNull() {
+        replayAll();
+        technologyService.delete(null);
         verifyAll();
     }
 

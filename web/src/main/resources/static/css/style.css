@@ -23,8 +23,8 @@
 }
 
 .image-tag {
-    height: 120px;
-    width: 120px;
+    height: 50px;
+    width: 50px;
 }
 
 .image-avatar {
@@ -47,5 +47,9 @@
 
 .clickable-link {
     cursor: pointer;
+}
+
+.vertical-align-middle {
+    vertical-align: middle !important;
 }
 
