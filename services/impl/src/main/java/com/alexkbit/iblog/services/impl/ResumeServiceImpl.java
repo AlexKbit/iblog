@@ -35,7 +35,7 @@ public class ResumeServiceImpl implements ResumeService {
     }
 
     @Override
-    public Resume getByUser(String userId) {
-        return resumeRepository.getByUserId(userId);
+    public Resume getActive() {
+        return resumeRepository.findActive();
     }
 }

@@ -47,14 +47,12 @@ public class ResumeServiceImplTest extends EasyMockSupport {
     }
 
     @Test
-    public void testGetByUser() {
+    public void testGetActive() {
         Resume resume = createResume();
-        String userId = resume.getUser().getId();
-        expect(resumeRepository.getByUserId(eq(userId))).andReturn(resume);
+        expect(resumeRepository.findActive()).andReturn(resume);
         replayAll();
-        Resume result = resumeService.getByUser(userId);
+        Resume result = resumeService.getActive();
         assertEquals(resume.getId(), result.getId());
-        assertEquals(userId, result.getUser().getId());
         verifyAll();
     }
 

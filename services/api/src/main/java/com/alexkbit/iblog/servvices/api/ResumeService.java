@@ -22,9 +22,8 @@ public interface ResumeService {
     Resume get(String id);
 
     /**
-     * Get resume by user id.
-     * @param userId id of user
+     * Get active resume.
      * @return {@link Resume}
      */
-    Resume getByUser(String userId);
+    Resume getActive();
 }
