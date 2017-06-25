@@ -10,7 +10,7 @@
     <br/>
     <div class="col-lg-2">
         <#if tag.imageId??>
-            <img id="imageBlock" src="/image/${book.imageId}" class="image-tag" border="1" onclick="$('#uploadingFile').click()">
+            <img id="imageBlock" src="/image/${tag.imageId}" class="image-tag" border="1" onclick="$('#uploadingFile').click()">
         <#else>
             <img id="imageBlock" src="/images/noImage.png" class="image-tag" border="1" onclick="$('#uploadingFile').click()">
         </#if>
@@ -46,7 +46,7 @@
                     <@spring.message "messages.admin.tags.table.description"/>
                 </label>
                 <div class="col-10">
-                    <input class="form-control" type="text" name="author"
+                    <input class="form-control" type="text" name="description"
                            value="${tag.description}" id="input-tag-description"
                            required>
                 </div>

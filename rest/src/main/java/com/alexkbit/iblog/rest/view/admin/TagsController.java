@@ -28,14 +28,14 @@ public class TagsController extends RESTController<Technology, TechnologyDTO> {
     private ImageService imageService;
 
     @RequestMapping("/tags")
-    public ModelAndView get(@RequestParam(value = "page", defaultValue = "0") Integer page,
+    public ModelAndView getAll(@RequestParam(value = "page", defaultValue = "0") Integer page,
                             @RequestParam(value = "count", defaultValue = "25") Integer count,
                             @RequestParam(value = "query", defaultValue = "") String query) {
         return new ModelAndView("admin/tags", "page", mapToDTO(technologyService.searchByName(query, new PagingModel(page, count))));
     }
 
     @RequestMapping(value = "/tag", method = RequestMethod.GET)
-    public ModelAndView get() {
+    public ModelAndView create() {
         return new ModelAndView("admin/tag", "tag", new TechnologyDTO());
     }
 

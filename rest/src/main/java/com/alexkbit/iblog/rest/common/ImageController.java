@@ -27,7 +27,8 @@ public class ImageController {
     public void get(@PathVariable String id, HttpServletResponse response) throws IOException {
         Image image = imageService.get(id);
         if (image == null) {
-            throw new RuntimeException(String.format("Image by id = %s not found", id));
+            response.setStatus(HttpServletResponse.SC_NOT_FOUND);
+            return;
         }
         response.setContentType(CONTENT_TYPES);
         response.getOutputStream().write(image.getData());
