@@ -24,6 +24,12 @@ public class ResumeEntity extends TimeMarkEntity {
     private String aboutMe;
 
     /**
+     *  Is active
+     */
+    @Column(name = "res_active")
+    private Boolean active;
+
+    /**
      * List of technologies
      */
     @ManyToMany

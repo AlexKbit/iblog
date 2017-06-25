@@ -19,6 +19,11 @@ public class Resume extends TimeMarkModel {
     private String aboutMe;
 
     /**
+     * Is active
+     */
+    private Boolean active;
+
+    /**
      * Set of technologies
      */
     private List<Technology> technologies = new ArrayList<>();
@@ -47,6 +52,14 @@ public class Resume extends TimeMarkModel {
 
     public void setAboutMe(String aboutMe) {
         this.aboutMe = aboutMe;
+    }
+
+    public Boolean getActive() {
+        return active;
+    }
+
+    public void setActive(Boolean active) {
+        this.active = active;
     }
 
     public List<Technology> getTechnologies() {
