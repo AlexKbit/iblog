@@ -1,5 +1,6 @@
 package com.alexkbit.iblog.repository.impl;
 
+import com.alexkbit.iblog.model.PageModel;
 import com.alexkbit.iblog.model.Resume;
 import com.alexkbit.iblog.repositories.api.ResumeRepository;
 import com.alexkbit.iblog.repository.impl.entities.ResumeEntity;
@@ -24,7 +25,7 @@ public class ResumeRepositoryImpl extends AbstractBaseRepository<Resume, ResumeE
     }
 
     @Override
-    public Resume getByUserId(String userId) {
-        return mapToModel(resumeRepositoryJpa.findByUserId(userId));
+    public Resume findActive() {
+        return mapToModel(resumeRepositoryJpa.findActive());
     }
 }

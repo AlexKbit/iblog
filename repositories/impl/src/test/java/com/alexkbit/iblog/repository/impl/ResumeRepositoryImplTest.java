@@ -1,10 +1,7 @@
 package com.alexkbit.iblog.repository.impl;
 
 
-import com.alexkbit.iblog.model.Certificate;
-import com.alexkbit.iblog.model.Resume;
-import com.alexkbit.iblog.model.Technology;
-import com.alexkbit.iblog.model.WorkPosition;
+import com.alexkbit.iblog.model.*;
 import com.alexkbit.iblog.repositories.api.ResumeRepository;
 import com.alexkbit.iblog.repositories.api.UserRepository;
 import com.github.springtestdbunit.annotation.DatabaseSetup;
@@ -78,8 +75,8 @@ public class ResumeRepositoryImplTest extends AbstractTestRepository {
     }
 
     @Test
-    public void testGetByUserId() {
-        Resume resume = resumeRepository.getByUserId(USER_UUID);
+    public void testFindActive() {
+        Resume resume = resumeRepository.findActive();
         assertEquals(RESUME_UUID, resume.getId());
         assertEquals(2, resume.getTechnologies().size());
         assertEquals(1, resume.getCertificates().size());

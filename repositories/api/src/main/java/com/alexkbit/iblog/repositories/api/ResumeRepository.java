@@ -8,9 +8,8 @@ import com.alexkbit.iblog.model.Resume;
 public interface ResumeRepository extends BaseRepository<Resume> {
 
     /**
-     * Find resume by user id.
-     * @param userId id of user
-     * @return resume
+     * Find active resume.
+     * @return {@link Resume}
      */
-    Resume getByUserId(String userId);
+    Resume findActive();
 }

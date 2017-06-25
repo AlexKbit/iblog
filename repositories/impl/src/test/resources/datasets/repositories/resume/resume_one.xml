@@ -5,7 +5,8 @@
             CREATED_AT="2017-06-10"
             UPDATED_AT="2017-06-10"
             RES_USER="8ac8087d-fc14-4e4f-b9d0-5c4b9e05a501"
-            RES_ABOUT="text"/>
+            RES_ABOUT="text"
+            RES_ACTIVE="TRUE"/>
 
     <CERTIFICATE UUID="4ac8087d-fc14-4e4f-b9d0-5cccce05a001"
             CREATED_AT="2017-06-10"
