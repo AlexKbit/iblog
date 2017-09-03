@@ -2,6 +2,9 @@
 <#import "/spring.ftl" as spring/>
 
 <@layout.page pageTitle="">
+<img src="/images/homeHead.png"/>
+<br/>
 <p><@spring.message "messages.welcome"/></p>
-<#--<p>Click <a href="/posts">here</a> to see a greeting.</p>-->
+<br/>
+<p><@spring.message "messages.siteinfo"/></p>
 </@layout.page>
