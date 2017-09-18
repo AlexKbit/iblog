@@ -77,6 +77,9 @@ public class UserEntity extends TimeMarkEntity {
     @OneToMany(mappedBy="user")
     private List<ResumeEntity> resumes;
 
+    @OneToMany(mappedBy="user")
+    private List<PostEntity> posts;
+
     public String getLogin() {
         return login;
     }
@@ -163,5 +166,13 @@ public class UserEntity extends TimeMarkEntity {
 
     public void setResumes(List<ResumeEntity> resumes) {
         this.resumes = resumes;
+    }
+
+    public List<PostEntity> getPosts() {
+        return posts;
+    }
+
+    public void setPosts(List<PostEntity> posts) {
+        this.posts = posts;
     }
 }

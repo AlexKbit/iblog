@@ -32,6 +32,9 @@ public class TechnologyEntity extends TimeMarkEntity {
     @ManyToMany(mappedBy="technologies")
     private List<ResumeEntity> resumes;
 
+    @ManyToMany(mappedBy="tags")
+    private List<PostEntity> posts;
+
     public String getName() {
         return name;
     }
@@ -62,5 +65,13 @@ public class TechnologyEntity extends TimeMarkEntity {
 
     public void setResumes(List<ResumeEntity> resumes) {
         this.resumes = resumes;
+    }
+
+    public List<PostEntity> getPosts() {
+        return posts;
+    }
+
+    public void setPosts(List<PostEntity> posts) {
+        this.posts = posts;
     }
 }

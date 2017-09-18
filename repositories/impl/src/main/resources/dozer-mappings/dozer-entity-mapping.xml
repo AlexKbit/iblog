@@ -51,6 +51,14 @@
         <class-a>com.alexkbit.iblog.model.Resume</class-a>
         <class-b>com.alexkbit.iblog.repository.impl.entities.ResumeEntity</class-b>
     </mapping>
+    <mapping>
+        <class-a>com.alexkbit.iblog.model.Post</class-a>
+        <class-b>com.alexkbit.iblog.repository.impl.entities.PostEntity</class-b>
+    </mapping>
+    <mapping>
+        <class-a>com.alexkbit.iblog.model.PostElement</class-a>
+        <class-b>com.alexkbit.iblog.repository.impl.entities.PostElementEntity</class-b>
+    </mapping>
 
 
 </mappings>
