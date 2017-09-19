@@ -81,11 +81,11 @@ public class PostRepositoryImplTest extends AbstractTestRepository {
 
     @Test
     public void testGetPage() {
-        PageModel<Post> books = postRepository.findAll(0, 10);
-        assertEquals(0, books.getNumber());
-        assertEquals(1, books.getNumberOfElements());
-        assertEquals(1, books.getTotalElements());
-        List<String> ids = books.getContent().stream().map(Post::getId).collect(Collectors.toList());
+        PageModel<Post> posts = postRepository.findAll(0, 10);
+        assertEquals(0, posts.getNumber());
+        assertEquals(1, posts.getNumberOfElements());
+        assertEquals(1, posts.getTotalElements());
+        List<String> ids = posts.getContent().stream().map(Post::getId).collect(Collectors.toList());
         assertTrue(ids.contains(POST_UUID));
     }
 }

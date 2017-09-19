@@ -16,5 +16,6 @@
   <include file="2017_04_17-4-create_technology_table.xml" relativeToChangelogFile="true"/>
   <include file="2017_06_17-certificate-update.xml" relativeToChangelogFile="true"/>
   <include file="2017_06_25-resume-update.xml" relativeToChangelogFile="true"/>
+  <include file="2017_09_18-create_post_table.xml" relativeToChangelogFile="true"/>
 
 </databaseChangeLog>

@@ -15,7 +15,7 @@
         <appender-ref ref="console"/>
     </root>
 
-    <logger name="com.iblog" additivity="false" level="DEBUG">
+    <logger name="com.alexkbit.iblog" additivity="false" level="DEBUG">
         <appender-ref ref="console"/>
     </logger>
 

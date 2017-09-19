@@ -43,4 +43,20 @@
             <b>imageId</b>
         </field>
     </mapping>
+    <mapping>
+        <class-a>com.alexkbit.iblog.model.Post</class-a>
+        <class-b>com.alexkbit.iblog.rest.dto.PostDTO</class-b>
+        <field>
+            <a>cover.id</a>
+            <b>imageId</b>
+        </field>
+        <field>
+            <a>elementList</a>
+            <b>elements</b>
+        </field>
+    </mapping>
+    <mapping>
+        <class-a>com.alexkbit.iblog.model.PostElement</class-a>
+        <class-b>com.alexkbit.iblog.rest.dto.PostElementDTO</class-b>
+    </mapping>
 </mappings>
